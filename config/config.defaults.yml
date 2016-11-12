@@ -286,7 +286,14 @@ default: &default_settings
   external_search_offset_min: 0
 
   # Harmony service API connection
+  harmony_api_in_use: false
   harmony_api_url:
+  harmony_api_disable_authentication: false
+  harmony_api_token_secret: secret_key1
+
+  # Discovery service API connection
+  discovery_api_url:
+  discovery_api_key:
 
   # Perform Thinking Sphinx incremental indexing delayed jobs
   use_thinking_sphinx_indexing: true
@@ -359,6 +366,10 @@ default: &default_settings
 
   # Default caching time for custom landing pages in seconds
   clp_cache_time: 900
+
+  # Display mention of custom landing page in admin panel
+  show_landing_page_admin: false
+  custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
 
   #######
   # Fonts

@@ -88,4 +88,5 @@
 //= require listing_form
 //= require radio_buttons
 //= require connect
+//= require new_layout
 //= require_self
