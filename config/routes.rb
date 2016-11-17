@@ -148,7 +148,13 @@ Kassi::Application.routes.draw do
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
     get '/:person_id/settings/payments/stripe_account' => 'stripe_accounts#index', :as => :stripe_account_settings_payment
+    get '/:person_id/settings/update_bank_details' => 'settings#update_bank_details', :as => :update_bank_details
+    post '/connect/managed' => 'stripe#managed', as: 'stripe_managed'
+    post '/connect/update_payment_info' => 'stripe#update_payment_info', as: 'update_payment_info'
+    
+    post '/hooks/stripe' => 'stripe_hooks#stripe'
 
+    post '/stripe_accounts/edit_bank_details' => 'stripe_accounts#edit_bank_details', as: 'edit_bank_details'
     # community membership related actions
 
     get  '/community_memberships/pending_consent' => 'community_memberships#pending_consent', as: :pending_consent

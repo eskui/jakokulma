@@ -4,7 +4,7 @@ class StripeAccountsController < ApplicationController
   end
 
   before_filter :ensure_stripe_enabled
-
+  
   def index
     @selected_left_navi_link = "payments"
 
@@ -15,15 +15,13 @@ class StripeAccountsController < ApplicationController
                               t("stripe_accounts.contact_admin_link_text"),
                                 new_user_feedback_path)).html_safe
     end
-
+    
     community_currency = @current_community.currency
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
-
+    
     Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
     Stripe.api_version = '2015-04-07'
-    @stripe_account_detail = if @current_user.stripe_account.present?
-      Stripe::Account.retrieve(@current_user.stripe_account.try(:stripe_user_id)) rescue nil
-    end
+    create_managed_account_if_not_exists()
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
@@ -42,6 +40,15 @@ class StripeAccountsController < ApplicationController
     end
   end
 
+  def edit_bank_details
+    @selected_left_navi_link = "payments"
+    Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
+    render(locals: {
+      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
+    })
+    
+  end
+  
   private
 
   # Before filter
@@ -49,6 +56,23 @@ class StripeAccountsController < ApplicationController
     unless StripeHelper.stripe_active?(@current_community.id)
       flash[:error] = t("stripe_accounts.new.stripe_not_enabled")
       redirect_to person_settings_path(@current_user)
+    end
+  end
+
+  def create_managed_account_if_not_exists
+    unless @current_user.stripe_account_connected?
+      create_managed_account
+    end
+  end
+
+  def create_managed_account
+    Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
+    connector = StripeManaged.new( @current_user)
+    account, error = connector.create_account!(@current_community.country, true, request.remote_ip)
+      
+    unless account
+      flash[:error] = error || "Unable to create Stripe account!"
+      return redirect_to root_url
     end
   end
 
@@ -61,7 +85,7 @@ class StripeAccountsController < ApplicationController
   def create_oauth_account
     Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
     connector = StripeOauth.new( @current_user)
-    url, error = connector.oauth_url( redirect_uri: stripe_confirm_url(locale: nil) )
+    url, error = connector.oauth_url( redirect_uri: 'https://bestill.nabomat.no/connect/confirm' )
 
     if url.nil?
       flash[:error] = error || "Unable to connect Stripe account!"

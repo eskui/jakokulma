@@ -1,0 +1,10 @@
+- if @current_user.stripe_account_connected?
+  - # you're looking at your own 'profile', so you can
+  - # update/deauthorize/etc your Stripe account
+  = render partial: 'settings'
+
+- else
+  - # you're looking at your own 'profile', so you can
+  - # create/connect/etc your Stripe account
+  = render partial: 'connect'
+  

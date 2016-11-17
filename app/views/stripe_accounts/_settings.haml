@@ -1,0 +1,22 @@
+.panel.panel-primary
+  .panel-body
+    - if @current_user.stripe_account.managed?
+
+      - if @current_user.stripe_account.stripe_account_status['fields_needed'].any?
+        .row
+          .col-12
+            = t("stripe_accounts.settings.payout_info_hint")
+        %hr
+        .needed
+          = render "account_info_form"
+      - else
+
+        - bank_details = StripeManaged.new( @current_user ).bank_details
+
+        You will receive payment in your account
+        = "*******" + bank_details.last4
+        = "i"
+        = bank_details.bank_name
+        ="."
+
+        = link_to "Edit", edit_bank_details_path, method: :post

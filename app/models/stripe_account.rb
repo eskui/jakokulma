@@ -20,15 +20,18 @@ class StripeAccount < ActiveRecord::Base
   belongs_to :person
 
   # Stripe account type checks
+  def managed?; stripe_account_type == 'managed'; end
+  def standalone?; stripe_account_type == 'standalone'; end
   def oauth?; stripe_account_type == 'oauth'; end
 
   def stripe_manager
     case stripe_account_type
+    when 'managed' then StripeManaged.new(self.person)
     when 'oauth' then StripeOauth.new(self)
     end
   end
 
   def tranfers_enabled?
-    true
+    stripe_account_status["charges_enabled"] == true && stripe_account_status["transfers_enabled"] == true
   end
 end

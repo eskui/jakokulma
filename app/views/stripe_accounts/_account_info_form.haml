@@ -1,0 +1,92 @@
+- stripe_manager = StripeManaged.new( @current_user )
+= form_tag update_payment_info_path, multipart: true, html: { class: 'form-horizontal account_form'} do
+  - if @current_user.stripe_account.stripe_account_status['due_by']
+    %p
+      Due by:
+      %strong= Time.at( @current_user.stripe_account.stripe_account_status['due_by'] ).strftime("%Y-%m-%d")
+
+  - if params[:debug]
+    = debug @current_user.stripe_account.stripe_account_status['fields_needed']
+
+  .list-group
+    - # this account needs legal entity info
+    - #if stripe_manager.needs? 'legal_entity.'
+    .list-group-item
+      .form-group
+        .col-xs-12.col-sm-9
+          - first_name = stripe_manager.legal_entity.first_name.present? ? stripe_manager.legal_entity.first_name : @current_user.given_name
+          %input.form-control{ type: 'hidden', name: 'legal_entity[first_name]', value: first_name}
+
+      .form-group
+        .col-xs-12.col-sm-9
+          - last_name = stripe_manager.legal_entity.last_name.present? ? stripe_manager.legal_entity.last_name : @current_user.family_name
+          %input.form-control{ type: 'hidden', name: 'legal_entity[last_name]', value: last_name}
+
+      .row
+        .col-12
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_date_of_birth")
+            .col-xs-12.col-sm-9
+              - dob = stripe_manager.legal_entity.dob
+              - selected = Date.new( dob.year, dob.month, dob.day ) rescue nil
+              = date_select 'legal_entity', 'dob',
+                  { selected: selected,
+                    prompt: true,
+                    start_year: 90.years.ago.year,
+                    end_year: 13.years.ago.year },
+                  { class: 'form-control', required: true }
+
+      .row
+        .col-12
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_street_address")
+            .col-xs-12.col-sm-9
+              %input.form-control{ type: 'text', name: 'legal_entity[address][line1]', value: stripe_manager.legal_entity.address.line1, required: true  }
+      .row
+        .col-6
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_zip")
+            .col-xs-12.col-sm-9
+              %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }
+
+        .col-6
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_city")
+            .col-xs-12.col-sm-9
+              %input.form-control{ type: 'text', name: 'legal_entity[address][city]', value: stripe_manager.legal_entity.address.city, required: true  }
+
+    - # this account needs a bank account
+    .row
+      .col-12
+        .form-group
+          %label.control-label.col-xs-12.col-sm-3
+            = t("stripe_accounts.settings.account_number")
+          .col-xs-12.col-sm-9
+            / - if stripe_manager.needs? 'bank_account'
+            = render "account_field"
+    - #if stripe_manager.needs? 'legal_entity.'
+    .row
+      .col-12
+        .form-group
+
+          %label.control-label.col-xs-12.col-sm-3
+            = t("stripe_accounts.settings.identiy_document")
+          .col-xs-12.col-sm-9
+            = file_field_tag :identiy_file
+  .row
+    .col-12
+      %input.button{:name => "commit", :type => "submit", :value => t("stripe_accounts.settings.save")}
+
+
+/ :javascript
+
+/   $("#edit-acc-no").click(function(){
+/     $('.acc_no').html('#{escape_javascript( render :partial => "account_field")}');
+/     $("#edit-acc-no").hide();
+/   });
+
+

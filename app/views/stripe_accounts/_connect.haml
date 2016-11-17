@@ -1,0 +1,24 @@
+.panel.panel-primary
+  .panel-body
+    %h3 Connect
+    %p Create/connect your Stripe account.
+
+    %ul.list-group
+      / %li.list-group-item#stripe-oauth
+      /   %a.pull-right.btn.btn-lg.btn-primary{ href: stripe_oauth_path } Connect
+      
+      - if Stripe::Account.retrieve('self').country.in? StripeManaged::ALLOWED
+        %li.list-group-item#stripe-managed
+          = form_tag stripe_managed_path, method: 'POST' do
+            %h3 Managed
+            %p
+              %small Create a managed Stripe account in
+              %select.country{ name: 'country' }
+                - StripeManaged::COUNTRIES.each do |country|
+                  %option{ value: country[:code] }= country[:name]
+              %br
+              %label.tos
+                %input{ type: 'checkbox', name: 'tos', checked: false }
+                I accept the
+                %a{ href: 'https://stripe.com/no/terms', target: '_blank' } Stripe Terms of Service
+            %input.button{:name => "commit", :type => "submit", :value => t("stripe_accounts.settings.create_account")}
