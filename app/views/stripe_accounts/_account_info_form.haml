@@ -1,5 +1,5 @@
 - stripe_manager = StripeManaged.new( @current_user )
-= form_tag update_payment_info_path, multipart: true, html: { class: 'form-horizontal account_form'} do
+= form_tag update_payment_info_path, multipart: true, class: 'form-horizontal account_form' do
   - if @current_user.stripe_account.stripe_account_status['due_by']
     %p
       Due by:

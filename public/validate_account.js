@@ -1,13 +1,13 @@
 function strippedAccountNumber(e) {
-    return e = e.replace(/ /g, ""), e.replace(/\./g, "")
+  return e = e.replace(/ /g, ""), e.replace(/\./g, "")
 }
 
 //========== For development ==============
 function ibanOnFocusOut() {
   // console.log(country)
   accountNumberComplete = strippedAccountNumber($("#iban_number").val())
-  var e = accountNumberComplete.substring(0, 4);
-  var n = accountNumberComplete.substring(4);
+  var e = accountNumberComplete.substring(0, 3);
+  var n = accountNumberComplete.substring(3);
   var t = CalcIBAN(CountryData('SE'), e, n);
   console.log(t)
   $("#acc_number").val(t)
