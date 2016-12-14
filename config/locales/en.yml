@@ -891,9 +891,9 @@ en:
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
       product: Product
       price_per_unit_type: "Price per %{unit_type}"
-      duration: "Duration:"
-      quantity: "Quantity:"
-      subtotal: "Subtotal:"
+      duration: Duration
+      quantity: Quantity
+      subtotal: Subtotal
       total: Total
       price: Price
       service_fee: "Service fee"
@@ -972,6 +972,7 @@ en:
     transaction_agreement:
       required_error: "You need to accept the agreement"
     paypal:
+      transaction_cannot_complete: "Transaction cannot complete. This is most likely caused by the credit card failing bank authorization. Please, try purchasing again with an alternative payment method."
       buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
@@ -2194,6 +2195,9 @@ en:
     days: days
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "We're not able to display availability information. Try to reload the page."
       pricing_units:
         piece: piece
         hour: hour
@@ -2201,6 +2205,9 @@ en:
         night: night
         week: week
         month: month
+      edit_availability_header: Availability
+      save_and_close_availability_editing: "Save and close"
+      edit_listing_availability: "Edit listing availability"
     no_listings:
       sorry: "Sorry, no listings could be found for your search criteria."
       try_other_search_terms: "Maybe try other search terms?"

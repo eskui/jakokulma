@@ -912,6 +912,7 @@ tr-TR:
     transaction_agreement:
       required_error: "Sözleşmeyi kabul etmelisiniz"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -2012,6 +2013,9 @@ tr-TR:
     days: günler
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2019,6 +2023,9 @@ tr-TR:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

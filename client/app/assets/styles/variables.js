@@ -14,6 +14,8 @@ const fontSizeMobile = '17px';
 const fontWeightMedium = '500';
 const fontWeightSemibold = '600';
 
+const proximaNovaFontFamily = "'Proxima Nova Soft', Helvetica, sans";
+
 const lineHeight = 22;
 
 const textColor = 'rgb(82, 89, 97)';
@@ -107,6 +109,8 @@ module.exports = {
   '--colorButtonHover': '#4d998b',
   '--colorButtonGhost': '#26806F',
 
+  '--colorReservedAvailability': '#2AB865',
+
   '--customColorFallback': customColorFallback,
   '--customColor2Fallback': customColor2Fallback,
 
@@ -141,7 +145,7 @@ module.exports = {
   '--Topbar_logoMaxHeight': '40px',
   '--Topbar_logoMaxHeightTablet': '36px',
   '--Topbar_logoMaxHeightMobile': '32px',
-  '--Topbar_fontFamily': "'Proxima Nova Soft', Helvetica, sans",
+  '--Topbar_fontFamily': proximaNovaFontFamily,
   '--Topbar_borderColor': 'rgba(0, 0, 50, 0.1)',
 
    // Must be at least 16px to avoid iOS from zooming in when focusing
@@ -341,9 +345,11 @@ module.exports = {
   '--Avatar_textColor': textColorLight,
   '--Avatar_backgroundColor': 'hsl(210, 16%, 78%)',
 
+  // FlashNotifications should be always on top of everything else.
+  // If you are creating zIndex greater than this one, remember to increase this
+  '--FlashNotification_zIndex': zIndexMinimum + 30,
   '--FlashNotification_spacingOutside': '12px',
   '--FlashNotification_spacingInside': '14px',
-  '--FlashNotification_zIndex': zIndexMinimum + 10,
   '--FlashNotification_border': borderColorNotification,
   '--FlashNotification_boxShadow': '0 3px 20px 0 rgba(0,0,0,0.2)',
   '--FlashNotification_errorColor': 'rgb(237, 79, 46)',
@@ -358,5 +364,16 @@ module.exports = {
   '--FlashNotification_closeIconSize': `${minimumButtonSize}px`,
   '--FlashNotification_closeIconExtraSpace': '20px',
 
-  '--SideWinder_overlayZIndex': 999,
+  '--SideWinder_overlayZIndex': zIndexMinimum + 20,
+  '--SideWinder_animationDuration': '0.5s',
+  '--SideWinder_animationDurationMs': 500,
+
+  '--ManageAvailability_width': 405,
+  '--ManageAvailability_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailability_padding': '20px',
+  '--ManageAvailability_saveButtonHeight': '60px',
+  '--ManageAvailabilityHeader_height': 254,
+  '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
+  '--ManageAvailabilityCalendar_fontSize': fontSize,
+  '--ManageAvailabilityCalendar_width': '318px',
 };
