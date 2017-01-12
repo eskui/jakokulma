@@ -200,11 +200,12 @@ class ListingsController < ApplicationController
       admin_getting_started_guide_path,
       Admin::OnboardingWizard.new(@current_community.id).setup_status)
 
+    availability_enabled = @listing.availability.to_sym == :booking
     blocked_dates_start_on = 1.day.ago.to_date
     blocked_dates_end_on = 12.months.from_now.to_date
 
     blocked_dates_result =
-      if @listing.availability.to_sym == :booking
+      if availability_enabled
 
         get_blocked_dates(
           start_on: blocked_dates_start_on,
@@ -228,6 +229,8 @@ class ListingsController < ApplicationController
       received_positive_testimonials: received_positive_testimonials,
       feedback_positive_percentage: feedback_positive_percentage,
       youtube_link_ids: youtube_link_ids,
+      manage_availability_props: manage_availability_props(@current_community, @listing),
+      availability_enabled: availability_enabled,
       blocked_dates_result: blocked_dates_result,
       blocked_dates_end_on: DateUtils.to_midnight_utc(blocked_dates_end_on)
     }
@@ -362,6 +365,10 @@ class ListingsController < ApplicationController
           flash[:show_onboarding_popup] = true
         end
 
+        if shape[:availability] == :booking
+          redirect_to listing_path(@listing, anchor: 'manage-availability'), status: 303 and return
+        end
+
         redirect_to @listing, status: 303 and return
       else
         logger.error("Errors in creating listing: #{@listing.errors.full_messages.inspect}")
@@ -491,7 +498,7 @@ class ListingsController < ApplicationController
         redirect_to @listing
       }
       format.js {
-        render :layout => false, locals: {payment_gateway: payment_gateway, process: process, country_code: community_country_code }
+        render :layout => false, locals: {payment_gateway: payment_gateway, process: process, country_code: community_country_code, availability_enabled: @listing.availability.to_sym == :booking }
       }
     end
   end
@@ -545,9 +552,9 @@ class ListingsController < ApplicationController
   def update_flash(old_availability:, new_availability:)
     case [new_availability.to_sym == :booking, old_availability.to_sym == :booking]
     when [true, false]
-      t("layouts.notifications.listing_updated_availability_enabled")
+      t("layouts.notifications.listing_updated_availability_management_enabled")
     when [false, true]
-      t("layouts.notifications.listing_updated_availability_disabled")
+      t("layouts.notifications.listing_updated_availability_management_disabled")
     else
       t("layouts.notifications.listing_updated_successfully")
     end
@@ -1044,5 +1051,11 @@ class ListingsController < ApplicationController
     listing.listing_images.pluck(:id).each { |image_id|
       Delayed::Job.enqueue(CreateSquareImagesJob.new(image_id))
     }
+  end
+
+  def manage_availability_props(community, listing)
+    ManageAvailabilityHelper.availability_props(
+      community: community,
+      listing: listing)
   end
 end
