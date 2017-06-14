@@ -167,11 +167,11 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
       @min_option_count = 2
     end
 
-    @custom_field = CustomField.find(params[:id])
+    @custom_field = @current_community.custom_fields.find(params[:id])
   end
 
   def update
-    @custom_field = CustomField.find(params[:id])
+    @custom_field = @current_community.custom_fields.find(params[:id])
 
     # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
@@ -198,6 +198,14 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
+  end
+
+  def edit_expiration
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "listing_fields"
+    @community = @current_community
+
+    render_expiration_form(listing_expiration_enabled: !@current_community.hide_expiration_date)
   end
 
   def update_price
@@ -232,6 +240,26 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
       flash[:error] = "Location field editing failed"
       render :action => :edit_location
     end
+  end
+
+  def update_expiration
+    listing_expiration_enabled = params[:listing_expiration_enabled] == "enabled"
+
+    success = @current_community.update_attributes(
+      { hide_expiration_date: !listing_expiration_enabled })
+
+    if success
+      redirect_to admin_custom_fields_path
+    else
+      flash[:error] = "Expiration field editing failed"
+      render_expiration_form(listing_expiration_enabled: !@current_community.hide_expiration_date)
+    end
+  end
+
+  def render_expiration_form(listing_expiration_enabled:)
+    render :edit_expiration, locals: {
+             listing_expiration_enabled: listing_expiration_enabled
+           }
   end
 
   def destroy

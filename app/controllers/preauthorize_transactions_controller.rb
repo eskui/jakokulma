@@ -324,22 +324,9 @@ class PreauthorizeTransactionsController < ApplicationController
       is_booking = date_selector?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
-<<<<<<< HEAD
-
-      shipping_total =
-        if tx_params[:delivery] == :shipping
-          ShippingTotal.new(
-            initial: listing.shipping_price,
-            additional: listing.shipping_price_additional,
-            quantity: quantity)
-        else
-          NoShippingFee.new
-        end
       
-=======
       shipping_total = calculate_shipping_from_model(tx_params: tx_params, listing_model: listing, quantity: quantity)
 
->>>>>>> 1c4f0cb2b5e42d13565f92fa27b0c7a4a390fd00
       tx_response = create_preauth_transaction(
         payment_type: :stripe,
         community: @current_community,

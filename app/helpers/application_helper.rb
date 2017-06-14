@@ -81,7 +81,7 @@ module ApplicationHelper
   def large_avatar_thumb(person, options={})
     image_url = person.image.present? ? person.image.url(:medium) : missing_avatar(:medium)
 
-    image_tag image_url, { :alt => person.name(@current_community) }.merge(options)
+    image_tag image_url, { :alt => PersonViewUtils.person_display_name(person, @current_community) }.merge(options)
   end
 
   def huge_avatar_thumb(person, options={})
@@ -89,7 +89,7 @@ module ApplicationHelper
 
     image_url = person.image.present? ? person.image.url(:medium) : missing_avatar(:medium)
 
-    image_tag image_url, { :alt => person.name(@current_community) }.merge(options)
+    image_tag image_url, { :alt => PersonViewUtils.person_display_name(person, @current_community) }.merge(options)
   end
 
   def missing_avatar(size = :medium)
@@ -311,12 +311,20 @@ module ApplicationHelper
         :name => "getting_started_guide"
       },
       {
+        :id => "admin-help-center-link",
         :topic => :general,
-        :text => t("admin.left_hand_navigation.support"),
+        :text => t("admin.left_hand_navigation.help_center"),
         :icon_class => icon_class("help"),
-        :path => "mailto:#{APP_CONFIG.support_email}",
-        :name => "support",
-        :data_uv_trigger => "contact"
+        :path => "#{APP_CONFIG.knowledge_base_url}/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :name => "help_center"
+      },
+      {
+        :id => "admin-academy-link",
+        :topic => :general,
+        :text => t("admin.left_hand_navigation.academy"),
+        :icon_class => icon_class("academy"),
+        :path => "https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :name => "academy"
       }
     ]
 
@@ -629,7 +637,9 @@ module ApplicationHelper
 
   # Return a link to the listing author
   def author_link(listing)
-    link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
+    link_to(PersonViewUtils.person_display_name(listing.author, @current_community),
+            listing.author,
+            {:title => PersonViewUtils.person_display_name(listing.author, @current_community)})
   end
 
   def with_invite_link(&block)
@@ -643,11 +653,12 @@ module ApplicationHelper
   end
 
   def search_path(opts = {})
+    current_marketplace = request.env[:current_marketplace]
     PathHelpers.search_path(
-      community_id: @current_community.id,
+      community_id: current_marketplace.id,
       logged_in: @current_user.present?,
       locale_param: params[:locale],
-      default_locale: @current_community.default_locale,
+      default_locale: current_marketplace.default_locale,
       opts: opts)
   end
 

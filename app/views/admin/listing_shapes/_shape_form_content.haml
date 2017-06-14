@@ -64,7 +64,7 @@
         = label_tag("", t("admin.listing_shapes.availability_title"), class: "input")
 
         - if display_knowledge_base_articles
-          = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more_availability_management"), "#{knowledge_base_url}/articles/1116607").html_safe }
+          = render :partial => "layouts/info_text", :locals => { :text => link_to(t("admin.listing_shapes.read_more_availability_management"), "#{knowledge_base_url}/knowledge-base/how-availability-management-works").html_safe }
 
     .row
       .col-12
@@ -99,7 +99,7 @@
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
 
 - shape[:custom_units].each_with_index do |unit, index|
-  .row{class: "js-custom-unit-#{index}"}
+  .row{class: "js-custom-unit js-custom-unit-#{index}"}
     .col-12
       = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
       = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")

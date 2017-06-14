@@ -40,7 +40,6 @@ gem 'dalli', "~> 2.6.4"
 gem "memcachier", "~> 0.0.2"
 gem 'readthis', "~> 2.0.1"
 gem 'hiredis'
-gem 'kgio', "~>2.9.2"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
 # Use patched v2.0.2
@@ -49,7 +48,7 @@ gem 'ts-delayed-delta', "~>2.0.2",
   :git    => 'https://github.com/pat/ts-delayed-delta.git',
   :branch => 'master',
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
-gem 'possibly', '~> 0.2.0'
+gem 'possibly', '~> 1.0.1'
 
 gem 'delayed_job', "~> 4.1.1"
 gem 'delayed_job_active_record', "~> 4.1.0"
@@ -91,7 +90,7 @@ gem 'oauth2',
   ref: 'e0006cb5099bf392f011eb5c49cbec4f893bbdba'
 
 gem 'lograge', "~> 0.3.2"
-gem 'public_suffix', "~> 1.5.1" # Needed currently to set GA hostname right, probably not
+gem 'public_suffix', "~> 2.0.5" # Needed currently to set GA hostname right, probably not
 # needed anymore when GA script updated.
 
 # Session store was removed from Rails 4
@@ -188,3 +187,8 @@ gem 'color', '~> 1.8'
 gem 'uuidtools', '~> 2.1'
 gem 'transit-ruby', '~> 0.8'
 gem 'stripe'
+
+# Markdown parser
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+
+gem 'intercom', '~> 3.5.10'

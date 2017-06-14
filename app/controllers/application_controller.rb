@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
     :cannot_access_if_banned,
     :cannot_access_without_confirmation,
     :ensure_consent_given,
-    :ensure_user_belongs_to_community
+    :ensure_user_belongs_to_community,
+    :set_display_expiration_notice
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
@@ -371,13 +372,23 @@ class ApplicationController < ActionController::Base
   # Return path where you want the user to be redirected to.
   #
   def after_sign_in_path_for(resourse)
-    if session[:return_to]
-      return_to_path = session[:return_to]
+    return_to_path = session[:return_to] || session[:return_to_content]
+
+    if return_to_path
+      flash[:notice] = flash.alert if flash.alert # Devise sets flash.alert in case already logged in
       session[:return_to] = nil
+      session[:return_to_content] = nil
       return_to_path
     else
       search_path
     end
+  end
+
+  def set_display_expiration_notice
+    ext_service_active = PlanService::API::Api.plans.active?
+    is_expired = Maybe(@current_plan)[:expired].or_else(false)
+
+    @display_expiration_notice = ext_service_active && is_expired
   end
 
   private
@@ -545,7 +556,7 @@ class ApplicationController < ActionController::Base
       {
         unread_count: MarketplaceService::Inbox::Query.notification_count(u.id, @current_community.id),
         avatar_url: u.image.present? ? u.image.url(:thumb) : view_context.image_path("profile_image/thumb/missing.png"),
-        current_user_name: u.name(@current_community),
+        current_user_name: PersonViewUtils.person_display_name(u, @current_community),
         inbox_path: person_inbox_path(u),
         profile_path: person_path(u),
         manage_listings_path: person_path(u, show_closed: true),
@@ -554,15 +565,23 @@ class ApplicationController < ActionController::Base
       }
     }.or_else({})
 
+    locale_change_links = available_locales.map { |(title, locale_code)|
+      {
+        url: PathHelpers.change_locale_path(is_logged_in: @current_user.present?,
+                                            locale: locale_code,
+                                            redirect_uri: @return_to),
+        title: title
+      }
+    }
+
     common = {
       logged_in: @current_user.present?,
       homepage_path: @homepage_path,
-      return_after_locale_change: @return_to,
       current_locale_name: get_full_locale_name(I18n.locale),
       sign_up_path: sign_up_path,
       login_path: login_path,
       new_listing_path: new_listing_path,
-      available_locales: available_locales,
+      locale_change_links: locale_change_links,
       icons: pick_icons(
         APP_CONFIG.icon_pack,
         [

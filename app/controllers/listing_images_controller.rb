@@ -4,7 +4,7 @@ class ListingImagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:destroy]
   skip_before_filter :warn_about_missing_payment_info
 
-  before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url]
+  before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url, :reorder]
 
   def destroy
     image = ListingImage.find_by_id(params[:id])
@@ -63,6 +63,13 @@ class ListingImagesController < ApplicationController
     end
   end
 
+  def reorder
+    params[:ordered_ids].split(",").each_with_index do |image_id, index|
+      ListingImage.where(listing_id: params[:listing_id], id: image_id).update_all(position: index+1)
+    end
+    render text: "OK"
+  end
+
   private
 
   # Given path which includes placeholder `${filename}` and
@@ -103,7 +110,7 @@ class ListingImagesController < ApplicationController
   end
 
   def authorized_to_destroy?(image)
-    if image.listing.present?
+    if image.listing.present? && image.listing.community_id == @current_community.id
       # Listing is present: We are deleting image from saved listing
       image.listing.author == @current_user || @current_user.has_admin_rights?
     else

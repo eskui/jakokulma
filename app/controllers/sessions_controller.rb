@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"])
       # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
       if @current_user.image_file_size.nil?
-        @current_user.store_picture_from_facebook
+        @current_user.store_picture_from_facebook!
       end
     end
 
@@ -64,7 +64,7 @@ class SessionsController < ApplicationController
       redirect_to terms_path and return
     end
 
-    flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
+    flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(PersonViewUtils.person_display_name_for_type(@current_user, "first_name_only"), person_path(@current_user))).html_safe
     if session[:return_to]
       redirect_to session[:return_to]
       session[:return_to] = nil
@@ -78,6 +78,10 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
+
+    # Admin Intercom shutdown
+    IntercomHelper::ShutdownHelper.intercom_shutdown(session, cookies, request.host_with_port)
+
     flash[:notice] = t("layouts.notifications.logout_successful")
     Analytics.mark_logged_out(flash)
     redirect_to landing_page_path

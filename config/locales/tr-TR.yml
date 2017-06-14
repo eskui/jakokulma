@@ -1,4 +1,10 @@
 tr-TR:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -71,7 +77,7 @@ tr-TR:
         see_how_it_looks_like: "Nasıl göründüğüne bakın"
         verification_to_post_listings_info_content: "Doğrulanmamış kullanıcılar için bilgi metni"
         verification_to_post_listings_info_content_description: "Kullanıcılarınızın listeleme eklemeden önce sizin tarafınızdan elle onaylanmasını talep etmektesiniz. Burada onaylanmamış kullanıcıların yeni bir listeleme eklemeye çalıştığında karşılaşacakları default metni düzenleyebilirsiniz."
-        verification_to_post_listings_info_content_default: "%{service_name} kullanıcıların listeleme eklemeden önce yönetici tarafından elle onaylanmış olmasını talep etmektedir. Lütfen, onaylanmak için %{contact_admin_link}."
+        verification_to_post_listings_info_content_default: "%{service_name} kullanıcıların listeleme eklemeden önce yönetici tarafından onaylanmış olmasını talep etmektedir. Lütfen, onaylanmak için %{contact_admin_link}."
         contact_admin_link_text: "yöneticiyle iletişime geçin"
         save: "Ayarları kaydet"
         transaction_agreement: "İşlem sözleşmesi"
@@ -89,6 +95,12 @@ tr-TR:
         favicon: Favicon
         favicon_info_text: "Favicon default Sharetribe logosunun yerini alacaktır. Ebatlar 32x32 piksel olmalıdır ve yüklenen görseller bu boya getirilecektir."
         community_custom_color1: "Ana renk"
+        community_slogan_color: "Pazar yeri slogan rengi"
+        community_slogan_color_instructions_text: "Bir hex renk değeri girerek ana sayfa slogan rengini değiştirebilirsiniz. Slogan rengi kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} renk seçmenize ve hex renk kodu elde etmenize yardımcı olur. Sonrasında renk kodunu buradan kopyalayabilirsiniz  %{see_how_it_looks_like}."
+        community_description_color: "Pazar yeri açıklama rengi"
+        community_description_color_instructions_text: |-
+            Ana sayfa açıklama rengini bir hex renk kod değeri girerek değiştirebilirsiniz.
+            Açıklama kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} size renk seçmenizde yardımcı olur ve hex renk kodu verir. Sonrasında kodu buradan kopya edebilirsiniz.%{see_how_it_looks_like}
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Masaüstü logo ebatları %{width}x%{height} olmalıdır. Büyük ekrana sahip üyelere gösterilecektir."
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -134,6 +146,7 @@ tr-TR:
         sender_name_placeholder: ~
         sender_email_label: ~
         sender_email_placeholder: ~
+        amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: "Onaylama mailini gönder"
         successfully_saved: ~
@@ -197,7 +210,6 @@ tr-TR:
         transaction_preferences: "İşlem tercihleri"
         show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
         show_category_in_listing_list: "Liste görünümünde listeleme türünü göster"
-        hide_expiration_date: "Listelemelere bitiş tarihi zorunluluğu koyma"
         listing_comments_in_use: "Diğer kullanıcıların listelemelere yorum yapmasına izin ver (diğer tüm kullanıcılar görebilir)"
         email_preferences: "E-posta tercihleri"
         automatic_newsletters: "Tüm kullanıcılara günlük / haftalık otomatik bülten gönder (aksini belirtmedikleri takdirde)"
@@ -222,6 +234,7 @@ tr-TR:
         manage_members: "Kullanıcıları yönet"
         email: E-posta
         name: Ad
+        display_name: "Görüntülenen isim"
         join_date: Katıldınız
         admin: Yönetici
         posting_allowed: "Listelemeye izin verildi"
@@ -234,8 +247,7 @@ tr-TR:
         ban_me_error: "Kendinizi banlayamazsınız."
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -320,6 +332,9 @@ tr-TR:
       edit_location:
         edit_location_field: "Konum alanını düzenle"
         this_field_is_required: "Bu alan zorunludur"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Bu alanı doldurmak zorunludur"
@@ -375,7 +390,6 @@ tr-TR:
       users_and_transactions: "Kullanıcılar & işlemler"
       configure: Ayarlar
       emails_title: E-postalar
-      support: Destek
       subscription: ~
       preview: ~
     listing_shapes:
@@ -387,7 +401,7 @@ tr-TR:
       per_night_availability: ~
       pricing_units_disabled_info: ~
       index:
-        listing_shapes: ~
+        listing_shapes: "İşlem türü"
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
@@ -396,7 +410,7 @@ tr-TR:
         no_categories: "Kategori yok"
         category_count: ~
         header:
-          listing_shape_name: ~
+          listing_shape_name: "İşlem türü adı"
           listing_shape_categories: ~
         order:
           saving_order: ~
@@ -873,6 +887,8 @@ tr-TR:
       subject: "%{requester} %{listing_title}'i talep etti ve ödeme yaptı"
       transaction_requested_by_user: "%{requester} \"%{listing_title}\"i talep etti ve ödeme yaptı"
       you_have_time_to_accept: "Talebi %{payment_expires_in} gün içerisinde kabul ya da reddetmeniz gerekmektedir. Bu süre içerisinde kabul etmezseniz, talep otomatik olarak reddedilecek ve ödeme alamayacaksınız."
+      if_you_do_accept: "belirtilen zaman içerisinde isteği kabul etmeniz durumunda ücret hemen hesabınıza geçer."
+      if_you_do_not_accept: "isteği red eder iseniz ya da belirlenen sürede kabul etmez iseniz, işlem otomatik olarak iptal olur,  %{requester} ödeme alınmaz , ödeme yapılmaz."
       click_here_to_reply: "Talebe cevap vermek için buraya tıklayın"
     transaction_preauthorized_reminder:
       subject: "%{listing_title} listelemesi hakkında %{requester}'den gelen talebi kabul etmeyi unutmayın"
@@ -1022,7 +1038,7 @@ tr-TR:
       item_request_list: "araçlar, spor malzemeleri, kostümler, kamp malzemeleri"
       items_to_offer: "Ödünç verilecek ürünler: "
       items_to_request: "Ödünç alınacak ürünler: "
-      log_in: "Giriş Yap!"
+      log_in: "Giriş yap!"
       no_offers_visible_unless_logged_in: "Hiçbir ürün, hizmet veya yolculuk paylaşımı teklifi siteye giriş yapmamış kullanıcılar tarafından görülebilir değildir."
       no_open_offers_currently: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı teklifi yok."
       no_open_requests_currently: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı talebi yok."
@@ -1249,7 +1265,7 @@ tr-TR:
       error_in_payment: "Ödeme sırasında hata meydana geldi. Eğer ödemeyi henüz tamamlamadıysanız, yeniden deneyin. Tamamladıysanız, lütfen bize ulaşın."
       cannot_receive_payment: "Bir hata sonucu, karşı taraf ödemeyi alamıyor. Lütfen durumu açıklığa kavuşturmak için yöneticilerle iletişime geçin."
       payment_waiting_for_later_accomplishment: "Ödeme yaptığınızda, satıcıyı bilgilendireceğiz ve faturanız e-posta yoluyla size ulaşacak."
-      password_recovery_sent: "Parola değiştirme bilgileri e-posta adresinize gönderildi."
+      password_recovery_sent: "Parola değiştirme bilgileri e-posta adresinize gönderildi, bu bazen bir kaç dakika sürebilir."
       person_activated: "Aktive edilen kullanıcılar"
       person_deactivated: "Hesabı dondurulan kullanıcılar"
       person_updated_successfully: "Bilgiler güncellendi"
@@ -1866,6 +1882,8 @@ tr-TR:
       given_name: Ad
       first_name_with_initial: "(sadece ilk harf diğer kullanıcılara gösterilir)"
       first_name_only: "(Diğer kullanıcılara gösterilmez.)"
+      display_name: "Görüntülenen isim"
+      display_name_description: "Bir kuruluşu temsil ediyorsanız eğer, adını gözüken ekran adı olarak kullanabilirsiniz. Güzüken ad diğer kullanıcılara isminiz ve soyisminiz yerine gösterilir."
       location_description: "Açık adresinizi ya da sadece örneğin posta kodunuzu girebilirsiniz. Lütfen en azından posta kodunuzu ekleyin. Ya da aşağıdaki haritadan konumunuzu işaretleyebilirsiniz."
       phone_number: "Telefon numarası"
       profile_picture: "Profil resmi"
@@ -2049,7 +2067,7 @@ tr-TR:
       profile: ~
       manage_listings: ~
       settings: ~
-      logout: ~
+      logout: "Çıkış yap"
       login: "Giriş yap"
       signup: "Kayıt ol"
       admin_dashboard: ~
