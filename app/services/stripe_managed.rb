@@ -1,12 +1,13 @@
 class StripeManaged < Struct.new( :user )
-  ALLOWED = [ 'US', 'CA', 'NO', 'SE' ] # public beta
+  ALLOWED = [ 'US', 'CA', 'NO', 'SE', 'FI' ] # public beta
   COUNTRIES = [
     { name: 'Sweden', code: 'SE' },
     { name: 'United States', code: 'US' },
     { name: 'Canada', code: 'CA' },
     { name: 'Australia', code: 'AU' },
     { name: 'United Kingdom', code: 'GB' },
-    { name: 'Ireland', code: 'IE' }
+    { name: 'Ireland', code: 'IE' },
+    { name: 'Finland', code: 'FI' }
   ]
 
   def create_account!( country, tos_accepted, ip )
@@ -65,7 +66,7 @@ class StripeManaged < Struct.new( :user )
 
     if params
       if params[:bank_account_token].present?
-        account.bank_account = params[:bank_account_token]
+        account.external_account = params[:bank_account_token]
         account.save
       end
 

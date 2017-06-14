@@ -402,7 +402,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       stripe_params,
       payment_gateways_admin_community_path(@current_community),
       :payment_gateways)
-    TransactionProcess.update_all(process: params[:process]) if params[:process].present?
+    TransactionProcess.first.update(process: 'preauthorize')
     payment_setting = PaymentSettings.where(community_id: @current_community.id).last
     if payment_setting.present?
       payment_setting.update_attributes!(commission_from_seller: params[:community][:commission_from_seller].to_i)

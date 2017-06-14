@@ -64,7 +64,7 @@
       .col-12
         .form-group
           %label.control-label.col-xs-12.col-sm-3
-            = t("stripe_accounts.settings.account_number")
+            IBAN
           .col-xs-12.col-sm-9
             / - if stripe_manager.needs? 'bank_account'
             = render "account_field"
