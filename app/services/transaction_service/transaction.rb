@@ -172,7 +172,7 @@ module TransactionService::Transaction
       :amount => (@transfer_amount * 100).to_i,
       :currency => @payment.currency,
       :destination => @recipient.stripe_account.stripe_user_id,
-      :transfer_group => "#{@payment.transaction_id}-#{@payment.tx.listing_id}"
+      :transfer_group => "#{@payer.id}-#{@payment.transaction_id}-#{@payment.tx.listing_id}"
     }
     begin
       result = Stripe::Transfer.create(transfer_attr)
