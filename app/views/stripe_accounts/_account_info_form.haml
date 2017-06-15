@@ -80,13 +80,3 @@
   .row
     .col-12
       %input.button{:name => "commit", :type => "submit", :value => t("stripe_accounts.settings.save")}
-
-
-/ :javascript
-
-/   $("#edit-acc-no").click(function(){
-/     $('.acc_no').html('#{escape_javascript( render :partial => "account_field")}');
-/     $("#edit-acc-no").hide();
-/   });
-
-

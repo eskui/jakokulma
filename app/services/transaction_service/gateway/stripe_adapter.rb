@@ -5,6 +5,13 @@ module TransactionService::Gateway
 
     def create_payment(tx:, gateway_fields:, force_sync: nil)
       payment_gateway_id = StripePaymentGateway.where(community_id: tx[:community_id]).pluck(:id).first
+      product_total       = (tx[:unit_price] * tx[:listing_quantity])
+
+      shipping_price = if tx[:shipping_price].present?
+        tx[:shipping_price]
+      else
+        Money.new(0, tx[:unit_price_currency])
+      end
       
       payment = StripePayment.create({
         transaction_id: tx[:id],
@@ -13,7 +20,7 @@ module TransactionService::Gateway
         payer_id: tx[:starter_id],
         recipient_id: tx[:listing_author_id],
         currency: tx[:unit_price_currency],
-        sum_cents: tx[:unit_price] * tx[:listing_quantity]
+        sum_cents: ((product_total * 100) + (shipping_price * 100))
       })
 
       result, error = StripeSaleService.new(payment, gateway_fields).pay(false)
@@ -45,7 +52,7 @@ module TransactionService::Gateway
 
     def get_payment_details(tx:)
       shipping_price = if tx[:shipping_price].present?
-        shipping_price
+        tx[:shipping_price]
       else
         Money.new(0, tx[:unit_price_currency])
       end

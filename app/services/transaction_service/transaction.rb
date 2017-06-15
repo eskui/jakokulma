@@ -157,6 +157,36 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
+  def release_rental_amount(community_id:, transaction_id:)
+    transaction = Transaction.find(transaction_id)
+    community   = Community.find(community_id)
+    @payment     = transaction.payment
+    subunit_to_unit = Money::Currency.new(@payment.currency).subunit_to_unit
+    @payer      = @payment.payer
+    @recipient = @payment.recipient
+    @amount = @payment.sum_cents.to_f / subunit_to_unit
+    @service_fee = @payment.total_commission.cents.to_f / subunit_to_unit
+    @transfer_amount = @amount - @service_fee
+    Stripe.api_key = transaction.payment.payment_gateway.stripe_secret_key
+    transfer_attr = {
+      :amount => (@transfer_amount * 100).to_i,
+      :currency => @payment.currency,
+      :destination => @recipient.stripe_account.stripe_user_id,
+      :transfer_group => "#{@payment.transaction_id}-#{@payment.tx.listing_id}"
+    }
+    begin
+      result = Stripe::Transfer.create(transfer_attr)
+      @payment.update_attribute(:stripe_transfer_id, result.id)
+      # Delayed::Job.enqueue(SendPaymentReceipts.new(transaction.id))
+      puts "======================STRIPE PAYMENT RELEASED============================="
+    rescue Stripe::InvalidRequestError => e
+      error = e.message
+      puts "STRIPE ERROR===========#{error}============================"
+    rescue Exception => e
+      error = e.message
+      puts "STRIPE ERROR===========#{error}============================"
+    end
+  end
 
   def complete_preauthorization(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)

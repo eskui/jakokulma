@@ -1535,6 +1535,7 @@ CREATE TABLE `stripe_payments` (
   `stripe_transaction_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `stripe_transfer_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1690,7 +1691,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-14 16:51:03
+-- Dump completed on 2017-06-15 17:35:38
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3332,4 +3333,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170314075755');
 INSERT INTO schema_migrations (version) VALUES ('20170613153959');
 
 INSERT INTO schema_migrations (version) VALUES ('20170613153960');
+
+INSERT INTO schema_migrations (version) VALUES ('20170615120417');
 

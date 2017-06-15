@@ -33,22 +33,31 @@ class StripeSaleService
       charge, error = nil, nil
       token = @params[:stripeToken]
       # Get the credit card details submitted by the form
+      # charge_attrs = {
+      #   :amount => (@amount * 100).to_i, # amount in cents
+      #   :currency => @payment.currency,
+      #   :source => token,
+      #   :description => "Listing fee charge to #{@recipient.full_name} from #{@payer.full_name}",
+      #   :application_fee => (@service_fee * 100).to_i, # amount in cents
+      #   :destination => @recipient.stripe_account.stripe_user_id,
+      #   :capture => capture,
+      #   :receipt_email => @recipient.emails.first.address,
+      #   :metadata => {'listing_id' => @payment.tx.listing_id, 'seller_id' => @recipient.id, 'buyer_id' =>  @payer.id}
+      # }
+
       charge_attrs = {
-        :amount => (@amount * 100).to_i, # amount in cents
+        :amount => (@amount * 100).to_i,
         :currency => @payment.currency,
         :source => token,
-        :description => "Listing fee charge to #{@recipient.full_name} from #{@payer.full_name}",
-        :application_fee => (@service_fee * 100).to_i, # amount in cents
-        :destination => @recipient.stripe_account.stripe_user_id,
-        :capture => capture,
-        :receipt_email => @recipient.emails.first.address,
+        :transfer_group => "#{@payment.transaction_id}-#{@payment.tx.listing_id}",
+        :description => "Charge from #{@payer.full_name}",
         :metadata => {'listing_id' => @payment.tx.listing_id, 'seller_id' => @recipient.id, 'buyer_id' =>  @payer.id}
       }
+
 
       begin
 
         Stripe.api_key = @community.payment_gateway.stripe_secret_key
-
         # Create the charge on Stripe's servers - this will charge the user's card
         charge = Stripe::Charge.create(charge_attrs)
       rescue Stripe::CardError => e

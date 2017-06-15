@@ -31,7 +31,7 @@ class TransactionProcessStateMachine
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
 
-    Delayed::Job.enqueue(SendPaymentReceipts.new(transaction.id))
+    # Delayed::Job.enqueue(SendPaymentReceipts.new(transaction.id))
   end
 
   after_transition(to: :rejected) do |transaction|

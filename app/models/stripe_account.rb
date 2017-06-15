@@ -21,14 +21,9 @@ class StripeAccount < ActiveRecord::Base
 
   # Stripe account type checks
   def managed?; stripe_account_type == 'managed'; end
-  def standalone?; stripe_account_type == 'standalone'; end
-  def oauth?; stripe_account_type == 'oauth'; end
 
   def stripe_manager
-    case stripe_account_type
-    when 'managed' then StripeManaged.new(self.person)
-    when 'oauth' then StripeOauth.new(self)
-    end
+    StripeManaged.new(self.person)
   end
 
   def tranfers_enabled?
