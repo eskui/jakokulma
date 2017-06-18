@@ -9,21 +9,15 @@ module StripeService
 
       def capture_charge(transaction_id, community_id)
         transaction = Transaction.find(transaction_id)
+        community = Community.find(community_id)
+        stripe_charge_id = transaction.payment.stripe_transaction_id
 
-        if transaction.booking.present?
-          if transaction.booking.start_on > Date.today
-            release_at = transaction.booking.end_on
-            Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction_id), run_at: release_at, priority: 5)
-          else
-            Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction_id), priority: 5)
-          end
-        else
-          Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction_id), priority: 5)
-        end
-
+        Stripe.api_key = transaction.payment.payment_gateway.stripe_secret_key
+        result, error = nil, nil
         begin
-          result = Result.new
-          result.status = 'succeeded'
+          charge = Stripe::Charge.retrieve(stripe_charge_id)
+          result = charge.capture
+
         rescue Stripe::InvalidRequestError => e
           error = e.message
         rescue Exception => e

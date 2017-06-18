@@ -3,13 +3,13 @@
 #
 class StripeSaleService
   def initialize(payment, payment_params)
-    # subunit_to_unit = Money::Currency.new(payment.currency).subunit_to_unit
+    subunit_to_unit = Money::Currency.new(payment.currency).subunit_to_unit
     @payment = payment
     @community = payment.community
     @payer = payment.payer
     @recipient = payment.recipient
-    @amount = payment.sum_cents.to_f #/ subunit_to_unit
-    @service_fee = payment.total_commission.cents.to_f #/ subunit_to_unit
+    @amount = payment.sum_cents.to_f / subunit_to_unit
+    @service_fee = payment.total_commission.cents.to_f / subunit_to_unit
     @params = payment_params || {}
   end
 
@@ -38,14 +38,12 @@ class StripeSaleService
         :amount => (@amount * 100).to_i,
         :currency => @payment.currency,
         :source => token,
+        :capture => capture,
         :transfer_group => "#{@payer.id}-#{@payment.transaction_id}-#{@payment.tx.listing_id}",
         :description => "Charge from #{@payer.full_name}",
         :metadata => {'listing_id' => @payment.tx.listing_id, 'seller_id' => @recipient.id, 'buyer_id' =>  @payer.id}
       }
-
-
       begin
-
         Stripe.api_key = @community.payment_gateway.stripe_secret_key
         # Create the charge on Stripe's servers - this will charge the user's card
         charge = Stripe::Charge.create(charge_attrs)
