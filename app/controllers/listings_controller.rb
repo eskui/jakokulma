@@ -28,6 +28,8 @@ class ListingsController < ApplicationController
 
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
+  before_filter :is_bank_detail_entered, :only => [ :new, :create ]
+
   def index
     @selected_tribe_navi_tab = "home"
 
@@ -560,6 +562,13 @@ class ListingsController < ApplicationController
 
   def verification_required
 
+  end
+
+  def is_bank_detail_entered
+    unless @current_user.bank_account_id.present?
+      redirect_to stripe_account_settings_payment_path(@current_user)
+      return
+    end
   end
 
   private
