@@ -22,6 +22,16 @@
           - last_name = stripe_manager.legal_entity.last_name.present? ? stripe_manager.legal_entity.last_name : @current_user.family_name
           %input.form-control{ type: 'hidden', name: 'legal_entity[last_name]', value: last_name}
 
+        - # this account needs a bank account
+      .row
+        .col-12
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_iban")
+            .col-xs-12.col-sm-9
+              / - if stripe_manager.needs? 'bank_account'
+              = render "account_field"
+
       .row
         .col-12
           .form-group
@@ -41,42 +51,56 @@
         .col-12
           .form-group
             %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_country")
+            .col-xs-12.col-sm-9
+              = select_tag "country", options_for_select(["Suomi", "Sweden"]), class: "country_select", required: true 
+
+      .row
+        .col-12
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
+              = t("stripe_accounts.settings.enitity_mobile")
+            .col-xs-12.col-sm-9
+              %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }          
+
+
+      .row
+        .col-12
+          .form-group
+            %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_street_address")
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: 'legal_entity[address][line1]', value: stripe_manager.legal_entity.address.line1, required: true  }
+
       .row
-        .col-6
+        .col-12
           .form-group
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_zip")
             .col-xs-12.col-sm-9
-              %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }
+              %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }          
 
-        .col-6
+      
+      .row
+        .col-12
           .form-group
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_city")
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: 'legal_entity[address][city]', value: stripe_manager.legal_entity.address.city, required: true  }
 
-    - # this account needs a bank account
-    .row
-      .col-12
-        .form-group
-          %label.control-label.col-xs-12.col-sm-3
-            IBAN
-          .col-xs-12.col-sm-9
-            / - if stripe_manager.needs? 'bank_account'
-            = render "account_field"
-    - #if stripe_manager.needs? 'legal_entity.'
-    .row
-      .col-12
-        .form-group
+     
 
-          %label.control-label.col-xs-12.col-sm-3
-            = t("stripe_accounts.settings.identiy_document")
-          .col-xs-12.col-sm-9
-            = file_field_tag :identiy_file
+  
+    / - #if stripe_manager.needs? 'legal_entity.'
+    / .row
+    /   .col-12
+    /     .form-group
+
+    /       %label.control-label.col-xs-12.col-sm-3
+    /         = t("stripe_accounts.settings.identiy_document")
+    /       .col-xs-12.col-sm-9
+    /         = file_field_tag :identiy_file
   .row
     .col-12
       %input.button{:name => "commit", :type => "submit", :value => t("stripe_accounts.settings.save")}

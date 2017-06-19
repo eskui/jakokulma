@@ -1347,7 +1347,7 @@ fi:
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
-      payments: Maksutiedot
+      payments: Maksu- ja osoitetiedot
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
@@ -1705,6 +1705,41 @@ fi:
     can_receive_payments: "Voit nyt ottaa vastaan maksuja muilta käyttäjiltä."
     paypal_account_connected_summary: "PayPal-tili <%{email}> yhdistetty onnistuneesti"
     paypal_permission_granted_summary: "Lupa palvelumaksujen veloitukseen myönnetty"
+
+  stripe_accounts:
+    connect_info: "Please complete the following steps to connect your account."
+    payout_info_title: "Rahojen vastaanotto"
+    stripe_account_email_connected: "<del>Connect stripe account</del> Completed!"
+    payout_info_stripe: "%{service_name} uses stripe as its payment provider. A %{create_stripe_account_link} is required in order to accept payments for your listings, and must be connected to %{service_name}."
+    stripe_billing_agreement_made: "<del>Grant %{service_name} permission to charge a transaction fee</del> Completed!"
+    commission_permission_needed: "You will also need to grant %{service_name} permission to charge a transaction fee."
+    create_stripe_account_link_text: "stripe account"
+    connected_account: "stripe account '%{email}' connected successfully."
+    stripe_receive_funds_info_label_australia_only: "Your stripe account needs to be able to accept payments. This might require a Premier or Business account."
+    stripe_receive_funds_info_label: "Your stripe account needs to be able to accept payments. This might require a Business account."
+    stripe_receive_funds_info: "If you see an error when trying to connect your account to %{service_name}, upgrade your stripe account by %{upgrade_stripe_account_link}. It's free and easy. If you're an individual, stripe recommends using your name as the Business name."
+    upgrade_stripe_account_link_text: "logging in and clicking the upgrade link"
+    admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
+    contact_admin_link_text: "contact the marketplace administrator"
+    you_are_ready_to_accept_payments: "You are ready to accept payments!"
+    commission: "%{commission} %"
+    settings:
+      enitity_date_of_birth: Syntymäaika
+      enitity_street_address: Postitoimipaikka
+      enitity_iban: Pankkitili (IBAN)
+      enitity_country: Maa
+      enitity_mobile: puhelinnumero
+      enitity_zip: Postinumero
+      enitity_city: Postitoimipaikka
+      account_number: Account Number
+      identiy_document: Verification Document
+      payout_info_hint: "Näitä tietoja ei välitetä palvelun muille käyttäjille. Osoitetietoja käytetään oletuksena luotaessa uutta ilmoitusta. Jotta voit ottaa vastaan maksuja, sinun täytyy antaa tilitietosi, syntymäaikasi ja yhteystietosi (nimi, osoite ja sähköposti). Tilinumero välitetään vain Stripe maksunvälityspalveluun, sitä ei tallenneta Jakokulmaan. Yhteystietosi välitetään maksunvälityspalveluun myös, kun annat luottokorttitietosi vuokraustapahtuman yhteydessä. Puhelinnumero jää Jakokulma-palvelun ylläpidon tietoon."
+      save: Päivitä tieto
+      create_account: Create
+      account_created: Stripe account created!
+      setup_complete: Nothing to do You have already setup your bank account
+      change_account_no: "Change"
+
   paypal:
     pay_with_paypal: "Siirry maksamaan"
     checkout_with_paypal: "Maksa PayPal-tilillä"

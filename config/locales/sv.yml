@@ -1703,6 +1703,41 @@ sv:
     can_receive_payments: "Du kan nu ta emot betalning för dina annonser."
     paypal_account_connected_summary: "PayPal-kontot <%{email}> är anslutet"
     paypal_permission_granted_summary: "Villkoren för serviceavgifter har godkänts"
+
+  stripe_accounts:
+    connect_info: "Please complete the following steps to connect your account."
+    payout_info_title: "Mottagande av medel"
+    stripe_account_email_connected: "<del>Connect stripe account</del> Completed!"
+    payout_info_stripe: "%{service_name} uses stripe as its payment provider. A %{create_stripe_account_link} is required in order to accept payments for your listings, and must be connected to %{service_name}."
+    stripe_billing_agreement_made: "<del>Grant %{service_name} permission to charge a transaction fee</del> Completed!"
+    commission_permission_needed: "You will also need to grant %{service_name} permission to charge a transaction fee."
+    create_stripe_account_link_text: "stripe account"
+    connected_account: "stripe account '%{email}' connected successfully."
+    stripe_receive_funds_info_label_australia_only: "Your stripe account needs to be able to accept payments. This might require a Premier or Business account."
+    stripe_receive_funds_info_label: "Your stripe account needs to be able to accept payments. This might require a Business account."
+    stripe_receive_funds_info: "If you see an error when trying to connect your account to %{service_name}, upgrade your stripe account by %{upgrade_stripe_account_link}. It's free and easy. If you're an individual, stripe recommends using your name as the Business name."
+    upgrade_stripe_account_link_text: "logging in and clicking the upgrade link"
+    admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
+    contact_admin_link_text: "contact the marketplace administrator"
+    you_are_ready_to_accept_payments: "You are ready to accept payments!"
+    commission: "%{commission} %"
+    settings:
+      enitity_date_of_birth: Födelsedatum
+      enitity_street_address: Gatuadress
+      enitity_iban: Bankkonto (IBAN)
+      enitity_country: Land
+      enitity_mobile: Telefonnummer
+      enitity_zip: Postnummer
+      enitity_city: Stad
+      account_number: Account Number
+      identiy_document: Verification Document
+      payout_info_hint: For us to be able to pay out money to you, you must provide some information about yourself, and the number of the bank account you want the money paid to.
+      save: Uppdatera information
+      create_account: Create
+      account_created: Stripe account created!
+      setup_complete: Nothing to do You have already setup your bank account
+      change_account_no: "Change"
+
   paypal:
     pay_with_paypal: "Fortsätt till betalning"
     checkout_with_paypal: "Gå till kassan med PayPal"

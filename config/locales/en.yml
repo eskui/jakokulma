@@ -1782,7 +1782,10 @@ en:
     commission: "%{commission} %"
     settings:
       enitity_date_of_birth: Date of Birth
-      enitity_street_address: Address
+      enitity_street_address: Street address
+      enitity_iban: IBAN
+      enitity_country: Country
+      enitity_mobile: Telephone Number
       enitity_zip: ZIP/Postal Code
       enitity_city: City
       account_number: Account Number
