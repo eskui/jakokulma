@@ -7,27 +7,46 @@
 .row
   .col-12
     %span.payment-errors
+
+.row
+  .col-12
+    %label
+      %span
+        = t("stripe_payments.street_address")
+      %input{:type => "text", id: 'street_address', value: @current_user.street_address}
+
+.row
+  .col-12
+    %label
+      %span
+        = t("stripe_payments.postal_code")
+      %input{:type => "text", id: 'postal_code'}
+
+.row
+  .col-12
+    %label
+      %span
+        = t("stripe_payments.city")
+      %input{:type => "text", id: 'city'}
+
+.row
+  .col-12
+    %label
+      %span
+        = t("stripe_payments.phone_number")
+      %input{:type => "text", id: 'phone_number', value: @current_user.phone_number}
+
 .row
   .col-12
     %label
       %span
         = t("stripe_payments.card_number")
-      %input#cardNumber{:autocomplete => "cc-number", "data-stripe" => "number", :pattern => "\\d*", :placeholder => "0000 0000 0000 0000", :size => "20", :type => "text"}
-.row
-  .col-12
     .row
-      .col-5
-        %label
-          %span
-            = t("stripe_payments.exp_month")                
-          %input#cardExpirationMonth{:autocomplete => "cc-exp-month", "data-stripe" => "exp_month", :pattern => "\\d*", :placeholder => "00", :size => "2", :type => "text"}
-      .col-5
-        %label
-          %span
-            = t("stripe_payments.exp_year")
-          %input#cardExpirationYear{:autocomplete => "cc-exp-year", "data-stripe" => "exp_year", :pattern => "\\d*", :placeholder => "00", :size => "2", :type => "text"}
+      .col-6
+        %input{:autocomplete => "cc-number", "data-stripe" => "number", :pattern => "\\d*", :placeholder => "4242 4242 4242 4242", :size => "20", :type => "text", id: 'card-number'}
       .col-2
-        %label
-          %span
-            = t("stripe_payments.cvc")
-          %input#cardValidationCode{:autocomplete => "off", "data-stripe" => "cvc", :pattern => "\\d*", :placeholder => "000", :size => "3", :type => "text"}
+        %input{:autocomplete => "cc-exp-month", "data-stripe" => "exp_month", :pattern => "\\d*", :placeholder => "MM", :size => "2", :type => "text", id: 'card-expiry-month'}
+      .col-2
+        %input{:autocomplete => "cc-exp-year", "data-stripe" => "exp_year", :pattern => "\\d*", :placeholder => "YY", :size => "2", :type => "text", id: 'card-expiry-year'}
+      .col-2
+        %input{:autocomplete => "off", "data-stripe" => "cvc", :pattern => "\\d*", :placeholder => "CVC", :size => "3", :type => "text", id: 'card-cvc'}
