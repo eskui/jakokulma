@@ -1,7 +1,13 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
 
+.flash-notifications#custom_error_notification{style: 'display:none;'}
+  .flash-error.flash-notification
+    .flash-icon.ss-alert
+    .flash-text
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
+
 
 .left-navi-section.settings-section.payment-settings
   %h2= t("stripe_accounts.payout_info_title")
@@ -34,7 +40,7 @@
               = t("stripe_accounts.settings.enitity_iban")
             .col-xs-12.col-sm-9
               / - if stripe_manager.needs? 'bank_account'
-              = render "account_field"
+              = render "account_field", edit: true
 
       .row
         .col-12
