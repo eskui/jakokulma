@@ -1,51 +1,88 @@
-- content_for :extra_javascript do
-  = javascript_include_tag 'https://js.stripe.com/v2/'
-  :javascript
-    Stripe.setPublishableKey(#{@current_community.payment_gateway.stripe_publishable_key.to_json});
-    $(function() {
-      var $form = $('#transaction-form');
-      $form.submit(function(event) {
-        // Disable the submit button to prevent repeated clicks:
-        $form.find('.submit').prop('disabled', true);
+- if params[:source].blank?
+  - content_for :extra_javascript do
+    = javascript_include_tag 'https://js.stripe.com/v2/'
+    :javascript
+      Stripe.setPublishableKey(#{@current_community.payment_gateway.stripe_publishable_key.to_json});
+      redirect_url = '#{request.url}'
+      $(function() {
+        var $form = $('#transaction-form');
+        $form.submit(function(event) {
+          // Disable the submit button to prevent repeated clicks:
+          $form.find('.submit').prop('disabled', true);
 
-        // Request a token from Stripe:
-        Stripe.card.createToken($form, stripeResponseHandler);
+          // Request a token from Stripe:
+          //Stripe.card.createToken($form, stripeResponseHandler);
+          Stripe.source.create({
+            type: 'card',
+            card: {
+              number: $('#card-number').val(),
+              cvc: $('#card-cvc').val(),
+              exp_month: $('#card-expiry-month').val(),
+              exp_year: $('#card-expiry-year').val(),
+            },
+            owner: {
+              address: {
+                postal_code: $('#postal_code').val(),
+                city: $('#city').val(),
+                line1: $('#street_address').val()
+              },
+              phone:  $('#phone_number').val(),
+            }
+          }, stripeResponseHandler);
 
-        // Prevent the form from being submitted:
-        return false;
+          // Prevent the form from being submitted:
+          return false;
+        });
       });
-    });
 
-    function stripeResponseHandler(status, response) {
-      // Grab the form:
       var $form = $('#transaction-form');
 
-      if (response.error) { 
-        // Problem!
-        // Show the errors on the form:
-        $form.find('.payment-errors').text(response.error.message);
-        $form.find('.submit').prop('disabled', false); // Re-enable submission
+      function stripeResponseHandler(status, response) {
+        // Grab the form:
 
-      } else { 
-        // Token was created!
-        // Get the token ID:
-        var token = response.id;
+        if (response.error) { 
+          // Problem!
+          // Show the errors on the form:
+          $form.find('.payment-errors').text(response.error.message);
+          $form.find('.submit').prop('disabled', false); // Re-enable submission
 
-        // Insert the token ID into the form so it gets submitted to the server:
-        $form.append($('<input type="hidden" name="stripeToken">').val(token));
+        } else { 
+          // Token was created!
+          // Get the token ID:
+          var token = response.id;
+          console.log(token);
+          source = Stripe.source.create({
+            type: 'three_d_secure',
+            amount: #{(price_break_down_locals[:total].to_f * 100).to_i},
+            currency: '#{@current_community.currency}',
+            three_d_secure: {
+              card: token
+            },
+            redirect: {
+              return_url: redirect_url
+            }
+          }, stripe3DSecureResponseHandler);
 
-        // Submit the form:
-        $form.get(0).submit();
+          // Insert the token ID into the form so it gets submitted to the server:
+          
+          return false;
+          // Submit the form:
+          //$form.get(0).submit();
+        }
+      };
+
+      function stripe3DSecureResponseHandler(status, response){
+        //$form.append($('<input type="hidden" name="stripeToken">').val(response.id));
+        window.location.href = response.redirect.url
       }
-    };
 
-    $(document).ready(function() {
-      var stripePaymentForm = $("#transaction-form");
-      initialize_stripe_preauthorize_form("#{I18n.locale}", function beforeSubmit(next) {
+      $(document).ready(function() {
+        var stripePaymentForm = $("#transaction-form");
+        initialize_stripe_preauthorize_form("#{I18n.locale}", function beforeSubmit(next) {
+        });
+
+        stripePaymentForm.show();
       });
-
-      stripePaymentForm.show();
-    });
 
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}');
@@ -77,7 +114,11 @@
       %h2
         = t("listing_conversations.preauthorize.payment")
 
-      = render partial: "payments/stripe/credit_card_info"
+      - if params[:source].present?
+        %p Your card details has been verified using 3D secure verification
+        = hidden_field_tag 'stripeToken', params[:source]
+      - else
+        = render partial: "payments/stripe/credit_card_info"
 
     .preauthorize-section
       %h2

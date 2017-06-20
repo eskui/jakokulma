@@ -768,11 +768,15 @@ en:
       account_number: "Account number"
   stripe_payments:
     payment: Payment
-    card_number: Card Number
+    card_number: Credit / Debit card
     exp_month: Expiry Month (MM)
     exp_year: Expiry Year (YY)
     cvc: CVC
     confirm_payment: Confirm Payment
+    street_address: Street Address
+    postal_code: ZIP / Postal Code
+    city: City
+    phone_number: Phone Number
 
   feedback:
     feedback_subject: "New feedback from %{service_name}"
