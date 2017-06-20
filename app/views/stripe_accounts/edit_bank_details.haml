@@ -6,7 +6,6 @@
 .left-navi-section.settings-section.payment-settings
   %h2= t("stripe_accounts.payout_info_title")
   .needed
-    - binding.pry
     - stripe_manager = StripeManaged.new( @current_user )
     = form_tag update_payment_info_path, multipart: true, html: { class: 'form-horizontal account_form'} do
       - if @current_user.stripe_account.stripe_account_status['due_by']
