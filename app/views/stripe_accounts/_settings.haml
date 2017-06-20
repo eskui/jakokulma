@@ -2,7 +2,7 @@
   .panel-body
     - if @current_user.stripe_account.managed?
 
-      - if @current_user.stripe_account.stripe_account_status['fields_needed'].any?
+      - unless @current_user.stripe_account.tranfers_enabled?
         .row
           .col-12
             = t("stripe_accounts.settings.payout_info_hint")
@@ -10,7 +10,6 @@
         .needed
           = render "account_info_form"
       - else
-
         - bank_details = StripeManaged.new( @current_user ).bank_details
 
         You will receive payment in your account
@@ -18,5 +17,4 @@
         = "i"
         = bank_details.bank_name
         ="."
-
         = link_to "Edit", edit_bank_details_path, method: :post

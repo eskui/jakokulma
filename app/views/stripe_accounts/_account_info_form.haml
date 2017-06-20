@@ -45,7 +45,7 @@
                     prompt: true,
                     start_year: 90.years.ago.year,
                     end_year: 13.years.ago.year },
-                  { class: 'form-control', required: true }
+                  { class: 'form-control col-4', required: true }
 
       .row
         .col-12
@@ -53,7 +53,7 @@
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_country")
             .col-xs-12.col-sm-9
-              = select_tag "country", options_for_select(["Suomi", "Sweden"]), class: "country_select", required: true 
+              = select_tag "country", options_for_select([["Suomi", 'FI']], stripe_manager.legal_entity.address.country), prompt: 'Select country', class: "country_select", "data-stripe" => "country", required: true
 
       .row
         .col-12
@@ -62,7 +62,6 @@
               = t("stripe_accounts.settings.enitity_mobile")
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: "legal_entity[phone_number]", value: stripe_manager.legal_entity.phone_number, required: true  }          
-
 
       .row
         .col-12
@@ -80,7 +79,6 @@
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }          
 
-      
       .row
         .col-12
           .form-group
@@ -104,3 +102,6 @@
   .row
     .col-12
       %input.button{:name => "commit", :type => "submit", :value => t("stripe_accounts.settings.save")}
+
+- content_for :extra_javascript do
+  :javascript

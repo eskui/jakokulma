@@ -6,7 +6,6 @@
 .left-navi-section.settings-section.payment-settings
   %h2= t("stripe_accounts.payout_info_title")
   .needed
-    - binding.pry
     - stripe_manager = StripeManaged.new( @current_user )
     = form_tag update_payment_info_path, multipart: true, html: { class: 'form-horizontal account_form'} do
       - if @current_user.stripe_account.stripe_account_status['due_by']
@@ -50,7 +49,7 @@
                     prompt: true,
                     start_year: 90.years.ago.year,
                     end_year: 13.years.ago.year },
-                  { class: 'form-control', required: true }
+                  { class: 'form-control col-4', required: true }
 
       .row
         .col-12
@@ -58,7 +57,7 @@
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_country")
             .col-xs-12.col-sm-9
-              = select_tag "country", options_for_select(["Suomi", "Sweden"]), class: "country_select", required: true 
+              = select_tag "country", options_for_select([["Suomi", 'FI']], stripe_manager.legal_entity.address.country), prompt: 'Select country', class: "country_select", "data-stripe" => "country", required: true
 
       .row
         .col-12

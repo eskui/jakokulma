@@ -1,7 +1,7 @@
 .list-group-item#bank-account{ data: { publishable: @current_user.stripe_account.publishable_key } }
 %script{ src: 'https://js.stripe.com/v2/' }
 = hidden_field_tag :bank_account_token
-%input{"data-stripe" => "country", :type => "hidden", :value => @current_community.country}
+/ %input{"data-stripe" => "country", :type => "hidden", :value => @current_community.country}
 %input{"data-stripe" => "currency", :type => "hidden", :value => @current_community.currency}
 / %input.form-control{ type: 'text', id: "iban_number", required: true, onfocusout: "ibanOnFocusOut()" }
 %input.form-control{ type: 'text', id: "acc_number", data: { stripe: 'account_number' } }
