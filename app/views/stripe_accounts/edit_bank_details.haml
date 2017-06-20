@@ -1,7 +1,13 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
 
+.flash-notifications#custom_error_notification{style: 'display:none;'}
+  .flash-error.flash-notification
+    .flash-icon.ss-alert
+    .flash-text
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
+
 
 .left-navi-section.settings-section.payment-settings
   %p= t("stripe_accounts.settings.payout_info_hint")
@@ -34,7 +40,7 @@
               = t("stripe_accounts.settings.enitity_iban")
             .col-xs-12.col-sm-9
               / - if stripe_manager.needs? 'bank_account'
-              = render "account_field"
+              = render "account_field", edit: true
 
       .row
         .col-12
@@ -77,16 +83,14 @@
               %input.form-control{ type: 'text', name: 'legal_entity[address][line1]', value: stripe_manager.legal_entity.address.line1, required: true  }
 
       .row
-        .col-12
+        .col-6
           .form-group
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_zip")
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }          
 
-      
-      .row
-        .col-12
+        .col-6
           .form-group
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_city")

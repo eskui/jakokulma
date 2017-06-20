@@ -30,7 +30,7 @@
               = t("stripe_accounts.settings.enitity_iban")
             .col-xs-12.col-sm-9
               / - if stripe_manager.needs? 'bank_account'
-              = render "account_field"
+              = render "account_field", edit: false
 
       .row
         .col-12
@@ -72,22 +72,19 @@
               %input.form-control{ type: 'text', name: 'legal_entity[address][line1]', value: stripe_manager.legal_entity.address.line1, required: true  }
 
       .row
-        .col-12
+        .col-6
           .form-group
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_zip")
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: "legal_entity[address][postal_code]", value: stripe_manager.legal_entity.address.postal_code, required: true  }          
 
-      .row
-        .col-12
+        .col-6
           .form-group
             %label.control-label.col-xs-12.col-sm-3
               = t("stripe_accounts.settings.enitity_city")
             .col-xs-12.col-sm-9
               %input.form-control{ type: 'text', name: 'legal_entity[address][city]', value: stripe_manager.legal_entity.address.city, required: true  }
-
-     
 
   
     / - #if stripe_manager.needs? 'legal_entity.'
@@ -105,3 +102,6 @@
 
 - content_for :extra_javascript do
   :javascript
+    $('.country_select').select(function(){
+      $("#acc_number").val('FI');
+    });

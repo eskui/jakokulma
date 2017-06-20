@@ -64,9 +64,12 @@ setupFieldsNeeded = function() {
         Stripe.bankAccount.createToken(form, function(_, resp) {
           if (resp.error) {
             button.removeClass('disabled').val('Save Info');
-            
-            return alert(resp.error.message);
+            // return alert(resp.error.message);
+            $("#custom_error_notification .flash-text").text(resp.error.message);
+            $('#custom_error_notification').show();
           } else {
+            $("#custom_error_notification .flash-text").text('');
+            $('#custom_error_notification').hide();
             tokenField.val(resp.id);
             return form.get(0).submit();
           }

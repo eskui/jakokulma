@@ -4,4 +4,20 @@
 / %input{"data-stripe" => "country", :type => "hidden", :value => @current_community.country}
 %input{"data-stripe" => "currency", :type => "hidden", :value => @current_community.currency}
 / %input.form-control{ type: 'text', id: "iban_number", required: true, onfocusout: "ibanOnFocusOut()" }
-%input.form-control{ type: 'text', id: "acc_number", data: { stripe: 'account_number' } }
+%input.form-control{ type: 'text', id: "acc_number", value: edit ? 'FI' : nil, required: true, data: { stripe: 'account_number' } }
+
+- content_for :extra_javascript do
+  :javascript
+    $('#acc_number').focusout(function(){
+      value = $(this).val();
+      value = value.split(' ').join('');
+      $(this).val(value);
+      //if(!FinnishBankUtils.isValidFinnishIBAN(value)){
+      //  $(this).val('');
+      //  $("#custom_error_notification .flash-text").text('IBAN you entered is not correct!')
+      //  $('#custom_error_notification').show();
+      //}else{
+      //  $("#custom_error_notification .flash-text").text('');
+      //  $('#custom_error_notification').hide();
+      //}
+    });

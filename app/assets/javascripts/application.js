@@ -90,4 +90,5 @@
 //= require radio_buttons
 //= require connect
 //= require new_layout
+//= require finnish-bank-utils
 //= require_self

@@ -3,6 +3,11 @@
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
+.flash-notifications#custom_error_notification{style: 'display:none;'}
+  .flash-error.flash-notification
+    .flash-icon.ss-alert
+    .flash-text
+
 .left-navi-section.settings-section.payment-settings
   %h2= t("stripe_accounts.payout_info_title")
 
