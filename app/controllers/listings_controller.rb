@@ -565,7 +565,7 @@ class ListingsController < ApplicationController
   end
 
   def is_bank_detail_entered
-    unless @current_user.bank_account_id.present?
+    unless @current_user.stripe_account.stripe_user_id.present?
       redirect_to stripe_account_settings_payment_path(@current_user)
       return
     end

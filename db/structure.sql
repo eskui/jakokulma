@@ -1385,7 +1385,6 @@ CREATE TABLE `people` (
   `min_days_between_community_updates` int(11) DEFAULT '1',
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
-  `bank_account_id` varchar(255) DEFAULT NULL,
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
@@ -1692,7 +1691,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-19 17:26:14
+-- Dump completed on 2017-06-20  9:47:19
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3336,6 +3335,4 @@ INSERT INTO schema_migrations (version) VALUES ('20170613153959');
 INSERT INTO schema_migrations (version) VALUES ('20170613153960');
 
 INSERT INTO schema_migrations (version) VALUES ('20170615120417');
-
-INSERT INTO schema_migrations (version) VALUES ('20170619115540');
 
