@@ -1794,12 +1794,14 @@ en:
       enitity_city: City
       account_number: Account Number
       identiy_document: Verification Document
-      payout_info_hint: For us to be able to pay out money to you, you must provide some information about yourself, and the number of the bank account you want the money paid to.
+      payout_info_hint: "This information is not passed on to other users of the service. The address information is used when the default is created New announcement. In order to receive payments, you must provide your account information, date of birth, and date Your contact information (name, address and email). The account number is only forwarded to the Stripe Payment Service, It will not be saved in the Jakokulma. Your contact information will also be forwarded to the payment transfer service when you provide Credit card information when booking a rental transaction. The phone number remains in the Jakokulma service Maintenance information."
       save: Update Information
       create_account: Create
       account_created: Stripe account created!
       setup_complete: Nothing to do You have already setup your bank account
       change_account_no: "Change"
+      you_will_receive_payment: You will receive payment in your account
+      edit: Edit
 
     new:
       payout_info_you_need_to_connect: "In order to accept payments, you need to connect your stripe account with %{service_name}."

@@ -1737,6 +1737,19 @@ sv:
       account_created: Stripe account created!
       setup_complete: Nothing to do You have already setup your bank account
       change_account_no: "Change"
+      you_will_receive_payment: Du kommer att få betalt i ditt konto
+      edit: Redigera
+    stripe_payments:
+      payment: Betalning
+      card_number: Kredit- / betalkort
+      exp_month: Förfallodag (MM)
+      exp_year: Utgångsår (ÅÅ)
+      cvc: CVC
+      confirm_payment: Bekräfta betalningen
+      street_address: Gatuadress
+      postal_code: Postnummer
+      city: Stad
+      phone_number: Phone Number
 
   paypal:
     pay_with_paypal: "Fortsätt till betalning"

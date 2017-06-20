@@ -4,7 +4,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section.payment-settings
-  %h2= t("stripe_accounts.payout_info_title")
+  %p= t("stripe_accounts.settings.payout_info_hint")
   .needed
     - stripe_manager = StripeManaged.new( @current_user )
     = form_tag update_payment_info_path, multipart: true, html: { class: 'form-horizontal account_form'} do

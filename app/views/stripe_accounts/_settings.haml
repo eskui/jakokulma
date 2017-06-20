@@ -12,9 +12,9 @@
       - else
         - bank_details = StripeManaged.new( @current_user ).bank_details
 
-        You will receive payment in your account
+        = t("stripe_accounts.settings.you_will_receive_payment")
         = "*******" + bank_details.last4
         = "i"
         = bank_details.bank_name
         ="."
-        = link_to "Edit", edit_bank_details_path, method: :post
+        = link_to t("stripe_accounts.settings.edit"), edit_bank_details_path, method: :post

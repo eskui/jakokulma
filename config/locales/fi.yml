@@ -1730,7 +1730,7 @@ fi:
       enitity_country: Maa
       enitity_mobile: puhelinnumero
       enitity_zip: Postinumero
-      enitity_city: Postitoimipaikka
+      enitity_city: kaupunki
       account_number: Account Number
       identiy_document: Verification Document
       payout_info_hint: "Näitä tietoja ei välitetä palvelun muille käyttäjille. Osoitetietoja käytetään oletuksena luotaessa uutta ilmoitusta. Jotta voit ottaa vastaan maksuja, sinun täytyy antaa tilitietosi, syntymäaikasi ja yhteystietosi (nimi, osoite ja sähköposti). Tilinumero välitetään vain Stripe maksunvälityspalveluun, sitä ei tallenneta Jakokulmaan. Yhteystietosi välitetään maksunvälityspalveluun myös, kun annat luottokorttitietosi vuokraustapahtuman yhteydessä. Puhelinnumero jää Jakokulma-palvelun ylläpidon tietoon."
@@ -1739,6 +1739,20 @@ fi:
       account_created: Stripe account created!
       setup_complete: Nothing to do You have already setup your bank account
       change_account_no: "Change"
+      you_will_receive_payment: Saat maksun tilillesi
+      edit: Muokata
+  stripe_payments:
+    payment: maksu
+    card_number: Luotto- / maksukortti
+    exp_month: Viimeinen kuukausi (MM)
+    exp_year: Päättymisvuosi (YY)
+    cvc: CVC
+    confirm_payment: Vahvista maksu
+    street_address: Katuosoite
+    postal_code: Postinumero
+    city: kaupunki
+    phone_number: Puhelinnumero
+
 
   paypal:
     pay_with_paypal: "Siirry maksamaan"
