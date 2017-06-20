@@ -405,9 +405,9 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     TransactionProcess.first.update(process: 'preauthorize')
     payment_setting = PaymentSettings.where(community_id: @current_community.id).last
     if payment_setting.present?
-      payment_setting.update_attributes!(commission_from_seller: params[:community][:commission_from_seller].to_i)
+      payment_setting.update_attributes!(commission_from_seller: params[:community][:commission_from_seller].to_i, minimum_transaction_fee_cents: (params[:payment_settings][:minimum_transaction_fee]*100).to_i)
     else
-      payment_setting = PaymentSettings.create(active: true, community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize, commission_from_seller: params[:community][:commission_from_seller].to_i, minimum_transaction_fee_cents: 100, minimum_price_cents: 100, confirmation_after_days: 7)
+      payment_setting = PaymentSettings.create(active: true, community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize, commission_from_seller: params[:community][:commission_from_seller].to_i, minimum_transaction_fee_cents: (params[:payment_settings][:minimum_transaction_fee]*100).to_i, minimum_price_cents: 100, confirmation_after_days: 7)
     end
   end
 
