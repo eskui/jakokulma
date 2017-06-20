@@ -212,6 +212,22 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiate
+    Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
+    @source = Stripe::Source.retrieve(params[:source]) if params[:source]
+    if @source.present?
+      @success_source = if @source.status == 'failed'
+        false
+      else
+        true
+      end
+      if @success_source
+        flash.clear
+        flash[:notice] = "Your card details has been verified by 3D secure verification"
+      else
+        flash.clear
+        flash[:error] = "Your card details couldn't be verified by 3D secure verification, Please try again."
+      end
+    end
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
