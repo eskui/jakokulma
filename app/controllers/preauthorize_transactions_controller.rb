@@ -278,7 +278,6 @@ class PreauthorizeTransactionsController < ApplicationController
         }
 
     }
-
     validation_result.on_error { |msg, data|
       error_msg =
         if data.is_a?(Array)

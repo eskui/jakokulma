@@ -1665,6 +1665,7 @@ en:
       night: night
       nights: nights
       invalid_parameters: "Invalid values for new transaction"
+      card_details_has_been_verified: Your card details has been verified using 3D secure verification
     stripe_preauthorize:
       details: Details
       by: "%{listing} by %{author}"

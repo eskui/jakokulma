@@ -1608,7 +1608,7 @@ fi:
       error_in_checking_availability: "Saatavuustietoja ei voitu tarkistaa antamiltasi päivämääriltä."
       details: Erittely
       by: "%{listing} käyttäjältä %{author}"
-      payment: maksu
+      payment: Maksutavat
       exp: "Erääntyy:"
       you_will_be_charged: "Maksu veloitetaan vain mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
       day: päivä
@@ -1616,6 +1616,7 @@ fi:
       night: yö
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
+      card_details_has_been_verified: Katevaraus on tehty kortiltasi
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
@@ -1725,12 +1726,12 @@ fi:
     commission: "%{commission} %"
     settings:
       enitity_date_of_birth: Syntymäaika
-      enitity_street_address: Postitoimipaikka
-      enitity_iban: Pankkitili (IBAN)
+      enitity_street_address: Katuosoite
+      enitity_iban: Pankkitili (IBAN) - Nykyinen tilinumerosi 
       enitity_country: Maa
-      enitity_mobile: puhelinnumero
+      enitity_mobile: Puhelinnumero
       enitity_zip: Postinumero
-      enitity_city: kaupunki
+      enitity_city: Postitoimipaikka
       account_number: Account Number
       identiy_document: Verification Document
       payout_info_hint: "Näitä tietoja ei välitetä palvelun muille käyttäjille. Osoitetietoja käytetään oletuksena luotaessa uutta ilmoitusta. Jotta voit ottaa vastaan maksuja, sinun täytyy antaa tilitietosi, syntymäaikasi ja yhteystietosi (nimi, osoite ja sähköposti). Tilinumero välitetään vain Stripe maksunvälityspalveluun, sitä ei tallenneta Jakokulmaan. Yhteystietosi välitetään maksunvälityspalveluun myös, kun annat luottokorttitietosi vuokraustapahtuman yhteydessä. Puhelinnumero jää Jakokulma-palvelun ylläpidon tietoon."
@@ -1740,7 +1741,7 @@ fi:
       setup_complete: Nothing to do You have already setup your bank account
       change_account_no: "Change"
       you_will_receive_payment: Saat maksun tilillesi
-      edit: Muokata
+      edit: Haluan muuttaa tili- ja/tai yhteystietojani
   stripe_payments:
     payment: maksu
     card_number: Luotto- / maksukortti
@@ -1750,7 +1751,7 @@ fi:
     confirm_payment: Vahvista maksu
     street_address: Katuosoite
     postal_code: Postinumero
-    city: kaupunki
+    city: Postitoimipaikka
     phone_number: Puhelinnumero
 
 

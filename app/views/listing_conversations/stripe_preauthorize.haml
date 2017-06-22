@@ -3,6 +3,7 @@
     = javascript_include_tag 'https://js.stripe.com/v2/'
     :javascript
       Stripe.setPublishableKey(#{@current_community.payment_gateway.stripe_publishable_key.to_json});
+      debugger
       redirect_url = '#{request.url}'
       $(function() {
         var $form = $('#transaction-form');
@@ -115,7 +116,7 @@
         = t("listing_conversations.preauthorize.payment")
 
       - if params[:source].present?
-        %p Your card details has been verified using 3D secure verification
+        %p= t("listing_conversations.preauthorize.card_details_has_been_verified")
         = hidden_field_tag 'stripeToken', params[:source]
       - else
         = render partial: "payments/stripe/credit_card_info"
