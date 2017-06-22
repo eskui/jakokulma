@@ -63,7 +63,14 @@ class StripePayment < ActiveRecord::Base
   end
 
   def total_commission
-    total_sum * total_commission_percentage
+    total = total_sum * total_commission_percentage
+    ps = PaymentSettings.last
+    minimum_transaction_fee = ps.minimum_transaction_fee
+    if total.to_f < minimum_transaction_fee.to_f
+      return minimum_transaction_fee
+    else
+      return total
+    end
   end
 
   def seller_gets

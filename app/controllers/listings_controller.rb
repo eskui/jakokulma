@@ -28,7 +28,7 @@ class ListingsController < ApplicationController
 
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
-  before_filter :is_bank_detail_entered, :only => [ :new, :create ]
+  # before_filter :is_bank_detail_entered, :only => [ :new, :create ]
 
   def index
     @selected_tribe_navi_tab = "home"
@@ -776,7 +776,7 @@ class ListingsController < ApplicationController
       # raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
       {seller_commission_in_use: !!community.commission_from_seller,
        payment_gateway: payment_type,
-       minimum_commission: Money.new(0, currency),
+       minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],
        minimum_price_cents: p_set[:minimum_price_cents]}
     end

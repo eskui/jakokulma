@@ -358,13 +358,13 @@ module TransactionHelper
         link_classes: "confirm",
         link_icon_with_text_classes: icon_for("confirmed"),
         link_text_with_icon: link_text_with_icon(conversation, "confirm")
-      },
-      {
-        link_href: cancel_person_message_path(@current_user, :id => conversation.id),
-        link_classes: "cancel",
-        link_icon_with_text_classes: icon_for("canceled"),
-        link_text_with_icon: link_text_with_icon(conversation, "cancel")
       }
+      # {
+      #   link_href: cancel_person_message_path(@current_user, :id => conversation.id),
+      #   link_classes: "cancel",
+      #   link_icon_with_text_classes: icon_for("canceled"),
+      #   link_text_with_icon: link_text_with_icon(conversation, "cancel")
+      # }
     ])
   end
 

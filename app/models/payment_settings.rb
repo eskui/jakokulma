@@ -36,4 +36,6 @@ class PaymentSettings < ActiveRecord::Base
     :confirmation_after_days)
 
   validates_presence_of(:community_id)
+
+  monetize :minimum_transaction_fee_cents, allow_nil: true, with_model_currency: :minimum_price_currency
 end

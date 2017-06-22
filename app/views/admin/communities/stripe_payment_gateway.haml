@@ -28,5 +28,11 @@
         = form.label :commission_from_seller, t(".commission_from_seller"), :class => "input"
         = form.number_field :commission_from_seller, in: 0..100
 
+    = fields_for :payment_settings, PaymentSettings.last do |form|
+      .row
+        .col-12
+        = form.label :minimum_transaction_fee_cents, t("paypal_accounts.minimum_transaction_fee_label"), :class => "input"
+        = form.text_field :minimum_transaction_fee, min: 1, value: form.object.minimum_transaction_fee
+
     .row
       = button_tag t("admin.communities.social_media.save")
