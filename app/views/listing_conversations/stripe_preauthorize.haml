@@ -121,12 +121,12 @@
       %h2
         = t("listing_conversations.preauthorize.payment")
 
-      - if params[:source].present?
-        %p= t("listing_conversations.preauthorize.card_details_has_been_verified")
-/ =======
-/       - if @success_source
-/ >>>>>>> 244ca402351b1f710005ab1c0c0aa7737eefe369
-/         = hidden_field_tag 'stripeToken', params[:source]
+      / - if params[:source].present?
+      /   %p= t("listing_conversations.preauthorize.card_details_has_been_verified")
+
+      - if @success_source
+        = hidden_field_tag 'stripeToken', params[:source]
+          %p= t("listing_conversations.preauthorize.card_details_has_been_verified")
       - else
         %h2
           = t("listing_conversations.preauthorize.payment")
