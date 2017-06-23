@@ -636,7 +636,7 @@ fi:
       message_content_not_available: "Viestin sisältöä ei voida näyttää"
     message:
       accepted_request: "hyväksyi pyynnön"
-      received_payment: "hyväksyi tilauksen, otti vastaan maksun %{sum}"
+      received_payment: "hyväksyi tilauksen"
       accepted_offer: "hyväksyi tarjouksen"
       rejected_request: "hylkäsi pyynnön, perui maksun"
       rejected_offer: "hylkäsi tarjouksen"
@@ -645,7 +645,7 @@ fi:
       canceled_request: "peruutti pyynnön"
       canceled_offer: "peruutti tarjouksen"
       paid: "maksoi %{sum}"
-      payment_preauthorized: "Katevaraus tehty: %{sum}"
+      payment_preauthorized: "Vuokrauspyyntö: %{sum}"
     new:
       message: Viesti
       message_to: "Viesti käyttäjälle %{author_name}"
@@ -1617,6 +1617,7 @@ fi:
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
       card_details_has_been_verified: Katevaraus on tehty kortiltasi
+      card_details_could_not_be_verified: Korttisi tietoja ei voitu tarkistaa 3D-varmuustarkistuksella, yritä uudelleen.
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:

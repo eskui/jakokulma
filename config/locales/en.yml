@@ -643,7 +643,7 @@ en:
       message_content_not_available: "Message content not available"
     message:
       accepted_request: "accepted the request"
-      received_payment: "accepted the request, received payment for %{sum}"
+      received_payment: "accepted the request"
       accepted_offer: "accepted the offer"
       rejected_request: "rejected the request, canceled the payment"
       rejected_offer: "rejected the offer"
@@ -1666,6 +1666,7 @@ en:
       nights: nights
       invalid_parameters: "Invalid values for new transaction"
       card_details_has_been_verified: Your card details has been verified using 3D secure verification
+      card_details_could_not_be_verified: Your card details couldn't be verified by 3D secure verification, Please try again.
     stripe_preauthorize:
       details: Details
       by: "%{listing} by %{author}"

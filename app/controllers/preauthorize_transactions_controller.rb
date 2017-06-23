@@ -316,7 +316,7 @@ class PreauthorizeTransactionsController < ApplicationController
       end
       unless @success_source
         flash.clear
-        flash[:error] = "Your card details couldn't be verified by 3D secure verification, Please try again."
+        flash[:error] = t('listing_conversations.preauthorize.card_details_could_not_be_verified')
         redirect_to initiate_order_path(params.except(:source, :message, :action, :locale, :listing_id, :person_id, :controller))
         return
       end

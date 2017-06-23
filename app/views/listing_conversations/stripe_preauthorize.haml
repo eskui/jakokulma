@@ -116,6 +116,7 @@
     = hidden_field_tag(:start_on, start_on&.iso8601 )
     = hidden_field_tag(:end_on, end_on&.iso8601 )
     .preauthorize-section
+
       %h2
 
       - if @success_source
