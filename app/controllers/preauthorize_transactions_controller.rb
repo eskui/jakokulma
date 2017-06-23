@@ -222,10 +222,10 @@ class PreauthorizeTransactionsController < ApplicationController
       end
       if @success_source
         flash.clear
-        flash[:notice] = "Your card details has been verified by 3D secure verification"
+        flash[:notice] = t('listing_conversations.preauthorize.card_details_has_been_verified')
       else
         flash.clear
-        flash[:error] = "Your card details couldn't be verified by 3D secure verification, Please try again."
+        flash[:error] = t('listing_conversations.preauthorize.card_details_could_not_be_verified')
       end
     end
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
