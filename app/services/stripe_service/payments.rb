@@ -43,13 +43,10 @@ module StripeService
 
         stripe_charge_id = transaction.payment.stripe_transaction_id
 
-
         Stripe.api_key = transaction.payment.payment_gateway.stripe_secret_key
         result, error = nil, nil
         begin
-          ch = Stripe::Charge.retrieve(stripe_charge_id)
-          result = ch.refunds.create(:reverse_transfer => true)
-          # result = Stripe::Refund.create(charge: stripe_charge_id, :reverse_transfer => true)
+          result = Stripe::Refund.create(charge: stripe_charge_id)
         rescue Stripe::InvalidRequestError => e
           error = e.message
         rescue Exception => e
