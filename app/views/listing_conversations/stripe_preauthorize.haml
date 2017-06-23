@@ -117,16 +117,12 @@
     = hidden_field_tag(:start_on, start_on&.iso8601 )
     = hidden_field_tag(:end_on, end_on&.iso8601 )
     .preauthorize-section
-      / %h2
-      /   = t("listing_conversations.preauthorize.payment")
 
-      / - if params[:source].present?
-      /   %p= t("listing_conversations.preauthorize.card_details_has_been_verified")
+      %h2
 
       - if @success_source
         = hidden_field_tag 'stripeToken', params[:source]
-        %p
-          = t("listing_conversations.preauthorize.card_details_has_been_verified")
+        %p=# t("listing_conversations.preauthorize.card_details_has_been_verified")
       - else
         %h2
           = t("listing_conversations.preauthorize.payment")

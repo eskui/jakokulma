@@ -320,6 +320,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiated
+    flash.clear
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,

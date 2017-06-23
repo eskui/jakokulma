@@ -133,7 +133,7 @@ Kassi::Application.routes.draw do
     post "/listings/:listing_id/booked"    => "preauthorize_transactions#initiated", as: :booked # POST request, no redirect
 
     get "/listings/:listing_id/initiate"   => "preauthorize_transactions#initiate", :as => :initiate_order
-    post "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order
+    match "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", via: [:get, :post], :as => :initiated_order
 
     # free flow
     post "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
