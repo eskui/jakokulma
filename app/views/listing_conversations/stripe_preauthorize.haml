@@ -3,15 +3,17 @@
     = javascript_include_tag 'https://js.stripe.com/v2/'
     :javascript
       Stripe.setPublishableKey(#{@current_community.payment_gateway.stripe_publishable_key.to_json});
-      redirect_url = '#{request.url}'
+      //redirect_url = '#{request.url}'
+      redirect_url = '#{initiated_order_url(person_id: @current_user.id, listing_id: listing[:id])}';
       $(function() {
         var $form = $('#transaction-form');
         $form.submit(function(event) {
           // Disable the submit button to prevent repeated clicks:
           $form.find('.submit').prop('disabled', true);
 
+          redirect_url = redirect_url + '&end_on='+ $("#end_on").val() + '&message=' + $("#message").val() + '&start_on=' + $("#start_on").val()
+
           // Request a token from Stripe:
-          //Stripe.card.createToken($form, stripeResponseHandler);
           Stripe.source.create({
             type: 'card',
             card: {
@@ -49,6 +51,7 @@
         } else { 
           // Token was created!
           // Get the token ID:
+          console.log(redirect_url)
           var token = response.id;
           source = Stripe.source.create({
             type: 'three_d_secure',
@@ -61,12 +64,8 @@
               return_url: redirect_url
             }
           }, stripe3DSecureResponseHandler);
-
-          // Insert the token ID into the form so it gets submitted to the server:
           
           return false;
-          // Submit the form:
-          //$form.get(0).submit();
         }
       };
 

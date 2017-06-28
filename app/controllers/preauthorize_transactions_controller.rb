@@ -197,7 +197,8 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     def validate_transaction_agreement(tx_params:, transaction_agreement_in_use:)
-      contract_agreed = tx_params[:contract_agreed]
+      # contract_agreed = tx_params[:contract_agreed]
+      contract_agreed = true
 
       if transaction_agreement_in_use
         if contract_agreed
@@ -212,22 +213,6 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiate
-    Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
-    @source = Stripe::Source.retrieve(params[:source]) if params[:source]
-    if @source.present?
-      @success_source = if @source.status == 'failed'
-        false
-      else
-        true
-      end
-      if @success_source
-        flash.clear
-        flash[:notice] = t('listing_conversations.preauthorize.card_details_has_been_verified')
-      else
-        flash.clear
-        flash[:error] = t('listing_conversations.preauthorize.card_details_could_not_be_verified')
-      end
-    end
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
@@ -321,6 +306,21 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def initiated
     flash.clear
+    Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
+    @source = Stripe::Source.retrieve(params[:source]) if params[:source]
+    if @source.present?
+      @success_source = if @source.status == 'failed'
+        false
+      else
+        true
+      end
+      unless @success_source
+        flash.clear
+        flash[:error] = t('listing_conversations.preauthorize.card_details_could_not_be_verified')
+        redirect_to initiate_order_path(params.except(:source, :message, :action, :locale, :listing_id, :person_id, :controller))
+        return
+      end
+    end
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
@@ -353,7 +353,8 @@ class PreauthorizeTransactionsController < ApplicationController
         force_sync: !request.xhr?,
         delivery_method: tx_params[:delivery],
         shipping_price: shipping_total.total,
-        stripeToken: params[:stripeToken].present? ? params[:stripeToken] : nil,
+        # stripeToken: params[:stripeToken].present? ? params[:stripeToken] : nil,
+        stripeToken: params[:source],
         booking_fields: {
           start_on: tx_params[:start_on],
           end_on: tx_params[:end_on]
