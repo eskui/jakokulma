@@ -9,7 +9,7 @@
     .flash-text
 
 .left-navi-section.settings-section.payment-settings
-  %h2= t("stripe_accounts.payout_info_title")
+  / %h2= t("stripe_accounts.payout_info_title")
 
   - if community_ready_for_payments
     = render "stripe_connection_details"

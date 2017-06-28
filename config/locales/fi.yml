@@ -1617,7 +1617,7 @@ fi:
       nights: yötä
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
       card_details_has_been_verified: Katevaraus on tehty kortiltasi
-      card_details_could_not_be_verified: Korttisi tietoja ei voitu tarkistaa 3D-varmuustarkistuksella, yritä uudelleen.
+      card_details_could_not_be_verified: Emme valitettavasti pystyneet vahvistamaan maksuasi.Ole hyvä ja yritä uudelleen.
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
@@ -1735,7 +1735,7 @@ fi:
       enitity_city: Postitoimipaikka
       account_number: Account Number
       identiy_document: Verification Document
-      payout_info_hint: "Näitä tietoja ei välitetä palvelun muille käyttäjille. Osoitetietoja käytetään oletuksena luotaessa uutta ilmoitusta. Jotta voit ottaa vastaan maksuja, sinun täytyy antaa tilitietosi, syntymäaikasi ja yhteystietosi (nimi, osoite ja sähköposti). Tilinumero välitetään vain Stripe maksunvälityspalveluun, sitä ei tallenneta Jakokulmaan. Yhteystietosi välitetään maksunvälityspalveluun myös, kun annat luottokorttitietosi vuokraustapahtuman yhteydessä. Puhelinnumero jää Jakokulma-palvelun ylläpidon tietoon."
+      payout_info_hint: Näitä tietoja ei välitetä palvelun muille käyttäjille. Jotta voit ottaa vastaan maksuja, sinun täytyy antaa tilitietosi, syntymäaikasi ja yhteystietosi (nimi, osoite ja sähköposti). Tilinumero välitetään vain Stripe maksunvälityspalveluun, sitä ei tallenneta Jakokulmaan. Puhelinnumero jää Jakokulma-palvelun ylläpidon tietoon.
       save: Päivitä tieto
       create_account: Create
       account_created: Stripe account created!
@@ -1743,6 +1743,8 @@ fi:
       change_account_no: "Change"
       you_will_receive_payment: Saat maksun tilillesi
       edit: Haluan muuttaa tili- ja/tai yhteystietojani
+      phone_number: "Puh."
+      date_of_birth: "Syntymäaika:"
   stripe_payments:
     payment: maksu
     card_number: Luotto- / maksukortti
@@ -1753,7 +1755,8 @@ fi:
     street_address: Katuosoite
     postal_code: Postinumero
     city: Postitoimipaikka
-    phone_number: Puhelinnumero
+    phone_number: "Puh."
+    date_of_birth: "Syntymäaika:"
 
 
   paypal:

@@ -17,4 +17,29 @@
         = "i"
         = bank_details.bank_name
         ="."
+        %br
+        %br
+        - @account ||= Stripe::Account.retrieve( @current_user.stripe_account.stripe_user_id )
+        = @account.legal_entity.address.line1
+        = @account.legal_entity.address.line2
+        %br
+        = @account.legal_entity.address.postal_code
+        = @account.legal_entity.address.city
+        %br
+        - if @account.legal_entity.address.country == "FI"
+          Suomi
+        - elsif @account.legal_entity.address.country == "SE"
+          Sweden
+        %br
+        %br
+        = t("stripe_accounts.settings.phone_number")       
+        = @account.legal_entity.phone_number
+        %br
+        %br
+        = t("stripe_accounts.settings.date_of_birth")
+        - d = @account.legal_entity.dob
+        = d.day
+        = I18n.t("date.month_names")[d.month]
+        = d.year
+        %br
         = link_to t("stripe_accounts.settings.edit"), edit_bank_details_path, method: :post

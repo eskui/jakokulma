@@ -1804,6 +1804,8 @@ en:
       change_account_no: "Change"
       you_will_receive_payment: You will receive payment in your account
       edit: Edit
+      phone_number: "Phone number:"
+      date_of_birth: "Birthday:"
 
     new:
       payout_info_you_need_to_connect: "In order to accept payments, you need to connect your stripe account with %{service_name}."
