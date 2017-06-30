@@ -152,7 +152,7 @@ Kassi::Application.routes.draw do
     
     post '/hooks/stripe' => 'stripe_hooks#stripe'
 
-    post '/stripe_accounts/edit_bank_details' => 'stripe_accounts#edit_bank_details', as: 'edit_bank_details'
+    match '/stripe_accounts/edit_bank_details' => 'stripe_accounts#edit_bank_details', via: [:get, :post], as: 'edit_bank_details'
     # community membership related actions
 
     get  '/community_memberships/pending_consent' => 'community_memberships#pending_consent', as: :pending_consent

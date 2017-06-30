@@ -4,7 +4,7 @@
 / %input{"data-stripe" => "country", :type => "hidden", :value => @current_community.country}
 %input{"data-stripe" => "currency", :type => "hidden", :value => @current_community.currency}
 / %input.form-control{ type: 'text', id: "iban_number", required: true, onfocusout: "ibanOnFocusOut()" }
-%input.form-control{ type: 'text', id: "acc_number", value: edit ? 'FI' : nil, required: true, data: { stripe: 'account_number' } }
+%input.form-control{ type: 'text', id: "acc_number", value: edit ? 'FI' : nil, required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);", data: { stripe: 'account_number' } }
 
 - content_for :extra_javascript do
   :javascript
@@ -21,3 +21,15 @@
       //  $('#custom_error_notification').hide();
       //}
     });
+- content_for :extra_javascript do
+  :javascript
+    function InvalidMsg(textbox) {
+        
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Ole hyvä ja anna puuttuvat tiedot.');
+        }        
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
