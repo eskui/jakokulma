@@ -37,9 +37,13 @@
         <li class="">
           <%= link_to "BLOGI", 'https://blog.jakokulma.fi/', class: "list-color-normal",:target => '_blank' %>          
         </li>
+        <%unless logged_in?%>
         <li><%= link_to "REKISTERÖIDY", '/en/signup', class: "list-color-normal" %></li>
         <li><%= link_to "KIRJAUDU SISÄÄN",'/en/login', class: "list-color-normal" %></li>
-        <li><%= link_to "LUO UUSI ILMOITUS", '/en/listing/new', class: "list-post" %></li>
+        <%end%>
+        
+        <li><%= link_to "LUO UUSI ILMOITUS", new_listing_path, class: "list-post" %></li>
+    
       </ul>
     </div>
   </div>
