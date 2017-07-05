@@ -78,6 +78,8 @@ module Kassi
       'app-bundle.css',
       'app-bundle.js',
       'vendor-bundle.js',
+      'landing_page_new/base.scss',
+      'landing_page_new/base.js',
     ]
 
     # Read the config from the config.yml
