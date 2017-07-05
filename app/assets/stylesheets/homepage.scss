@@ -218,6 +218,16 @@ p.footer-info {
     text-decoration:none;
   }
 }
+.modal-store,.modal-store:hover,.modal-store:focus,.modal-store:active {
+    background: transparent !important;
+    color: #91c8e0 !important;
+    border: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    margin-top:6px;
+    outline:none !important;
+}
 .color-bgd {
   background-color: #959b5f;
 }
