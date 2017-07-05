@@ -13,28 +13,28 @@
     %label
       %span
         = t("stripe_payments.street_address")
-      %input{:type => "text", id: 'street_address', value: @current_user.street_address, required: true}
+      %input{:type => "text", id: 'street_address', value: @current_user.street_address, required: true, :oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
 
 .row
   .col-12
     %label
       %span
         = t("stripe_payments.postal_code")
-      %input{:type => "text", id: 'postal_code', required: true}
+      %input{:type => "text", id: 'postal_code', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
 
 .row
   .col-12
     %label
       %span
         = t("stripe_payments.city")
-      %input{:type => "text", id: 'city', required: true}
+      %input{:type => "text", id: 'city', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
 
 .row
   .col-12
     %label
       %span
         = t("stripe_payments.phone_number")
-      %input{:type => "text", id: 'phone_number', value: @current_user.phone_number, required: true}
+      %input{:type => "text", id: 'phone_number', value: @current_user.phone_number, required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
 
 .row
   .col-12
@@ -43,10 +43,23 @@
         = t("stripe_payments.card_number")
     .row
       .col-6
-        %input{:autocomplete => "cc-number", "data-stripe" => "number", :pattern => "\\d*", :placeholder => "4242 4242 4242 4242", :size => "20", :type => "text", id: 'card-number', required: true}
+        %input{:autocomplete => "cc-number", "data-stripe" => "number", :pattern => "\\d*", :placeholder => "4242 4242 4242 4242", :size => "20", :type => "text", id: 'card-number', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
       .col-2
-        %input{:autocomplete => "cc-exp-month", "data-stripe" => "exp_month", :pattern => "\\d*", :placeholder => "MM", :size => "2", :type => "text", id: 'card-expiry-month', required: true}
+        %input{:autocomplete => "cc-exp-month", "data-stripe" => "exp_month", :pattern => "\\d*", :placeholder => "MM", :size => "2", :type => "text", id: 'card-expiry-month', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
       .col-2
-        %input{:autocomplete => "cc-exp-year", "data-stripe" => "exp_year", :pattern => "\\d*", :placeholder => "YY", :size => "2", :type => "text", id: 'card-expiry-year', required: true}
+        %input{:autocomplete => "cc-exp-year", "data-stripe" => "exp_year", :pattern => "\\d*", :placeholder => "YY", :size => "2", :type => "text", id: 'card-expiry-year', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
       .col-2
-        %input{:autocomplete => "off", "data-stripe" => "cvc", :pattern => "\\d*", :placeholder => "CVC", :size => "3", :type => "text", id: 'card-cvc', required: true}
+        %input{:autocomplete => "off", "data-stripe" => "cvc", :pattern => "\\d*", :placeholder => "CVC", :size => "3", :type => "text", id: 'card-cvc', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
+
+- content_for :extra_javascript do
+  :javascript
+    function InvalidMsg(textbox) {
+        
+        if (textbox.value == '') {
+            textbox.setCustomValidity('Ole hyvä ja anna puuttuvat tiedot.');
+        }
+        else {
+            textbox.setCustomValidity('');
+        }
+        return true;
+    }
