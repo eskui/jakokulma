@@ -21,7 +21,7 @@
         </li>
         <li><%= link_to "REKISTERÖIDY", '/en/signup', class: "list-color-normal" %></li>
         <li><%= link_to "KIRJAUDU SISÄÄN",'/en/login', class: "list-color-normal" %></li>
-        <li><%= link_to "LUO UUSI ILMOITUS", '/en/listing/new', class: "list-post" %></li>
+        <li><%= link_to "LUO UUSI ILMOITUS", new_person_listing_path(@current_user), class: "list-post" %></li>
       </ul>
     </div>
   </div>

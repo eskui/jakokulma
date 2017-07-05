@@ -6,6 +6,8 @@ fi:
         delimiter: " "
         format: "%n %u"
   admin:
+    homepage:
+      
     categories:
       edit:
         edit_listing_category: "Muokkaa kategoriaa '%{category}'"
