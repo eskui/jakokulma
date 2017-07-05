@@ -1,0 +1,183 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="content-section video-section">
+    <div class="pattern-overlay">
+      <a id="bgndVideo" class="player" data-property="{videoURL:'https://youtu.be/b9KnPR6Jxj4',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+      <div class="container">
+        <form action="/s" method="get">
+          <div class="col-md-12 margin-top-160px">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 padding-none">
+              <div class="col-md-1 padding-none width-my">
+                <div class=""><i class="fa fa-search icon-arrande" aria-hidden="true"></i></div>
+              </div>
+              <div class="col-md-4 padding-none">
+                <%= text_field_tag 'request', nil, class: 'input-field-style text-center big-dog' ,placeholder: 'Polkupyörät'%>
+              </div>
+              <div class="col-md-5 padding-none">
+                <%= text_field_tag 'request', nil, class: 'input-field-style text-center big-dog' ,placeholder: 'Helsinki'%>
+                <!-- <div class="dropdown">
+                  <button class="btn btn-custom dropdown-toggle drop-down-inetrior" type="button" data-toggle="dropdown">Helsinki
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                  </ul>
+                </div> -->
+              </div>
+              <div class="col-md-2 padding-none">
+                <button type="submit" class="submit-btn-hot-style">Etsi</button>
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </form>
+
+        <!-- <div class="row">
+          <h1 class="media-for-font media-for-heading">Connecting owners and renters of baby equipment</h1>
+          <h3 class="media-for-subheading"> Why buy when you can rent!</h3>
+        </div> -->
+        <!-- <div class="row text-center letter-spacs">
+          <div class="col-sm-12 col-md-12">
+            <form action="/s" method="get">
+               <input type="text" name="q" placeholder="Search  baby  equipment to  rent" class="style-for-input">
+               <button type="submit" class="button-css-search style-for-srch-btn"><i class="fa fa-search styles-search-icon" aria-hidden="true"></i></button>
+            </form>
+          </div>
+        </div> -->
+        <!-- <div class="row text-center">
+          <div class="col-md-3 col-sm-12 col-xs-12"></div>
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <a class="btn btn-custom style-for-btn-lst-bby-eqpmnt-new colors" href="/en/listings/new">List a product</a>
+          </div>
+          <div class="col-md-3 col-sm-12 col-xs-12 pad-0p">
+            <a href="/s" type="button" class="btn btn-custom style-for-btn-lst-bby-eqpmnt-new colors first"> Rent a product</a>
+          </div>
+          <div class="col-md-3 col-sm-12 col-xs-12"></div>
+        </div> -->
+      </div>
+    </div>
+</section>
+<div class="wrapper">
+  <div class="picture-address">
+    <div class="col-md-12 col-xs-12 col-sm-12"><h1 class="heading-font">JAETTU TAVARA – KAKSINKERTAINEN ILO</h1>
+    <small class="sub-heading">VUOKRAA harrastevälineitä tarpeesi mukaan.</small>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 margin-top-10px">
+      <div class="col-md-5 col-sm-12 col-xs-12 new-width-for-big-one">
+        <%= image_tag("/assets/cycle.png", class: "collage-image-1 collage-style") %>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-two">
+        <%= image_tag("/assets/baja.png", class: "collage-image-2 collage-style") %>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-three">
+        <%= image_tag("/assets/camera.png", class: "collage-image-3 collage-style") %>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 second">
+      <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-one">
+        <%= image_tag("/assets/sewing-mc.png", class: "collage-image-1 collage-style") %>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 new-width-for-big-two">
+        <%= image_tag("/assets/tambu-hut.png", class: "collage-image-2 collage-style") %>
+      </div>
+      <div class="col-md-3 col-sm-12 col-xs-12  new-width-for-big-three">
+        <%= image_tag("/assets/seting-tool.png", class: "collage-image-3 collage-style") %>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-md-12 col-sm-12 margin-top-10px">
+    <div class="col-md-5 col-sm-12 col-xs-12 new-width-for-big-one">
+      <%#= image_tag("/assets/urheilu.png", class: "collage-image-1 collage-style") %>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-two">
+      <%#= image_tag("/assets/musiikki.png", class: "collage-image-2 collage-style") %>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-three">
+      <%#= image_tag("/assets/elektroniikka.png", class: "collage-image-3 collage-style") %>
+    </div>
+  </div>
+  <div class="col-md-12 col-sm-12 second">
+    <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-one">
+      <%#= image_tag("/assets/askartelu.png", class: "collage-image-1 collage-style") %>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12 new-width-for-big-two">
+      <%#= image_tag("/assets/retkeily.png", class: "collage-image-2 collage-style") %>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12  new-width-for-big-three">
+      <%#= image_tag("/assets/muut.png", class: "collage-image-3 collage-style") %>
+    </div>
+  </div> -->
+  <div class="new-background-subhaeding">
+    <div class="col-md-12 col-xs-12 col-sm-12 text-center"><h1 class="heading-font text-center">NÄIN SE TOIMII</h1>
+    <small class="sub-heading">KAIKKEA EI TARVITSE OMISTAA voidakseen käyttää. Jakokulmassavoit vuokrata ja antaa vuokralle.</small>
+    <!-- <button type="button" class="btn btn-custom katso">KATSO VIDEO</button> -->
+    <%= image_tag("/assets/katso_video.png", class: "video-btn-image") %>
+    </div>
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-none">
+    <div class="col-md-4">
+      <%= image_tag("/assets/peukku.png", class: "all-one-badges") %>
+      <h4 class="text-center color-font-weight">HELPPOA!</h4>
+      <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag("/assets/lukko.png", class: "all-two-badges") %>
+      <h4 class="margin-top-for-balance text-center color-font-weight">Turvallista!</h4>
+      <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag("/assets/ymparisto.png", class: "all-three-badges") %>
+      <h4 class="text-center color-font-weight">Ympäristöystävällistä!</h4>
+      <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
+    </div>
+  </div>
+</div>
+<footer id="myFooter">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-sm-12 color-bgd">
+<div class="col-sm-2">
+  
+</div>
+<div class="col-sm-3">
+<div class="social-networks">
+<a class="facebook" href="https://www.facebook.com/thefoodfoundryuk/" target="_blank">
+  <%= image_tag("/assets/FB.png", class: "social-icon-width") %>
+</a>
+<a class="twitter" href="https://twitter.com/thefoodfoundry" target="_blank">
+  <%= image_tag("/assets/twitter.png", class: "social-icon-width") %>
+</a>
+</div>
+</div>
+<div class="col-md-7 margin-top-few">
+<div class="col-sm-3">
+<h5 class="text-center "><a class="color-white" href="/en/infos/terms">KÄYTTEHDOT</a></h5>
+</div>
+<div class="col-sm-3">
+<h5 class="text-center border-and-text-color"><a href="/en/blog">BLOGI</a></h5>
+</div>
+<div class="col-sm-3">
+<h5 class="text-center border-and-text-color"><a href="/en/infos/faq">FAQ</a></h5>
+</div>
+<div class="col-sm-3">
+<h5 class="text-center border-and-text-color"><a href="mailto:info@ownnomore.com">OTA YHTEYTTÄ</a></h5>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-sm-2"></div>
+<div class="col-md-3 col-sm-3">
+<p class="footer-info"> Own No More Oy<br>
+Asiakastuki xxxx | info@ownnomore.com<br>
+Rekisteriseloste</p>
+</div>
+<div class="col-md-7"></div>
+</div>
+</div>
+
+</footer>
+
+  

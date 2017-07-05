@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-custom styling-header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button id="flip" type="button" class="navbar-toggle collpase-button-style" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar color-blue"></span>
+        <span class="icon-bar color-blue"></span>
+        <span class="icon-bar color-blue"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">
+        <%= image_tag("/assets/Jakokulma_web.png", class: "header_icon") %>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="panel">
+      <ul class="nav navbar-nav nav-list-top">
+        <li class="active">
+          <%= link_to "NÄIN SE TOIMII", '/en/infos/how_to_use', class: "list-color-active" %>
+        </li>
+        <li class="">
+          <%= link_to "BLOGI", 'https://blog.jakokulma.fi/', class: "list-color-normal",:target => '_blank' %>          
+        </li>
+        <li><%= link_to "REKISTERÖIDY", '/en/signup', class: "list-color-normal" %></li>
+        <li><%= link_to "KIRJAUDU SISÄÄN",'/en/login', class: "list-color-normal" %></li>
+        <li><%= link_to "LUO UUSI ILMOITUS", '/en/listing/new', class: "list-post" %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+  
