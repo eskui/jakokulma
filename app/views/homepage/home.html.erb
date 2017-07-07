@@ -13,19 +13,10 @@
                 <div class=""><i class="fa fa-search icon-arrande" aria-hidden="true"></i></div>
               </div>
               <div class="col-md-4 padding-none">
-                <%= text_field_tag 'request', nil, class: 'input-field-style text-center big-dog' ,placeholder: 'Polkupyörät'%>
+                <%= text_field_tag 'q', nil, class: 'input-field-style text-center big-dog' ,placeholder: 'Polkupyörät'%>
               </div>
               <div class="col-md-5 padding-none">
-                <%= text_field_tag 'request', nil, class: 'input-field-style text-center big-dog' ,placeholder: 'Helsinki'%>
-                <!-- <div class="dropdown">
-                  <button class="btn btn-custom dropdown-toggle drop-down-inetrior" type="button" data-toggle="dropdown">Helsinki
-                  <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                  </ul>
-                </div> -->
+                <%= text_field_tag '', nil, class: 'input-field-style text-center big-dog' ,placeholder: 'Helsinki'%>
               </div>
               <div class="col-md-2 padding-none">
                 <button type="submit" class="submit-btn-hot-style">Etsi</button>
@@ -69,69 +60,69 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 margin-top-10px">
       <div class="col-md-5 col-sm-12 col-xs-12 new-width-for-big-one">
-        <%= image_tag("/assets/cycle.png", class: "collage-image-1 collage-style") %>
+        <%=link_to (image_tag("cycle.png", class: "collage-image-1 collage-style")), '/s?category=sports' %>
       </div>
       <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-two">
-        <%= image_tag("/assets/baja.png", class: "collage-image-2 collage-style") %>
+        <%=link_to (image_tag("baja.png", class: "collage-image-2 collage-style")), '/s?category=music' %>
       </div>
       <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-three">
-        <%= image_tag("/assets/camera.png", class: "collage-image-3 collage-style") %>
+        <%=link_to (image_tag("camera.png", class: "collage-image-3 collage-style")), '/s?category=electronics'%>
       </div>
     </div>
     <div class="col-md-12 col-sm-12 second">
       <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-one">
-        <%= image_tag("/assets/sewing-mc.png", class: "collage-image-1 collage-style") %>
+        <%=link_to (image_tag("sewing-mc.png", class: "collage-image-1 collage-style")), '/s?category=handworks' %>
       </div>
       <div class="col-md-6 col-sm-6 col-xs-12 new-width-for-big-two">
-        <%= image_tag("/assets/tambu-hut.png", class: "collage-image-2 collage-style") %>
+        <%=link_to (image_tag("tambu-hut.png", class: "collage-image-2 collage-style")), '/s?category=outdoors-and-cambing' %>
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12  new-width-for-big-three">
-        <%= image_tag("/assets/seting-tool.png", class: "collage-image-3 collage-style") %>
+        <%=link_to (image_tag("seting-tool.png", class: "collage-image-3 collage-style")), '/s?category=others' %>
       </div>
     </div>
   </div>
   <!-- <div class="col-md-12 col-sm-12 margin-top-10px">
     <div class="col-md-5 col-sm-12 col-xs-12 new-width-for-big-one">
-      <%#= image_tag("/assets/urheilu.png", class: "collage-image-1 collage-style") %>
+      <%#= image_tag("urheilu.png", class: "collage-image-1 collage-style") %>
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-two">
-      <%#= image_tag("/assets/musiikki.png", class: "collage-image-2 collage-style") %>
+      <%#= image_tag("musiikki.png", class: "collage-image-2 collage-style") %>
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-three">
-      <%#= image_tag("/assets/elektroniikka.png", class: "collage-image-3 collage-style") %>
+      <%#= image_tag("elektroniikka.png", class: "collage-image-3 collage-style") %>
     </div>
   </div>
   <div class="col-md-12 col-sm-12 second">
     <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-one">
-      <%#= image_tag("/assets/askartelu.png", class: "collage-image-1 collage-style") %>
+      <%#= image_tag("askartelu.png", class: "collage-image-1 collage-style") %>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-12 new-width-for-big-two">
-      <%#= image_tag("/assets/retkeily.png", class: "collage-image-2 collage-style") %>
+      <%#= image_tag("retkeily.png", class: "collage-image-2 collage-style") %>
     </div>
     <div class="col-md-3 col-sm-12 col-xs-12  new-width-for-big-three">
-      <%#= image_tag("/assets/muut.png", class: "collage-image-3 collage-style") %>
+      <%#= image_tag("muut.png", class: "collage-image-3 collage-style") %>
     </div>
   </div> -->
   <div class="new-background-subhaeding">
     <div class="col-md-12 col-xs-12 col-sm-12 text-center"><h1 class="heading-font text-center">NÄIN SE TOIMII</h1>
     <small class="sub-heading">KAIKKEA EI TARVITSE OMISTAA voidakseen käyttää. Jakokulmassavoit vuokrata ja antaa vuokralle.</small>
     <!-- <button type="button" class="btn btn-custom katso">KATSO VIDEO</button> -->
-    <%= image_tag("/assets/katso_video.png", class: "video-btn-image") %>
+    <%#= image_tag("katso_video.png", class: "video-btn-image") %>
     </div>
   </div>
   <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-none">
     <div class="col-md-4">
-      <%= image_tag("/assets/peukku.png", class: "all-one-badges") %>
+      <%= image_tag("peukku.png", class: "all-one-badges") %>
       <h4 class="text-center color-font-weight">HELPPOA!</h4>
       <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
     </div>
     <div class="col-md-4">
-      <%= image_tag("/assets/lukko.png", class: "all-two-badges") %>
+      <%= image_tag("lukko.png", class: "all-two-badges") %>
       <h4 class="margin-top-for-balance text-center color-font-weight">Turvallista!</h4>
       <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
     </div>
     <div class="col-md-4">
-      <%= image_tag("/assets/ymparisto.png", class: "all-three-badges") %>
+      <%= image_tag("ymparisto.png", class: "all-three-badges") %>
       <h4 class="text-center color-font-weight">Ympäristöystävällistä!</h4>
       <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
     </div>
@@ -146,10 +137,10 @@
 <div class="col-sm-3">
 <div class="social-networks">
 <a class="facebook" href="https://www.facebook.com/thefoodfoundryuk/" target="_blank">
-  <%= image_tag("/assets/FB.png", class: "social-icon-width") %>
+  <%= image_tag("FB.png", class: "social-icon-width") %>
 </a>
 <a class="twitter" href="https://twitter.com/thefoodfoundry" target="_blank">
-  <%= image_tag("/assets/twitter.png", class: "social-icon-width") %>
+  <%= image_tag("twitter.png", class: "social-icon-width") %>
 </a>
 </div>
 </div>
