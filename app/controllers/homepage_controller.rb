@@ -9,8 +9,9 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
   def home
-    render layout: 'home'
+    # render layout: 'home'
   end
+  
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
