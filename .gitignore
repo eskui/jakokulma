@@ -65,6 +65,3 @@ client/node_modules
 
 # Mocha results
 test-results.xml
-config/deploy.rb
-config/deploy/*
-Capfile
