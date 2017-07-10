@@ -3,11 +3,12 @@
 <%=form_tag '/s', id: 'search_form1', method: :get do%>
   <section class="marketplace-lander">
     <div class="coverimage">
-      <figure class="marketplace-cover fluidratio" style="background-image: url('<%=Community.last.cover_photo.url(:original)%>');">
+      <figure class="marketplace-cover fluidratio" style="background-image: url('<%=Community.last.cover_photo.url(:original)%>');background-size: 100% 100%;
+    height: 376px;">
         <div class="lander-content marketplace-lander-content">
           <!-- <h1 class="marketplace-lander-content-title"><%#= community_slogan.html_safe %></h1> -->
           <p class="marketplace-lander-content-description"><%#= community_description.html_safe %></p>
-          <div class="search-form">
+          <div class="search-form margin-top-form">
             <div class="search-form-input search-form-text-field">
               <input type="text" name="q" id="q" placeholder="">
             </div>
@@ -29,8 +30,8 @@
       <small class="sub-heading">VUOKRAA harrastevälineitä tarpeesi mukaan.</small>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12 col-sm-12 margin-top-10px padding-0">
+    <div class="row width-small">
+      <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
         <div class="col-md-5 col-sm-12 col-xs-12 padding-set">
           <%= image_tag("/assets/urheilu.png", class: "width-100 width-cycle") %>
         </div>
