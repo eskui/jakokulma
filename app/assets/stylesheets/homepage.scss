@@ -261,6 +261,7 @@ button.btn.btn-custom.katso {
   text-decoration:none;
 
 }
+
 @media (min-width:1024px) and (max-width:1990px){
     .col-md-12.col-sm-12.second {
       padding-left:0px;
@@ -325,7 +326,15 @@ button.btn.btn-custom.katso {
     background: url("/assets/Jakokulma_web_mobile.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    
+  }
+  .col-md-5.padding-none .input-field-style {
+    border-bottom-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+  }
+  button.submit-btn-hot-style {
+    margin-top: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
   }
   i.fa.fa-search.icon-arrande {
       width: 100%;
