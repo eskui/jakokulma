@@ -25,7 +25,7 @@
 }
 .new-background-subhaeding {
   background: url("/assets/new-bg.png");
-  background-size: 50% 100%;
+  background-size: 60% 80%;
   background-repeat: no-repeat;
   float: none;
   margin: 0 auto;
@@ -172,10 +172,11 @@ button.btn.btn-custom.dropdown-toggle.drop-down-inetrior {
   margin-top:80px;
 }
 .heading-font {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 600;
   margin-top: 15px;
   color: #2d3b56;
+  letter-spacing:3px;
 }
 .video-btn-image {
     width: 200px;
@@ -446,4 +447,83 @@ button.btn.btn-custom.katso {
       }
   }
 }
+}
+.width-100 {
+  width:100% !important;
+}
+@media (min-width:1024px) and (max-width:1990px) {
+  .padding-0 {
+    padding:0px !important;
+  }
+  .padding-set {
+    padding:0px !important;
+    padding-right:10px !important;
+  }
+  .width-cycle {
+    width: 100%;
+    height: 197px;
+  }
+  .musikki-set {
+    margin-top: 6px;
+    width: 255px !important;
+    height: 186px;
+    margin-left: -15px;
+  }
+  .elokrikka-set {
+    margin-top: 7px;
+    width: 250px !important;
+    height: 185px;
+    margin-left: 12px;
+  }
+  .askrt-div-set {
+    padding-right: 0px !important;
+    padding-left: 10px !important;
+  }
+  .askartelu-set {
+    width: 100%;
+    height: 186px;
+  }
+  .retkilly-set {
+    padding-right: 10px !important;
+    padding-left: 15px !important;
+  }
+  .retkeily-setinng {
+    width: 100% !important;
+    height: 186px !important;
+  }
+  .mutt-set {
+    width: 100%;
+    height: 185px;
+  }
+}
+@media (min-width:320px) and (max-width:480px) {
+    .padding-set {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+    .width-cycle {
+      height:290px !important;
+    }
+    .padding-le-right {
+      padding:0px !important;
+    }
+    img.width-100.retkeily-setinng {
+      height:290px !important;
+    }
+}
+
+@media (min-width:480px) and (max-width:768px) {
+    .padding-set {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+    .width-cycle {
+      height:550px !important;
+    }
+    .padding-le-right {
+      padding:0px !important;
+    }
+    img.width-100.retkeily-setinng {
+      height:550px !important;
+    }
 }
