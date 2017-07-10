@@ -25,33 +25,55 @@
 <div class="homepage-wrapper">
   <div class="wrapper">
     <div class="picture-address">
-      <div class="col-md-12 col-xs-12 col-sm-12"><h1 class="heading-font">JAETTU TAVARA – KAKSINKERTAINEN ILO</h1>
+      <div class="col-md-12 col-xs-12 col-sm-12 padding-0"><h1 class="heading-font-first">JAETTU TAVARA – KAKSINKERTAINEN ILO</h1>
       <small class="sub-heading">VUOKRAA harrastevälineitä tarpeesi mukaan.</small>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 col-sm-12 margin-top-10px">
+      <div class="col-md-12 col-sm-12 margin-top-10px padding-0">
+        <div class="col-md-5 col-sm-12 col-xs-12 padding-set">
+          <%= image_tag("/assets/urheilu.png", class: "width-100 width-cycle") %>
+        </div>
+        <div class="col-md-3 col-sm-12 col-xs-12 padding-0 padding-le-right">
+          <%= image_tag("/assets/musiikki.png", class: "width-100 musikki-set") %>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <%= image_tag("/assets/elektroniikka.png", class: "width-100 elokrikka-set") %>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 second padding-0">
+        <div class="col-md-3 col-sm-12 col-xs-12 askrt-div-set">
+          <%= image_tag("/assets/askartelu.png", class: "width-100 askartelu-set") %>
+        </div>
+        <div class="col-md-5 col-sm-12 col-xs-12 retkilly-set">
+          <%= image_tag("/assets/retkeily.png", class: "width-100 retkeily-setinng") %>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 padding-0 padding-set">
+          <%= image_tag("/assets/muut.png", class: "width-100 mutt-set") %>
+        </div>
+      </div>
+      <!-- <div class="col-md-12 col-sm-12 margin-top-10px">
         <div class="col-md-5 col-sm-12 col-xs-12 new-width-for-big-one">
-          <%=link_to (image_tag("cycle.png", class: "collage-image-1 collage-style")), '/s?category=sports' %>
+          <%#=link_to (image_tag("cycle.png", class: "collage-image-1 collage-style")), '/s?category=sports' %>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-two">
-          <%=link_to (image_tag("baja.png", class: "collage-image-2 collage-style")), '/s?category=music' %>
+          <%#=link_to (image_tag("baja.png", class: "collage-image-2 collage-style")), '/s?category=music' %>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-three">
-          <%=link_to (image_tag("camera.png", class: "collage-image-3 collage-style")), '/s?category=electronics'%>
+          <%#=link_to (image_tag("camera.png", class: "collage-image-3 collage-style")), '/s?category=electronics'%>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 second">
         <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-one">
-          <%=link_to (image_tag("sewing-mc.png", class: "collage-image-1 collage-style")), '/s?category=handworks' %>
+          <%#=link_to (image_tag("sewing-mc.png", class: "collage-image-1 collage-style")), '/s?category=handworks' %>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 new-width-for-big-two">
-          <%=link_to (image_tag("tambu-hut.png", class: "collage-image-2 collage-style")), '/s?category=outdoors-and-cambing' %>
+          <%#=link_to (image_tag("tambu-hut.png", class: "collage-image-2 collage-style")), '/s?category=outdoors-and-cambing' %>
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12  new-width-for-big-three">
-          <%=link_to (image_tag("seting-tool.png", class: "collage-image-3 collage-style")), '/s?category=others' %>
+          <%#=link_to (image_tag("seting-tool.png", class: "collage-image-3 collage-style")), '/s?category=others' %>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="new-background-subhaeding">
       <div class="col-md-12 col-xs-12 col-sm-12 text-center"><h1 class="heading-font text-center">NÄIN SE TOIMII</h1>
@@ -75,7 +97,22 @@
         <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
       </div>
     </div>
+    
   </div>
+
+
+
+  
+  <!-- <div class="col-md-12 col-sm-12 margin-top-10px">
+    <div class="col-md-5 col-sm-12 col-xs-12 new-width-for-big-one">
+      <%#= image_tag("/assets/urheilu.png", class: "collage-image-1 collage-style") %>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-two">
+      <%#= image_tag("/assets/musiikki.png", class: "collage-image-2 collage-style") %>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12  new-width-for-big-three">
+      <%#= image_tag("/assets/elektroniikka.png", class: "collage-image-3 collage-style") %>
+    </div>
   <footer id="myFooter">
   <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="col-sm-12 color-bgd">
@@ -85,10 +122,10 @@
   <div class="col-sm-3">
   <div class="social-networks">
   <a class="facebook" href="https://www.facebook.com/thefoodfoundryuk/" target="_blank">
-    <%= image_tag("FB.png", class: "social-icon-width") %>
+    <%#= image_tag("FB.png", class: "social-icon-width") %>
   </a>
   <a class="twitter" href="https://twitter.com/thefoodfoundry" target="_blank">
-    <%= image_tag("twitter.png", class: "social-icon-width") %>
+    <%#= image_tag("twitter.png", class: "social-icon-width") %>
   </a>
   </div>
   </div>
