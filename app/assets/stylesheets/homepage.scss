@@ -1,4 +1,12 @@
-section.content-section.video-section {
+.landing-page{
+  .marketplace-lander .search-form{
+    margin-bottom: 4em !important;
+  }
+}
+.homepage-wrapper {
+    font-size: 87.5%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  section.content-section.video-section {
   background: url("/assets/Sukset kuva_fix_web.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -438,25 +446,4 @@ button.btn.btn-custom.katso {
       }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
