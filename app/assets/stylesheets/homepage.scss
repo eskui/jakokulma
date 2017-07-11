@@ -526,6 +526,11 @@ button.btn.btn-custom.katso {
     img.width-100.retkeily-setinng {
       height:290px !important;
     }
+    div.one {
+      img {
+        height:290px !important;
+      }
+    }
 }
 
 @media (min-width:480px) and (max-width:768px) {
@@ -542,5 +547,6 @@ button.btn.btn-custom.katso {
     img.width-100.retkeily-setinng {
       height:550px !important;
     }
+    
     
 }
