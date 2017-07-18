@@ -195,15 +195,20 @@ button.btn.btn-custom.dropdown-toggle.drop-down-inetrior {
 .all-one-badges {
   width:100%;
   padding:35px;
+  padding-bottom:0px;
+}
+.margin-btm-50px {
+  margin-bottom:50px;
 }
 .all-three-badges {
   width:100%;
   padding:35px;
+  padding-bottom:0px;
 }
 .all-two-badges {
   width:100%;
-  padding:20px;
-  margin-top:10px;
+  padding:35px;
+  padding-bottom:0px;
 }
 .color-paragraph {
   color: #2d3b56;
@@ -250,7 +255,7 @@ p.footer-info {
   background-color: #959b5f;
 }
 .margin-top-for-balance {
-  margin-top:15px;
+  margin-top:10px;
 }
 .color-font-weight {
   color: #2d3b56;
@@ -302,7 +307,7 @@ button.btn.btn-custom.katso {
       width: 29%;
     }
     .margin-top-10px {
-      margin-top:20px;
+      margin-top:5px;
     }
     .collage-style {
       width:100%;
