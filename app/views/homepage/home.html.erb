@@ -53,24 +53,24 @@
     <div class="row width-small">
       <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
         <div class="col-md-5 col-sm-12 col-xs-12 padding-set one">
-          <%= image_tag("/assets/urheilu.png", class: "width-100 width-cycle") %>
+          <%=link_to (image_tag("/assets/urheilu.png", class: "width-100 width-cycle")), '/s?category=sports' %>
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12 padding-0 padding-le-right one">
-          <%= image_tag("/assets/musiikki.png", class: "width-100 musikki-set") %>
+          <%=link_to (image_tag("/assets/musiikki.png", class: "width-100 musikki-set")), '/s?category=music' %>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 one">
-          <%= image_tag("/assets/elektroniikka.png", class: "width-100 elokrikka-set") %>
+          <%=link_to (image_tag("/assets/elektroniikka.png", class: "width-100 elokrikka-set")), '/s?category=electronics' %>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 second padding-0 one">
         <div class="col-md-3 col-sm-12 col-xs-12 askrt-div-set">
-          <%= image_tag("/assets/askartelu.png", class: "width-100 askartelu-set") %>
+          <%=link_to (image_tag("/assets/askartelu.png", class: "width-100 askartelu-set")), '/s?category=handworks' %>
         </div>
         <div class="col-md-5 col-sm-12 col-xs-12 retkilly-set one">
-          <%= image_tag("/assets/retkeily.png", class: "width-100 retkeily-setinng") %>
+          <%=link_to (image_tag("/assets/retkeily.png", class: "width-100 retkeily-setinng")), '/s?category=outdoors-and-cambing' %>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 padding-0 padding-set one">
-          <%= image_tag("/assets/muut.png", class: "width-100 mutt-set") %>
+          <%=link_to (image_tag("/assets/muut.png", class: "width-100 mutt-set")), '/s?category=others' %>
         </div>
       </div>
     </div>
