@@ -179,5 +179,18 @@ select{
   border-radius: 5px;
 }
 .search-form.margin-top-form {
-    margin-top: 5.75em !important;
+      margin-top: 6.50em !important;
+}
+@media (min-width:320px) and (max-width:768px){
+  .display-none-at-small {
+    display:none !important;
+  }
+  .search-form.margin-top-form {
+      margin-top: 4.75em !important;
+  }
+}
+@media (min-width:768px) and (max-width:1990px) {
+  .display-none-at-big {
+    display:none !important;
+  }
 }
