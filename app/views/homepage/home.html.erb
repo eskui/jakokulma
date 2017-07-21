@@ -53,24 +53,49 @@
     <div class="row width-small">
       <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
         <div class="col-md-5 col-sm-12 col-xs-12 padding-set one">
-          <%=link_to (image_tag("/assets/urheilu.png", class: "width-100 width-cycle")), '/s?category=sports' %>
+        <div class="div-one-background div-one-mobile">
+          <div>
+          <%=link_to (image_tag("/assets/urhielu2.png", class: "div-one-image width-100 width-cycle")), '/s?category=cycle' %>
+         </div>
+        </div>
         </div>
         <div class="col-md-3 col-sm-12 col-xs-12 padding-0 padding-le-right one">
-          <%=link_to (image_tag("/assets/musiikki.png", class: "width-100 musikki-set")), '/s?category=music' %>
+        <!--  <div class="div-one-background1"> -->
+          <div class="div-one-background1">
+          <%=link_to (image_tag("/assets/musiikki2.png", class: "div-one-image1 width-100 musikki-set")), '/s?category=music' %>
+         </div>
+     <!--    </div> -->
+         
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 one">
-          <%=link_to (image_tag("/assets/elektroniikka.png", class: "width-100 elokrikka-set")), '/s?category=electronics' %>
+         <div class="div-one-background2">
+          <div>
+          <%=link_to (image_tag("/assets/elektronikka2.png", class: "div-one-image2 width-100 elokrikka-set")), '/s?category=electronics' %>
+         </div>
+        </div>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 second padding-0 one">
         <div class="col-md-3 col-sm-12 col-xs-12 askrt-div-set">
-          <%=link_to (image_tag("/assets/askartelu.png", class: "width-100 askartelu-set")), '/s?category=handworks' %>
+         <div class="div-one-background3">
+          <div>
+          <%=link_to (image_tag("/assets/askartelu2.png", class: "div-one-image3 width-100 askartelu-set")), '/s?category=handworks' %>
+         </div>
+        </div>
         </div>
         <div class="col-md-5 col-sm-12 col-xs-12 retkilly-set one">
-          <%=link_to (image_tag("/assets/retkeily.png", class: "width-100 retkeily-setinng")), '/s?category=outdoors-and-cambing' %>
+        <div class="div-one-background4">
+          <div>
+          <%=link_to (image_tag("/assets/retkeily2.png", class: "div-one-image4 width-100 retkeily-setinng")), '/s?category=outdoors-and-cambing' %>
+         </div>
+        </div>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12 padding-0 padding-set one">
-          <%=link_to (image_tag("/assets/muut.png", class: "width-100 mutt-set")), '/s?category=others' %>
+        <div class="div-one-background5">
+          <div>
+          <%=link_to (image_tag("/assets/muut2.png", class: "div-one-image5 width-100 mutt-set")), '/s?category=others' %>
+         </div>
+        </div>
         </div>
       </div>
     </div>
@@ -139,3 +164,62 @@
     </div>
   </footer>
 </div>
+
+<%- content_for :extra_javascript do%>
+  <script>
+    $(document).ready(function(){
+      $(".div-one-background").mouseenter(function(){
+          $(".div-one-image").show();
+      });
+       $(".div-one-background").mouseleave(function(){
+          $(".div-one-image").hide();
+      });
+    });
+
+    $(document).ready(function(){
+      $(".div-one-background1").mouseenter(function(){
+          $(".div-one-image1").show();
+      });
+       $(".div-one-background1").mouseleave(function(){
+          $(".div-one-image1").hide();
+      });
+    });
+
+    $(document).ready(function(){
+      $(".div-one-background2").mouseenter(function(){
+          $(".div-one-image2").show();
+      });
+       $(".div-one-background2").mouseleave(function(){
+          $(".div-one-image2").hide();
+      });
+    });
+
+    $(document).ready(function(){
+      $(".div-one-background3").mouseenter(function(){
+          $(".div-one-image3").show();
+      });
+       $(".div-one-background3").mouseleave(function(){
+          $(".div-one-image3").hide();
+      });
+    });
+
+     $(document).ready(function(){
+      $(".div-one-background4").mouseenter(function(){
+          $(".div-one-image4").show();
+      });
+       $(".div-one-background4").mouseleave(function(){
+          $(".div-one-image4").hide();
+      });
+    });
+
+      $(document).ready(function(){
+      $(".div-one-background5").mouseenter(function(){
+          $(".div-one-image5").show();
+      });
+       $(".div-one-background5").mouseleave(function(){
+          $(".div-one-image5").hide();
+      });
+    });
+
+  </script>
+<%end%>
