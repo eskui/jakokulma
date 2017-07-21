@@ -1,47 +1,46 @@
 <%=stylesheet_link_tag 'bootstrap'%>
 <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-<%=form_tag '/s', id: 'search_form1', method: :get do%>
 <section class="marketplace-lander">
-  <div class="coverimage">
-    <figure class="marketplace-cover fluidratio display-none-at-small" style="background-image: url('<%=Community.last.cover_photo.url(:original)%>');background-size: 100% 100%;
-      height: 376px;">
-      <div class="lander-content marketplace-lander-content">
-        <!-- <h1 class="marketplace-lander-content-title"><%#= community_slogan.html_safe %></h1> -->
-        <p class="marketplace-lander-content-description"><%#= community_description.html_safe %></p>
-        <div class="search-form margin-top-form">
-          <div class="search-form-input search-form-text-field">
-            <input type="text" name="q" id="q" placeholder="">
-          </div>
-          <div class="search-form-input">
-            <button class="action-button" id="search-button" type="submit">
-            <i class="ss-search icon-part"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </figure>
-  </div>
-  <div class="coverimage">
-    <!-- <figure class="marketplace-cover fluidratio display-none-at-big" style="background-image: url('<%#=Community.last.cover_photo.url(:original)%>');"> -->
-    <figure class="marketplace-cover fluidratio display-none-at-big" style="background-image: url('assets/Jakokulma_web_mobile.jpg');background-size: 100% 100%; height: 350px;">
-      <div class="lander-content marketplace-lander-content">
-        <!-- <h1 class="marketplace-lander-content-title"><%#= community_slogan.html_safe %></h1> -->
-        <p class="marketplace-lander-content-description"><%#= community_description.html_safe %></p>
-        <div class="search-form margin-top-form">
-          <div class="search-form-input search-form-text-field">
-            <input type="text" name="q" id="q" placeholder="">
-          </div>
-          <div class="search-form-input">
-            <button class="action-button" id="search-button" type="submit">
-            <i class="ss-search icon-part"></i>
-            </button>
+  <%=form_tag '/s', id: 'search_form1', method: :get do%>
+    <div class="coverimage">
+      <figure class="marketplace-cover fluidratio display-none-at-small" style="background-image: url('<%=Community.last.cover_photo.url(:original)%>');background-size: 100% 100%;
+        height: 376px;">
+        <div class="lander-content marketplace-lander-content">
+          <p class="marketplace-lander-content-description"></p>
+          <div class="search-form margin-top-form">
+            <div class="search-form-input search-form-text-field">
+              <input type="text" name="q" placeholder="<%=(@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")%>">
+            </div>
+            <div class="search-form-input">
+              <button class="action-button" type="submit">
+              <i class="ss-search icon-part"></i>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </figure>
-  </div>
+      </figure>
+    </div>
+  <%end%>
+  <%=form_tag '/s', id: 'search_form2', method: :get do%>
+    <div class="coverimage">
+      <figure class="marketplace-cover fluidratio display-none-at-big" style="background-image: url('assets/Jakokulma_web_mobile.jpg');background-size: 100% 100%; height: 350px;">
+        <div class="lander-content marketplace-lander-content">
+          <p class="marketplace-lander-content-description"></p>
+          <div class="search-form margin-top-form">
+            <div class="search-form-input search-form-text-field">
+              <input type="text" name="q" placeholder="<%=(@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")%>">
+            </div>
+            <div class="search-form-input">
+              <button class="action-button" type="submit">
+              <i class="ss-search icon-part"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  <%end%>
 </section>
-<%end%>
 <div class="homepage-wrapper">
   <div class="wrapper">
     <div class="picture-address">
