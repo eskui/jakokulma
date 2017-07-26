@@ -186,11 +186,18 @@ select{
     display:none !important;
   }
   .search-form.margin-top-form {
-      margin-top: 4.75em !important;
+      margin-top: 6.75em !important;
   }
 }
+
 @media (min-width:768px) and (max-width:1990px) {
   .display-none-at-big {
     display:none !important;
   }
 }
+@media (min-width: 1240px) and (max-width: 2050px) {
+    .wrapper.wrapper-for-big-screen {
+        max-width: 74em !important;
+    }
+}
+

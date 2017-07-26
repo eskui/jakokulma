@@ -1,104 +1,162 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <%=stylesheet_link_tag 'bootstrap'%>
 <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 <section class="marketplace-lander">
   <%=form_tag '/s', id: 'search_form1', method: :get do%>
-    <div class="coverimage">
-      <figure class="marketplace-cover fluidratio display-none-at-small" style="background-image: url('<%=Community.last.cover_photo.url(:original)%>');background-size: 100% 100%;
-        height: 376px;">
-        <div class="lander-content marketplace-lander-content">
-          <p class="marketplace-lander-content-description"></p>
-          <div class="search-form margin-top-form">
-            <div class="search-form-input search-form-text-field">
-              <input type="text" name="q" placeholder="<%=(@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")%>">
-            </div>
-            <div class="search-form-input">
-              <button class="action-button" type="submit">
-              <i class="ss-search icon-part"></i>
-              </button>
-            </div>
+  <div class="coverimage">
+    <figure class="marketplace-cover fluidratio display-none-at-small" style="background-image: url('<%=Community.last.cover_photo.url(:original)%>');background-size: 100% 100%;
+      height: 425px;">
+      <div class="lander-content marketplace-lander-content">
+        <p class="marketplace-lander-content-description"></p>
+        <div class="search-form margin-top-form">
+          <div class="search-form-input search-form-text-field">
+            <input type="text" name="q" placeholder="<%=(@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")%>">
+          </div>
+          <div class="search-form-input">
+            <button class="action-button" type="submit">
+            <i class="ss-search icon-part"></i>
+            </button>
           </div>
         </div>
-      </figure>
-    </div>
+      </div>
+    </figure>
+  </div>
   <%end%>
   <%=form_tag '/s', id: 'search_form2', method: :get do%>
-    <div class="coverimage">
-      <figure class="marketplace-cover fluidratio display-none-at-big" style="background-image: url('assets/Jakokulma_web_mobile.jpg');background-size: 100% 100%; height: 350px;">
-        <div class="lander-content marketplace-lander-content">
-          <p class="marketplace-lander-content-description"></p>
-          <div class="search-form margin-top-form">
-            <div class="search-form-input search-form-text-field">
-              <input type="text" name="q" placeholder="<%=(@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")%>">
-            </div>
-            <div class="search-form-input">
-              <button class="action-button" type="submit">
-              <i class="ss-search icon-part"></i>
-              </button>
-            </div>
+  <div class="coverimage">
+    <figure class="marketplace-cover fluidratio display-none-at-big" style="background-image: url('assets/Jakokulma_web_mobile.jpg');background-size: 100% 100%; height: 390px;">
+      <div class="lander-content marketplace-lander-content">
+        <p class="marketplace-lander-content-description"></p>
+        <div class="search-form margin-top-form">
+          <div class="search-form-input search-form-text-field">
+            <input type="text" name="q" placeholder="<%=(@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")%>">
+          </div>
+          <div class="search-form-input">
+            <button class="action-button" type="submit">
+            <i class="ss-search icon-part"></i>
+            </button>
           </div>
         </div>
-      </figure>
-    </div>
+      </div>
+    </figure>
+  </div>
   <%end%>
 </section>
 <div class="homepage-wrapper">
-  <div class="wrapper">
+  <div class="wrapper wrapper-for-big-screen">
     <div class="picture-address">
       <div class="col-md-12 col-xs-12 col-sm-12 padding-0">
-        <h1 class="heading-font-first">JAETTU TAVARA – KAKSINKERTAINEN ILO</h1>
+        <h1 class="heading-font-first text-center">JAETTU TAVARA – KAKSINKERTAINEN ILO</h1>
         <small class="sub-heading">VUOKRAA harrastevälineitä tarpeesi mukaan.</small>
       </div>
     </div>
     <div class="row width-small">
-      <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
-        <div class="col-md-5 col-sm-12 col-xs-12 padding-set one">
-        <div class="div-one-background div-one-mobile">
-          <div>
-          <%=link_to (image_tag("/assets/urhielu2.png", class: "div-one-image width-100 width-cycle")), '/s?category=cycle' %>
-         </div>
+      <div class="display-none-at-ipad">
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
+          <div class="col-md-5 col-sm-7 col-xs-12 padding-set one">
+            <div class="div-one-background div-one-mobile">
+              <div>
+                <%=link_to (image_tag("/assets/urhielu2.png", class: "div-one-image width-100 width-cycle")), '/s?category=cycle' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12 col-xs-12 padding-0 padding-le-right one">
+            <!--  <div class="div-one-background1"> -->
+            <div class="div-one-background1">
+              <%=link_to (image_tag("/assets/musiikki2.png", class: "div-one-image1 width-100 musikki-set")), '/s?category=music' %>
+            </div>
+            <!--    </div> -->
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12 one">
+            <div class="div-one-background2">
+              <div>
+                <%=link_to (image_tag("/assets/elektronikka2.png", class: "div-one-image2 width-100 elokrikka-set")), '/s?category=electronics' %>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        <div class="col-md-3 col-sm-12 col-xs-12 padding-0 padding-le-right one">
-        <!--  <div class="div-one-background1"> -->
-          <div class="div-one-background1">
-          <%=link_to (image_tag("/assets/musiikki2.png", class: "div-one-image1 width-100 musikki-set")), '/s?category=music' %>
-         </div>
-     <!--    </div> -->
-         
-        </div>
-        <div class="col-md-4 col-sm-12 col-xs-12 one">
-         <div class="div-one-background2">
-          <div>
-          <%=link_to (image_tag("/assets/elektronikka2.png", class: "div-one-image2 width-100 elokrikka-set")), '/s?category=electronics' %>
-         </div>
-        </div>
+        <div class="col-md-12 col-sm-12 second padding-0 one">
+          <div class="col-md-3 col-sm-12 col-xs-12 askrt-div-set">
+            <div class="div-one-background3">
+              <div>
+                <%=link_to (image_tag("/assets/askartelu2.png", class: "div-one-image3 width-100 askartelu-set")), '/s?category=handworks' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-12 col-xs-12 retkilly-set one">
+            <div class="div-one-background4">
+              <div>
+                <%=link_to (image_tag("/assets/retkeily2.png", class: "div-one-image4 width-100 retkeily-setinng")), '/s?category=outdoors-and-cambing' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12 padding-0 padding-set one">
+            <div class="div-one-background5">
+              <div>
+                <%=link_to (image_tag("/assets/muut2.png", class: "div-one-image5 width-100 mutt-set")), '/s?category=others' %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-12 col-sm-12 second padding-0 one">
-        <div class="col-md-3 col-sm-12 col-xs-12 askrt-div-set">
-         <div class="div-one-background3">
-          <div>
-          <%=link_to (image_tag("/assets/askartelu2.png", class: "div-one-image3 width-100 askartelu-set")), '/s?category=handworks' %>
-         </div>
+
+
+
+
+
+
+      <div class="col-sm-12 display-none-at-big-and-mobile">
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
+          <div class="col-sm-7 col-xs-12 padding-set one">
+            <div class="div-one-background div-one-mobile">
+              <div>
+                <%=link_to (image_tag("/assets/urhielu2.png", class: "div-one-image width-100 width-cycle")), '/s?category=cycle' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 col-xs-12 padding-0 padding-le-right one">
+            <!--  <div class="div-one-background1"> -->
+            <div class="div-one-background2">
+              <div>
+                <%=link_to (image_tag("/assets/elektronikka2.png", class: "div-one-image2 width-100 elokrikka-set")), '/s?category=electronics' %>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-10px padding-0">
+          <div class="col-sm-4 col-xs-12">
+            <div class="div-one-background3">
+              <div>
+                <%=link_to (image_tag("/assets/askartelu2.png", class: "div-one-image3 width-100 askartelu-set")), '/s?category=handworks' %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8 col-xs-12 retkilly-set one">
+            <div class="div-one-background4">
+              <div>
+                <%=link_to (image_tag("/assets/retkeily2.png", class: "div-one-image4 width-100 retkeily-setinng")), '/s?category=outdoors-and-cambing' %>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-5 col-sm-12 col-xs-12 retkilly-set one">
-        <div class="div-one-background4">
-          <div>
-          <%=link_to (image_tag("/assets/retkeily2.png", class: "div-one-image4 width-100 retkeily-setinng")), '/s?category=outdoors-and-cambing' %>
-         </div>
-        </div>
-        </div>
-        <div class="col-md-4 col-sm-12 col-xs-12 padding-0 padding-set one">
-        <div class="div-one-background5">
-          <div>
-          <%=link_to (image_tag("/assets/muut2.png", class: "div-one-image5 width-100 mutt-set")), '/s?category=others' %>
-         </div>
-        </div>
+        <div class="col-md-12 col-sm-12 second padding-0">
+          <div class="col-sm-6 col-xs-12 askrt-div-set one">
+            <div class="div-one-background1">
+              <%=link_to (image_tag("/assets/musiikki2.png", class: "div-one-image1 width-100 musikki-set")), '/s?category=music' %>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-12 padding-0 padding-set one">
+            <div class="div-one-background5">
+              <div>
+                <%=link_to (image_tag("/assets/muut2.png", class: "div-one-image5 width-100 mutt-set")), '/s?category=others' %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="new-background-subhaeding">
+    <div class="col-sm-12 new-background-subhaeding">
       <div class="col-md-12 col-xs-12 col-sm-12 text-center">
         <h1 class="heading-font text-center">NÄIN SE TOIMII</h1>
         <small class="sub-heading">KAIKKEA EI TARVITSE OMISTAA voidakseen käyttää. Jakokulmassavoit vuokrata ja antaa vuokralle.</small>
@@ -108,17 +166,17 @@
       <div class="col-md-4">
         <%= image_tag("peukku.png", class: "all-one-badges") %>
         <h4 class="text-center color-font-weight">HELPPOA!</h4>
-        <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
+        <p class="text-center color-paragraph">...koska eri tuoteryhmien vuokraaminen on mahdollista yhden sivuston kautta muutamalla klikkauksella, ja maksaminen hoituu sähköisesti.</p>
       </div>
       <div class="col-md-4">
         <%= image_tag("lukko.png", class: "all-two-badges") %>
         <h4 class="margin-top-for-balance text-center color-font-weight">Turvallista!</h4>
-        <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
+        <p class="text-center color-paragraph">...kaikille osapuolille. Edellytämme \ vuokralle ottavalta käyttäjältä kotivakuutusta ja varmistamme henkilöllisyyden maksutapahtuman yhteydessä. Rahat tilitetään vasta vuokrajakson lopussa.</p>
       </div>
       <div class="col-md-4">
         <%= image_tag("ymparisto.png", class: "all-three-badges") %>
         <h4 class="text-center color-font-weight">Ympäristöystävällistä!</h4>
-        <p class="text-center color-paragraph">Otatium re pa quibusam alitas etvoluptur, evelique volum derumqui blabo. evelique volum derutesto temodi isqui ratur.</p>
+        <p class="text-center color-paragraph">...koska jakaminen on aito vaihtoehto ostamiselle. Yksi jaettu tavara enemmän voi olla yksi ostettu tavara vähemmän.</p>
       </div>
     </div>
   </div>
@@ -129,10 +187,10 @@
         </div>
         <div class="col-sm-3">
           <div class="social-networks">
-            <a class="facebook" href="#" target="_blank">
+            <a class="facebook" href="https://www.facebook.com/jakokulma" target="_blank">
             <%= image_tag("FB.png", class: "social-icon-width") %>
             </a>
-            <a class="twitter" href="#" target="_blank">
+            <a class="twitter" href="https://twitter.com/jakokulma" target="_blank">
             <%= image_tag("twitter.png", class: "social-icon-width") %>
             </a>
           </div>
@@ -163,62 +221,61 @@
     </div>
   </footer>
 </div>
-
 <%- content_for :extra_javascript do%>
-  <script>
+<script>
+  $(document).ready(function(){
+    $(".div-one-background").mouseenter(function(){
+        $(".div-one-image").show();
+    });
+     $(".div-one-background").mouseleave(function(){
+        $(".div-one-image").hide();
+    });
+  });
+  
+  $(document).ready(function(){
+    $(".div-one-background1").mouseenter(function(){
+        $(".div-one-image1").show();
+    });
+     $(".div-one-background1").mouseleave(function(){
+        $(".div-one-image1").hide();
+    });
+  });
+  
+  $(document).ready(function(){
+    $(".div-one-background2").mouseenter(function(){
+        $(".div-one-image2").show();
+    });
+     $(".div-one-background2").mouseleave(function(){
+        $(".div-one-image2").hide();
+    });
+  });
+  
+  $(document).ready(function(){
+    $(".div-one-background3").mouseenter(function(){
+        $(".div-one-image3").show();
+    });
+     $(".div-one-background3").mouseleave(function(){
+        $(".div-one-image3").hide();
+    });
+  });
+  
+   $(document).ready(function(){
+    $(".div-one-background4").mouseenter(function(){
+        $(".div-one-image4").show();
+    });
+     $(".div-one-background4").mouseleave(function(){
+        $(".div-one-image4").hide();
+    });
+  });
+  
     $(document).ready(function(){
-      $(".div-one-background").mouseenter(function(){
-          $(".div-one-image").show();
-      });
-       $(".div-one-background").mouseleave(function(){
-          $(".div-one-image").hide();
-      });
+    $(".div-one-background5").mouseenter(function(){
+        $(".div-one-image5").show();
     });
-
-    $(document).ready(function(){
-      $(".div-one-background1").mouseenter(function(){
-          $(".div-one-image1").show();
-      });
-       $(".div-one-background1").mouseleave(function(){
-          $(".div-one-image1").hide();
-      });
+     $(".div-one-background5").mouseleave(function(){
+        $(".div-one-image5").hide();
     });
-
-    $(document).ready(function(){
-      $(".div-one-background2").mouseenter(function(){
-          $(".div-one-image2").show();
-      });
-       $(".div-one-background2").mouseleave(function(){
-          $(".div-one-image2").hide();
-      });
-    });
-
-    $(document).ready(function(){
-      $(".div-one-background3").mouseenter(function(){
-          $(".div-one-image3").show();
-      });
-       $(".div-one-background3").mouseleave(function(){
-          $(".div-one-image3").hide();
-      });
-    });
-
-     $(document).ready(function(){
-      $(".div-one-background4").mouseenter(function(){
-          $(".div-one-image4").show();
-      });
-       $(".div-one-background4").mouseleave(function(){
-          $(".div-one-image4").hide();
-      });
-    });
-
-      $(document).ready(function(){
-      $(".div-one-background5").mouseenter(function(){
-          $(".div-one-image5").show();
-      });
-       $(".div-one-background5").mouseleave(function(){
-          $(".div-one-image5").hide();
-      });
-    });
-
-  </script>
+  });
+  
+</script>
 <%end%>

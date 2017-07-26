@@ -1,1175 +1,947 @@
-.landing-page{
-  .marketplace-lander .search-form{
-    margin-bottom: 4em !important;
-  }
+.landing-page {
+    .marketplace-lander .search-form {
+        margin-bottom: 4em !important;
+    }
 }
 .homepage-wrapper {
     font-size: 87.5%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  section.content-section.video-section {
-  background: url("/assets/Sukset kuva_fix_web.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+    section.content-section.video-section {
+        background: url("/assets/Sukset kuva_fix_web.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .picture-address {
+        background: url("/assets/otsikon-tausta_turkoosi.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 60px;
+        width: 80%;
+        float: none;
+        margin: 0 auto;
+        margin-top: 60px;
+    }
+    .new-background-subhaeding {
+        background: url("/assets/new-bg.png");
+        background-size: 60% 80%;
+        background-repeat: no-repeat;
+        float: none;
+        margin: 0 auto;
+        margin-top: 60px;
+        height: 60px;
+        background-position: center;
+    }
+    .div-one-background {
+        background-image: url("/assets/urheilu.png");
+        height: 186px;
+        width: 98%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 3px;
+    }
+    .div-one-image {
+        height: 194px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+    }
+    .div-one-background1 {
+        background-image: url("/assets/musiikki.png");
+        margin-top: 7px;
+        width: 269px !important;
+        height: 186px;
+        margin-left: -26px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .div-one-image1 {
+        margin-top: 1px;
+        width: 279px !important;
+        height: 185px;
+        margin-left: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+    }
+    .div-one-background2 {
+        background-image: url("/assets/elektroniikka.png");
+        height: 186px;
+        width: 91%;
+        margin-top: 6px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 16px;
+    }
+    .div-one-image2 {
+        height: 187px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .div-one-background3 {
+        background-image: url("/assets/askartelu.png");
+        height: 186px;
+        width: 97%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .div-one-image3 {
+        height: 186px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+    }
+    .div-one-background4 {
+        background-image: url("/assets/retkeily.png");
+        height: 186px;
+        width: 103%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: -7px;
+    }
+    .div-one-image4 {
+        height: 200px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+    }
+    .div-one-background5 {
+        background-image: url("/assets/muut.png");
+        height: 186px;
+        width: 98%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .div-one-image5 {
+        height: 186px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: none;
+    }
+    body {
+        color: #676767;
+        font-family: 'Righteous', cursive !important;
+        letter-spacing: 1px;
+    }
+    a {
+        text-decoration: none;
+    }
+    .video-section .pattern-overlay {
+        padding: 100px 0 32px;
+        min-height: 450px;
+    }
+    .video-section h1,
+    .video-section h3 {
+        text-align: center;
+        color: #fff;
+    }
+    .video-section h1 {
+        font-style: inherit;
+        font-size: 65px;
+        font-family: "Proxima Nova SOft";
+        text-shadow: 1px 1px 1px #000;
+        -webkit-text-shadow: 1px 1px 1px #000;
+        -moz-text-shadow: 1px 1px 1px #000;
+        line-height: 65px;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .video-section h3 {
+        font-size: 26px;
+        font-weight: bolder;
+        font-family: "Proxima Nova SOft";
+    }
+    .video-section .buttonBar {
+        display: none;
+    }
+    .player {
+        font-size: 1px;
+    }
+    .styling-header {
+        background-color: #fff;
+        padding: 15px;
+        margin-bottom: 0px !important;
+        padding-left: 18%;
+        padding-bottom: 0px;
+    }
+    .header_icon {
+        width: 125px;
+        height: 60px;
+        margin-top: -10px;
+    }
+    .list-color-active,
+    .list-color-active:hover,
+    .list-color-active:active,
+    .list-color-active:focus {
+        color: #91c8e0;
+        font-weight: 600;
+        background-color: #fff !important;
+    }
+    .nav-list-top {
+        margin-top: 15px !important;
+    }
+    .list-color-normal,
+    .list-color-normal:hover,
+    .list-color-normal:focus,
+    .list-color-normal:active {
+        color: #103857;
+        font-weight: 600;
+        background-color: #fff !important;
+    }
+    .collpase-button-style,
+    .collpase-button-style:hover,
+    .collpase-button-style:focus,
+    .collpase-button-style:active,
+    .collpase-button-style:visited {
+        background-color: #91c8e0 !important;
+    }
+    .color-blue {
+        background: #2e3c57;
+    }
+    .padding-none {
+        padding: 0px !important;
+    }
+    .icon-arrande {
+        color: #fff;
+        font-size: 34px !important;
+        background: #60cae1;
+        transform: scaleX(-1);
+        padding: 4px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    input[type="text"].big-dog::-webkit-input-placeholder {
+        color: #2d3b56;
+    }
+    .input-field-style,
+    .input-field-style:hover,
+    .input-field-style:focus,
+    .input-field-style:active {
+        border: none !important;
+        border-radius: 0px !important;
+        outline: none;
+        background: #fff;
+        color: #2d3b56 !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        outline: none;
+        letter-spacing: 2px;
+    }
+    .col-md-5.padding-none {
+        border-left: 1px solid #60cae1;
+        .input-field-style, .input-field-style:hover, .input-field-style:focus, .input-field-style:active {
+            border: none !important;
+            border-radius: 0px !important;
+            outline: none;
+            letter-spacing: 2px;
+        }
+    }
+    .submit-btn-hot-style,
+    .submit-btn-hot-style:hover,
+    .submit-btn-hot-style:focus,
+    .submit-btn-hot-style:active {
+        width: 100%;
+        border-radius: 0px;
+        height: 42px;
+        background-color: #2d3b56;
+        color: #fff;
+        font-weight: 600;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        outline: none;
+    }
+    button.btn.btn-custom.dropdown-toggle.drop-down-inetrior {
+        width: 100%;
+        border: none;
+        border-radius: 0px;
+        background: #fff;
+        color: #2d3b56;
+        font-weight: 600;
+        text-align: left;
+        height: 42px;
+        outline: none;
+        letter-spacing: 2px;
+        padding-left: 40px;
+    }
+    .margin-top-160px {
+        margin-top: 80px;
+    }
+    .heading-font-first {
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 15px;
+        color: #2d3b56;
+        letter-spacing: 2px;
+    }
+    .heading-font {
+        font-size: 32px;
+        font-weight: 600;
+        margin-top: 15px;
+        color: #2d3b56;
+        letter-spacing: 3px;
+    }
+    .video-btn-image {
+        width: 200px;
+        height: 30px;
+        margin-top: 20px;
+    }
+    .all-one-badges {
+        width: 100%;
+        padding: 35px;
+        padding-bottom: 0px;
+    }
+    .margin-btm-50px {
+        margin-bottom: 50px;
+    }
+    .all-three-badges {
+        width: 100%;
+        padding: 35px;
+        padding-bottom: 0px;
+    }
+    .all-two-badges {
+        width: 100%;
+        padding: 35px;
+        padding-bottom: 0px;
+    }
+    .color-paragraph {
+        color: #2d3b56;
+    }
+    .social-icon-width {
+        width: 70px;
+    }
+    .color-white,
+    .color-white:hover {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .col-sm-3 {
+        .social-networks {
+            display: flex;
+        }
+    }
+    p.footer-info {
+        margin-top: 10px;
+        color: #203857;
+    }
+    .margin-top-few {
+        margin-top: 15px;
+    }
+    .border-and-text-color {
+        border-left: 2px solid #fff;
+        a, a:hover {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
+    .modal-store,
+    .modal-store:hover,
+    .modal-store:focus,
+    .modal-store:active {
+        background: transparent !important;
+        color: #91c8e0 !important;
+        border: none !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+        margin-top: 6px;
+        outline: none !important;
+    }
+    .color-bgd {
+        background-color: #959b5f;
+    }
+    .margin-top-for-balance {
+        margin-top: 10px;
+    }
+    .color-font-weight {
+        color: #2d3b56;
+        font-weight: 600;
+    }
+    .sub-heading {
+        color: #2d3b56;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+    button.btn.btn-custom.katso {
+        background-color: #2d3b56;
+        color: #fff;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+    .list-post,
+    .list-post:hover {
+        background-color: #2d3b56 !important;
+        padding-bottom: 7px !important;
+        margin-top: 5px;
+        padding-top: 8px !important;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+    }
+    @media (min-width: 1024px) {
+        .col-md-12.col-sm-12.second {
+            padding-left: 0px;
+            padding-right: 15px;
+        }
+        .col-md-1.padding-none.width-my {
+            width: 5.3333% !important;
+        }
+        .col-md-5.new-width-for-big-one {
+            width: 40%;
+            padding-right: 0px;
+        }
+        .col-md-3.new-width-for-big-two {
+            width: 31%;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .col-md-3.new-width-for-big-three {
+            padding-left: 0px;
+            width: 29%;
+        }
+        .margin-top-10px {
+            margin-top: 5px;
+        }
+        .collage-style {
+            width: 100%;
+            height: 175px;
+        }
+        .col-md-12.col-sm-12.second {
+            .col-md-3.new-width-for-big-one {
+                width: 27%;
+                padding: 0px;
+            }
+            img.collage-image-1.collage-style {
+                height: 173px;
+                width: 100%;
+            }
+            .col-md-6.new-width-for-big-two {
+                width: 42%;
+                padding: 0px;
+            }
+            img.collage-image-2.collage-style {
+                width: 100%;
+                height: 175px;
+            }
+            .col-md-3.new-width-for-big-three {
+                padding-left: 0px;
+                width: 31%;
+            }
+            img.collage-image-3.collage-style {
+                height: 172px;
+                width: 100%;
+            }
+        }
+    }
+    @media (min-width: 320px) and (max-width: 768px) {
+        .styling-header {
+            padding-left: 0px;
+            padding-bottom: 15px;
+        }
+        section.content-section.video-section {
+            background: url("/assets/Jakokulma_web_mobile.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .col-md-5.padding-none .input-field-style {
+            border-bottom-right-radius: 5px !important;
+            border-bottom-left-radius: 5px !important;
+        }
+        button.submit-btn-hot-style {
+            margin-top: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        i.fa.fa-search.icon-arrande {
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .col-md-5.padding-none {
+            border-top: 1px solid #60cae1;
+            border-left: none;
+        }
+        input.input-field-style {
+            border-top-left-radius: 5px !important;
+            border-top-right-radius: 5px !important;
+        }
+        button.btn.btn-custom.dropdown-toggle.drop-down-inetrior {
+            text-align: center;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            margin-bottom: 10px;
+            padding-left: 0px;
+        }
+        .picture-address {
+            width: 100%;
+        }
+        .heading-font {
+            text-align: center;
+            font-size: 20px;
+        }
+        .heading-font-first {
+            text-align: center;
+            font-size: 20px;
+        }
+    }
+    @media (min-width: 320px) and (max-width: 480px) {
+        .collage-style {
+            width: 100%;
+            height: 175px;
+        }
+        .col-md-5.col-sm-12.col-xs-12.new-width-for-big-one {
+            margin-top: 30px;
+        }
+        .col-sm-3 {
+            .social-networks {
+                display: flex;
+                justify-content: center;
+                padding-top: 30px;
+            }
+        }
+        .border-and-text-color {
+            border: none;
+        }
+        .col-md-7.margin-top-few {
+            padding-bottom: 20px;
+        }
+    }
+    @media (min-width: 480px) and (max-width: 768px) {
+        .heading-font {
+            font-size: 32px !important;
+        }
+        .heading-font-first {
+            font-size: 30px !important;
+        }
+        img.collage-image-1.collage-style {
+            width: 100%;
+            height: 290px;
+        }
+        .col-md-5.col-sm-12.col-xs-12.new-width-for-big-one {
+            padding-left: 10px;
+        }
+        .col-md-3.col-sm-6.col-xs-12.new-width-for-big-two {
+            padding-left: 15px;
+            padding-right: 0px;
+        }
+        img.collage-image-2.collage-style {
+            height: 185px;
+            width: 100%;
+        }
+        .col-md-3.col-sm-6.col-xs-12.new-width-for-big-three {
+            padding-right: 15px;
+        }
+        img.collage-image-3.collage-style {
+            width: 100%;
+            height: 185px;
+        }
+        .col-md-12.col-sm-12.second {
+            .col-md-6.col-sm-6.col-xs-12.new-width-for-big-two {
+                padding-left: 0px;
+                padding-right: 30px;
+            }
+            img.collage-image-1.collage-style {
+                width: 100%;
+                height: 185px;
+            }
+            img.collage-image-2.collage-style {
+                width: 100%;
+                height: 185px;
+            }
+            img.collage-image-3.collage-style {
+                height: 300px;
+            }
+            .col-md-3.col-sm-12.col-xs-12.new-width-for-big-three {
+                padding-right: 15px;
+                padding-left: 0px;
+            }
+        }
+    }
+}
+.width-100 {
+    width: 100% !important;
+}
+@media (min-width: 1024px) and (max-width: 1990px) {
+    .padding-0 {
+        padding: 0px !important;
+    }
+    .padding-set {
+        padding: 0px !important;
+        padding-right: 10px !important;
+    }
+    .width-cycle {
+        width: 100%;
+        height: 197px;
+    }
+    .musikki-set {
+        margin-top: 8px;
+        width: 255px !important;
+        height: 186px;
+        margin-left: -15px;
+    }
+    .elokrikka-set {
+        margin-top: 7px;
+        width: 243px !important;
+        height: 185px;
+        margin-left: 12px;
+    }
+    .askrt-div-set {
+        padding-right: 0px !important;
+        padding-left: 10px !important;
+    }
+    .askartelu-set {
+        width: 100%;
+        height: 186px;
+    }
+    .retkilly-set {
+        padding-right: 10px !important;
+        padding-left: 15px !important;
+    }
+    .retkeily-setinng {
+        width: 100% !important;
+        height: 186px !important;
+    }
+    .mutt-set {
+        width: 100%;
+        height: 185px;
+    }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .padding-set {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    .width-cycle {
+        height: 290px !important;
+    }
+    .padding-le-right {
+        padding: 0px !important;
+    }
+    img.width-100.retkeily-setinng {
+        height: 290px !important;
+    }
+    .display-none-at-big-and-mobile {
+      display:none;
+    }
+    .homepage-wrapper .div-one-background {
+      background-image: url(/assets/urheilu.png);
+      height: 225px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-top: 3px;
+    }
+    .homepage-wrapper .div-one-background1 {
+      background-image: url(/assets/musiikki.png);
+      margin-top: 7px;
+      width: 100% !important;
+      height: 225px;
+      margin-left: 0px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .homepage-wrapper .div-one-background2 {
+      background-image: url(/assets/elektroniikka.png);
+      height: 225px;
+      width: 100%;
+      margin-top: 0px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-left: 0px;
+    }
+    .homepage-wrapper .div-one-background3 {
+      background-image: url(/assets/askartelu.png);
+      height: 225px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .homepage-wrapper .div-one-background4 {
+      background-image: url(/assets/retkeily.png);
+      height: 225px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-left: 0px;
+    }
+    .homepage-wrapper .div-one-background5 {
+      background-image: url(/assets/muut.png);
+      height: 225px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 100%;
+    }
+    
+}
+.width-100 {
+    width: 100% !important;
+}
+@media (min-width: 480px) and (max-width: 768px) {
+    .padding-set {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .all-one-badges {
+      padding-top:80px !important;
+      padding-left:150px !important;
+      padding-right:150px !important;
+      padding-bottom:50px !important;
+    }
+    .all-two-badges {
+      padding-top:80px !important;
+      padding-left:150px !important;
+      padding-right:150px !important;
+      padding-bottom:50px !important;
+    
+    }
+    .all-three-badges {
+      padding-top:80px !important;
+      padding-left:150px !important;
+      padding-right:150px !important;
+      padding-bottom:50px !important;
+    }
+    .display-none-at-big-and-mobile {
+      display:none;
+    }
+    .width-cycle {
+        height: 550px !important;
+    }
+    .padding-le-right {
+        padding: 0px !important;
+    }
+    img.width-100.retkeily-setinng {
+        height: 550px !important;
+    }
+    .homepage-wrapper .div-one-background {
+      background-image: url(/assets/urheilu.png);
+      height: 345px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-top: 3px;
+    }
+    .homepage-wrapper .div-one-background1 {
+      background-image: url(/assets/musiikki.png);
+      margin-top: 7px;
+      width: 100% !important;
+      height: 345px;
+      margin-left: 0px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .homepage-wrapper .div-one-background2 {
+      background-image: url(/assets/elektroniikka.png);
+      height: 345px;
+      width: 97%;
+      margin-top: 0px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-left: 10px;
+    }
+    .homepage-wrapper .div-one-background3 {
+      background-image: url(/assets/askartelu.png);
+      height: 445px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .homepage-wrapper .div-one-background4 {
+      background-image: url(/assets/retkeily.png);
+      height: 445px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-left: 0px;
+    }
+    .homepage-wrapper .div-one-background5 {
+      background-image: url(/assets/muut.png);
+      height: 345px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 100%;
+    }
+    
+}
+
+
+@media (min-width: 1240px) and (max-width: 2050px) {
+    .wrapper.wrapper-for-big-screen {
+        max-width: 74em !important;
+    }
+    .homepage-wrapper .div-one-background {
+      height:225px;
+    }
+    .homepage-wrapper .div-one-background1 {
+      width: 318px !important;
+      height: 219px;
+    }
+    .homepage-wrapper .div-one-background2 {
+       height: 211px;
+       width: 91%;
+       margin-left:30px;
+    }
+    .div-one-background3,.div-one-background4,.div-one-background5,.homepage-wrapper .div-one-image3,.homepage-wrapper .div-one-image4,.homepage-wrapper .div-one-image5{
+      height:225px !important;
+    }
+    .homepage-wrapper .div-one-image {
+      height:230px;
+    }
+    .homepage-wrapper .div-one-image1 {
+        width: 325px !important;
+        height: 218px;
+    }
+    .homepage-wrapper .div-one-image2 {
+      height:218px;
+    }
 
 }
-.picture-address {
-  background: url("/assets/otsikon-tausta_turkoosi.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 60px;
-  width: 80%;
-  float: none;
-  margin: 0 auto;
-  margin-top: 60px;
-}
-.new-background-subhaeding {
-  background: url("/assets/new-bg.png");
-  background-size: 60% 80%;
-  background-repeat: no-repeat;
-  float: none;
-  margin: 0 auto;
-  margin-top: 60px;
-  height:60px;
-  background-position: center;
-}
-
-.div-one-background {
-  background-image:url("/assets/urheilu.png");
-  height: 186px;
-  width: 98%;
-  background-repeat:no-repeat;
-  background-size:cover;
-  margin-top: 3px;
-}
-
-
-.div-one-image {
-    height: 194px;
+@media (min-width:768px) and (max-width:1024px) {
+  .homepage-wrapper .div-one-background {
+    background-image: url(/assets/urheilu.png);
+    height: 220px;
+    width: 98%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 3px;
+  }
+  .homepage-wrapper .div-one-background2 {
+    background-image: url(/assets/elektroniikka.png);
+    height: 209px;
     width: 100%;
-    background-repeat:no-repeat;
-    background-size:cover;
-    display:none;
-}
-
-.div-one-background1 {
-  background-image:url("/assets/musiikki.png");
-    margin-top: 7px;
-    width: 269px !important;
-    height: 186px;
-    margin-left: -26px;
-  background-repeat:no-repeat;
-  background-size:cover;
-}
-
-
-.div-one-image1 {
-    margin-top: 1px;
-    width: 279px !important;
-    height: 185px;
-    margin-left: 0px;                                             
-    background-repeat:no-repeat;
-    background-size:cover;
-    display:none;
-}
-
-.div-one-background2 {
-  background-image:url("/assets/elektroniikka.png");
-  height: 186px;
-  width: 91%;
-  margin-top: 6px;
-  background-repeat:no-repeat;
-  background-size:cover;
-  margin-left: 16px;
-}
-
-
-.div-one-image2 {
-    height: 187px;
+    margin-top: 8px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 0px;
+  }
+  .one {
+    padding-left:0px !important;
+    padding-right:0px !important;
+  }
+  .homepage-wrapper .div-one-background3 {
+    background-image: url(/assets/askartelu.png);
+    height: 212px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .homepage-wrapper .div-one-background4 {
+    background-image: url(/assets/retkeily.png);
+    height: 212px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 0px;
+  }
+  .homepage-wrapper .div-one-background1 {
+    background-image: url(/assets/musiikki.png);
+    margin-top: 5px;
+    width: 100% !important;
+    height: 218px;
+    margin-left: 0px !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .homepage-wrapper .div-one-background5 {
+    background-image: url(/assets/muut.png);
+    height: 225px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .homepage-wrapper .div-one-image {
+    height: 220px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+  }
+  .homepage-wrapper .div-one-image2 {
+    height: 209px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     display: none;
     margin-left: 0px;
     margin-top: 0px;
-}
-
-.div-one-background3 {
-  background-image:url("/assets/askartelu.png");
-  height: 186px;
-  width: 97%;
-  background-repeat:no-repeat;
-  background-size:cover;
-}
-
-
-.div-one-image3 {
-    height: 186px;
-    width: 100%;
-    background-repeat:no-repeat;
-    background-size:cover;
-    display:none;
-}
-
-.div-one-background4 {
-  background-image:url("/assets/retkeily.png");
-    height: 186px;
-    width: 103%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-left: -7px;
-}
-
-
-.div-one-image4 {
-    height: 200px;
-    width: 100%;
-    background-repeat:no-repeat;
-    background-size:cover;
-    display:none;
-}
-
-.div-one-background5 {
-  background-image:url("/assets/muut.png");
-  height: 186px;
-  width: 98%;
-  background-repeat:no-repeat;
-  background-size:cover;
-}
-
-
-.div-one-image5 {
-    height: 186px;
-    width: 100%;
-    background-repeat:no-repeat;
-    background-size:cover;
-    display:none;
-}
-
-
-body{
-  color: #676767;
-  font-family: 'Righteous', cursive !important;
-  letter-spacing:1px; 
-}
-a{
-  text-decoration: none;
-}
-.video-section .pattern-overlay {
-  padding: 100px 0 32px;
-  min-height: 450px;
-}
-.video-section h1,
-.video-section h3 {
-  text-align: center;
-  color: #fff;
-}
-.video-section h1 {
-  font-style: inherit;
-  font-size: 65px;
-  font-family: "Proxima Nova SOft";
-  text-shadow: 1px 1px 1px #000;
-  -webkit-text-shadow: 1px 1px 1px #000;
-  -moz-text-shadow: 1px 1px 1px #000;
-  line-height: 65px;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-.video-section h3 {
-  font-size: 26px;
-  font-weight: bolder;
-  font-family: "Proxima Nova SOft";
-}
-.video-section .buttonBar {
-  display: none;
-}
-.player {
-  font-size: 1px;
-}
-
-.styling-header {
-  background-color:#fff;
-  padding: 15px;
-  margin-bottom: 0px !important;
-  padding-left: 18%;
-  padding-bottom:0px;
-}
-.header_icon {
-    width: 125px;
-    height: 60px;
-    margin-top: -10px;
-
-}
-.list-color-active,.list-color-active:hover,.list-color-active:active,.list-color-active:focus {
-    color: #91c8e0;
-    font-weight: 600;
-    background-color:#fff !important;
-}
-.nav-list-top {
-  margin-top:15px !important;
-}
-.list-color-normal,.list-color-normal:hover,.list-color-normal:focus,.list-color-normal:active {
-    color: #103857;
-    font-weight: 600;
-    background-color: #fff !important;
-
-}
-.collpase-button-style, .collpase-button-style:hover, .collpase-button-style:focus, .collpase-button-style:active, .collpase-button-style:visited {
-    background-color: #91c8e0 !important;
-}
-.color-blue {
-    background:#2e3c57;
-}
-.padding-none {
-  padding:0px !important;
-}
-.icon-arrande {
-    color: #fff;
-    font-size: 34px !important;
-    background: #60cae1;
-    transform: scaleX(-1);
-    padding: 4px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-input[type="text"].big-dog::-webkit-input-placeholder {
-  color: #2d3b56;
-}
-.input-field-style,.input-field-style:hover,.input-field-style:focus,.input-field-style:active {
-  border:none !important;
-  border-radius:0px !important;
-  outline:none;
-  background: #fff;
-  color: #2d3b56 !important;
-  font-weight: 600 !important;
-  text-align: center !important;
-  outline:none;
-  letter-spacing:2px;
-}
-.col-md-5.padding-none{
-  border-left: 1px solid #60cae1; 
-  .input-field-style,.input-field-style:hover,.input-field-style:focus,.input-field-style:active {
-    border:none !important;
-    border-radius:0px !important;
-    outline:none;
-    letter-spacing:2px;
   }
-}
-.submit-btn-hot-style,.submit-btn-hot-style:hover,.submit-btn-hot-style:focus,.submit-btn-hot-style:active {
-    width: 100%;
-    border-radius: 0px;
-    height: 42px;
-    background-color: #2d3b56;
-    color: #fff;
-    font-weight: 600;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    outline:none;
-}
-button.btn.btn-custom.dropdown-toggle.drop-down-inetrior {
-    width: 100%;
-    border: none;
-    border-radius: 0px;
-    background: #fff;
-    color: #2d3b56;
-    font-weight: 600;
-    text-align: left;
-    height: 42px;
-    outline:none;
-    letter-spacing:2px;
-    padding-left:40px;
-}
-
-.margin-top-160px {
-  margin-top:80px;
-}
-.heading-font-first {
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 15px;
-  color: #2d3b56;
-  letter-spacing:2px;
-}
-.heading-font {
-  font-size: 32px;
-  font-weight: 600;
-  margin-top: 15px;
-  color: #2d3b56;
-  letter-spacing:3px;
-}
-.video-btn-image {
-    width: 200px;
-    height: 30px;
-    margin-top: 20px;
-}
-.all-one-badges {
-  width:100%;
-  padding:35px;
-  padding-bottom:0px;
-}
-.margin-btm-50px {
-  margin-bottom:50px;
-}
-.all-three-badges {
-  width:100%;
-  padding:35px;
-  padding-bottom:0px;
-}
-.all-two-badges {
-  width:100%;
-  padding:35px;
-  padding-bottom:0px;
-}
-.color-paragraph {
-  color: #2d3b56;
-}
-.social-icon-width {
-  width:70px;
-}
-.color-white,.color-white:hover {
-  color:#fff;
-  font-weight:600;
-  text-decoration:none;
-}
-.col-sm-3 {
-  .social-networks {
-    display:flex;
-  }
-}
-p.footer-info {
-  margin-top: 10px;
-    color: #203857;
-}
-.margin-top-few {
-  margin-top:15px;
-}
-.border-and-text-color {
-  border-left:2px solid #fff;
-  a ,a:hover{
-    color:#fff;
-    font-weight:600;
-    text-decoration:none;
-  }
-}
-.modal-store,.modal-store:hover,.modal-store:focus,.modal-store:active {
-    background: transparent !important;
-    color: #91c8e0 !important;
-    border: none !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    letter-spacing: 1px !important;
-    margin-top:6px;
-    outline:none !important;
-}
-.color-bgd {
-  background-color: #959b5f;
-}
-.margin-top-for-balance {
-  margin-top:10px;
-}
-.color-font-weight {
-  color: #2d3b56;
-  font-weight:600;
-}
-.sub-heading {
-  color: #2d3b56;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 20px;
-}
-button.btn.btn-custom.katso {
-  background-color: #2d3b56;
-  color: #fff;
-  font-weight: 600;
-  margin-top: 15px;
-}
-.list-post, .list-post:hover {
-  background-color: #2d3b56 !important;
-  padding-bottom: 7px !important;
-  margin-top: 5px;
-  padding-top: 8px !important;
-  border-radius: 5px;
-  color: #fff;
-  text-decoration:none;
-
-}
-
-@media (min-width:1024px) and (max-width:1990px){
-    .col-md-12.col-sm-12.second {
-      padding-left:0px;
-      padding-right:15px;
-    }
-    .col-md-1.padding-none.width-my {
-      width:5.3333% !important;
-    }
-    .col-md-5.new-width-for-big-one {
-      width: 40%;
-      padding-right: 0px;
-    }
-    .col-md-3.new-width-for-big-two {
-      width: 31%;
-      padding-right: 0px;
-      padding-left: 0px;
-    }
-    .col-md-3.new-width-for-big-three {
-      padding-left: 0px;
-      width: 29%;
-    }
-    .margin-top-10px {
-      margin-top:5px;
-    }
-    .collage-style {
-      width:100%;
-      height:175px;
-    }
-    .col-md-12.col-sm-12.second {
-      .col-md-3.new-width-for-big-one {
-        width: 27%;
-        padding: 0px;
-      }
-      img.collage-image-1.collage-style {
-        height: 173px;
-        width: 100%;
-      }
-      .col-md-6.new-width-for-big-two {
-        width: 42%;
-        padding: 0px;
-      }
-      img.collage-image-2.collage-style {
-        width: 100%;
-        height: 175px;
-      }
-      .col-md-3.new-width-for-big-three {
-        padding-left: 0px;
-        width: 31%;
-      }
-      img.collage-image-3.collage-style {
-        height:172px;
-        width:100%;
-      }
-    }
-}
-@media (min-width:320px) and (max-width:768px) {
-  .styling-header {
-    padding-left: 0px;
-    padding-bottom: 15px;
-  }
-  section.content-section.video-section {
-    background: url("/assets/Jakokulma_web_mobile.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  .col-md-5.padding-none .input-field-style {
-    border-bottom-right-radius: 5px !important;
-    border-bottom-left-radius: 5px !important;
-  }
-  button.submit-btn-hot-style {
-    margin-top: 10px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-  }
-  i.fa.fa-search.icon-arrande {
-      width: 100%;
-      text-align: center;
-      border-radius: 5px;
-      margin-bottom: 10px;
-  }
-  .col-md-5.padding-none {
-    border-top: 1px solid #60cae1;
-    border-left:none;
-  }
-  input.input-field-style {
-    border-top-left-radius: 5px !important;
-    border-top-right-radius: 5px !important;
-  }
-  button.btn.btn-custom.dropdown-toggle.drop-down-inetrior {
-    text-align: center;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 10px;
-    padding-left:0px;
-  }
-  .picture-address {
-    width:100%;
-  }
-  .heading-font {
-    text-align:center;
-    font-size:20px;
-  }
-  .heading-font-first {
-    text-align:center;
-    font-size:20px;
-  }
-
-  
-}
-@media (min-width:320px) and (max-width:480px) {
-  .collage-style {
-    width:100%;
-    height:175px;
-  }
-  .col-md-5.col-sm-12.col-xs-12.new-width-for-big-one {
-    margin-top:30px;
-  }
-  .col-sm-3 {
-    .social-networks {
-      display:flex;
-      justify-content:center;
-      padding-top:30px;
-    }
-  }
-  .border-and-text-color {
-    border:none;
-  }
-  .col-md-7.margin-top-few {
-    padding-bottom:20px;
-  }
-}
-@media (min-width:480px) and (max-width:768px) {
-  .heading-font {
-    font-size:32px !important;
-  }
-  .heading-font-first {
-    font-size:30px !important;
-  }
-  img.collage-image-1.collage-style {
-    width:100%;
-    height:290px;
-  }
-  .col-md-5.col-sm-12.col-xs-12.new-width-for-big-one {
-    padding-left:10px;
-  }
-  .col-md-3.col-sm-6.col-xs-12.new-width-for-big-two {
-    padding-left:15px;
-    padding-right:0px;
-  }
-  img.collage-image-2.collage-style {
-    height:185px;
-    width:100%;
-  }
-  .col-md-3.col-sm-6.col-xs-12.new-width-for-big-three {
-    padding-right: 15px;
-  }
-  img.collage-image-3.collage-style {
-    width:100%;
-    height:185px;
-  }
-  .col-md-12.col-sm-12.second {
-        .col-md-6.col-sm-6.col-xs-12.new-width-for-big-two {
-            padding-left: 0px;
-            padding-right: 30px;
-        }
-      img.collage-image-1.collage-style {
-        width: 100%;
-        height: 185px;
-      }
-      
-      img.collage-image-2.collage-style {
-        width: 100%;
-        height: 185px;
-      }
-      img.collage-image-3.collage-style {
-        height:300px;
-      }
-      .col-md-3.col-sm-12.col-xs-12.new-width-for-big-three {
-        padding-right:15px;
-        padding-left:0px;
-      }
-  }
-}
-}
-.width-100 {
-  width:100% !important;
-}
-@media (min-width:1024px) and (max-width:1990px) {
-  .padding-0 {
-    padding:0px !important;
-  }
-  .padding-set {
-    padding:0px !important;
-    padding-right:10px !important;
-  }
-  .width-cycle {
-    width: 100%;
-    height: 197px;
-  }
-  .musikki-set {
-    margin-top: 8px;
-    width: 255px !important;
-    height: 186px;
-    margin-left: -15px;
-  }
-  .elokrikka-set {
-    margin-top: 7px;
-    width: 243px !important;
-    height: 185px;
-    margin-left: 12px;
-  }
-  .askrt-div-set {
-    padding-right: 0px !important;
-    padding-left: 10px !important;
-  }
-  .askartelu-set {
-    width: 100%;
-    height: 186px;
-  }
-  .retkilly-set {
-    padding-right: 10px !important;
-    padding-left: 15px !important;
-  }
-  .retkeily-setinng {
-    width: 100% !important;
-    height: 186px !important;
-  }
-  .mutt-set {
-    width: 100%;
-    height: 185px;
-  }
-}
-@media (min-width:320px) and (max-width:480px) {
-    .padding-set {
-      padding-left: 5px !important;
-      padding-right: 5px !important;
-    }
-    .width-cycle {
-      height:290px !important;
-    }
-    .padding-le-right {
-      padding:0px !important;
-    }
-    img.width-100.retkeily-setinng {
-      height:290px !important;
-    }
-    div.one {
-      img {
-        height:290px !important;
-      }
-    }
-}
-
-.width-100 {
-    width: 100% !important;
-}
-
-@media (min-width:480px) and (max-width:768px) {
-    .padding-set {
-      padding-left: 5px !important;
-      padding-right: 5px !important;
-    }
-    .width-cycle {
-      height:550px !important;
-    }
-    .padding-le-right {
-      padding:0px !important;
-    }
-    img.width-100.retkeily-setinng {
-      height:550px !important;
-    }
-    
-    
-}
-
-@media screen and (width: 320px) {
- 
- .homepage-wrapper .div-one-background {
-    background-image: url(/assets/urheilu.png);
-    height: 155px;
+  .homepage-wrapper .div-one-image3 {
+    height: 212px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 3px;
-}
-
-
-img.div-one-image.width-100.width-cycle {
-    height: 158px !important;
-}
-
-.homepage-wrapper .div-one-background1 {
-    background-image: url(/assets/musiikki.png);
-    margin-top: 7px;
-    width: 100% !important;
-    height: 192px;
-    /* margin-left: -26px; */
+    display: none;
+  }
+  .homepage-wrapper .div-one-image4 {
+    height: 212px;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image1.width-100.musikki-set {
-    height: 197px !important;
-}
-
-.homepage-wrapper .div-one-image1 {
+    display: none;
+  }
+  .homepage-wrapper .div-one-image1 {
     margin-top: 1px;
     width: 100% !important;
+    height: 218px;
     margin-left: 0px;
     background-repeat: no-repeat;
     background-size: cover;
     display: none;
-}
-
-.homepage-wrapper .div-one-background2 {
-    background-image: url(/assets/elektroniikka.png);
-    height: 204px;
+  }
+  .homepage-wrapper .div-one-image5 {
+    height: 225px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    /* margin-left: 16px; */
-    display: block;
-    margin: 0 auto;
-    margin-top: 6px;
-}
-
-img.div-one-image2.width-100.elokrikka-set {
-    height: 206px !important;
-}
-
-
-
-.homepage-wrapper .div-one-background3 {
-    background-image: url(/assets/askartelu.png);
-    height: 235px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-    margin-top: -6px;
-}
-
-img.div-one-image3.width-100.askartelu-set {
-    height: 244px !important;
-}
-
-.homepage-wrapper .div-one-background4 {
-    background-image: url(/assets/retkeily.png);
-    height: 143px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: -7px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image4.width-100.retkeily-setinng {
-    height: 143px !important;
-}
-
-.homepage-wrapper .div-one-background5 {
-    background-image: url(/assets/muut.png);
-    height: 186px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-img.div-one-image5.width-100.mutt-set {
-    height: 192px !important;
-}
-
-}
-
-@media screen and (width: 360px) {
+    display: none;
+  }
+  .all-one-badges {
+    padding-top:80px !important;
+    padding-left:150px !important;
+    padding-right:150px !important;
+    padding-bottom:50px !important;
+  }
+  .all-two-badges {
+    padding-top:80px !important;
+    padding-left:150px !important;
+    padding-right:150px !important;
+    padding-bottom:50px !important;
   
-.homepage-wrapper .div-one-background {
-    background-image: url(/assets/urheilu.png);
-    height: 175px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 3px;
-    display: block;
-    margin: 0 auto;
+  }
+  .all-three-badges {
+    padding-top:80px !important;
+    padding-left:150px !important;
+    padding-right:150px !important;
+    padding-bottom:50px !important;
+  }
+  .homepage-wrapper .color-font-weight {
+    font-size:40px !important;
+  }
+  .homepage-wrapper .color-paragraph {
+    font-size:24px;
+  }
+  .display-none-at-ipad {
+    display:none;
+  }
 }
 
-img.div-one-image.width-100.width-cycle {
-    height: 181px !important;
-    width: 100% !important;
-}
-
-.homepage-wrapper .div-one-background1 {
-    background-image: url(/assets/musiikki.png);
-    margin-top: 7px;
-    width: 100% !important;
-    height: 218px;
-    /* margin-left: 4px; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image1.width-100.musikki-set {
-    height: 224px !important;
-    width: 100% !important;
-}
-
-.homepage-wrapper .div-one-background2 {
-    background-image: url(/assets/elektroniikka.png);
-    height: 228px;
-    width: 100%;
-    margin-top: 6px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: 16px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image2.width-100.elokrikka-set {
-    height: 236px !important;
-    width: 100% !important;
-}
-
-.homepage-wrapper .div-one-background3 {
-    background-image: url(/assets/askartelu.png);
-    height: 268px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image3.width-100.askartelu-set {
-    height: 280px !important;
-}
-
-.homepage-wrapper .div-one-background4 {
-    background-image: url(/assets/retkeily.png);
-    height: 163px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: -7px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.width-100.retkeily-setinng {
-    height: 163px !important;
-}
-
-.homepage-wrapper .div-one-background5 {
-    background-image: url(/assets/muut.png);
-    height: 207px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image5.width-100.mutt-set {
-    height: 208px !important;
-    width: 100% !important;
-}
-
-}
-
-
-@media screen and (min-width: 412px) and (max-width: 414px) {
-  
-.homepage-wrapper .div-one-background {
-    background-image: url(/assets/urheilu.png);
-    height: 198px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 3px;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image.width-100.width-cycle {
-    height: 210px !important;
-    width: 100% !important;
-}
-
-.homepage-wrapper .div-one-background1 {
-    background-image: url(/assets/musiikki.png);
-    margin-top: 7px;
-    width: 100% !important;
-    height: 251px;
-    /* margin-left: -26px; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image1.width-100.musikki-set {
-    width: 100% !important;
-    height: 259px !important;
-}
-
-.homepage-wrapper .div-one-background2 {
-    background-image: url(/assets/elektroniikka.png);
-    height: 267px;
-    width: 100%;
-    margin-top: 6px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: 16px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image2.width-100.elokrikka-set {
-    width: 100% !important;
-    height: 277px !important;
-}
-
-
-
-.homepage-wrapper .div-one-background3 {
-    background-image: url(/assets/askartelu.png);
-    height: 309px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-    margin-top: -7px;
-}
-
-img.div-one-image3.width-100.askartelu-set {
-    height: 327px !important;
-}
-
-.homepage-wrapper .div-one-background4 {
-    background-image: url(/assets/retkeily.png);
-    height: 186px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: -7px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image4.width-100.retkeily-setinng {
-    height: 189px !important;
-}
-
-.homepage-wrapper .div-one-background3 {
-    background-image: url(/assets/askartelu.png);
-    height: 310px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-    margin-top: -7px;
-}
-
-img.div-one-image3.width-100.askartelu-set {
-    height: 328px !important;
-}
-
-.homepage-wrapper .div-one-background5 {
-    background-image: url(/assets/muut.png);
-    height: 240px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-    margin-top: -10px;
-}
-
-img.div-one-image5.width-100.mutt-set {
-    height: 255px !important;
-}
-
-}
-
-@media screen and (width: 375px) {
-
-.homepage-wrapper .div-one-background {
-    background-image: url(/assets/urheilu.png);
-    height: 186px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 3px;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image.width-100.width-cycle {
-    height: 190px !important;
-}
-
-.homepage-wrapper .div-one-background1 {
-    background-image: url(/assets/musiikki.png);
-    margin-top: 7px;
-    width: 100% !important;
-    height: 228px;
-    /* margin-left: -26px; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image1.width-100.musikki-set {
-    width: 100% !important;
-    height: 234px !important;
-}
-
-.homepage-wrapper .div-one-background2 {
-    background-image: url(/assets/elektroniikka.png);
-    height: 240px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: 16px; */
-    display: block;
-    margin: 0 auto;
-    margin-top: 5px;
-}
-
-img.div-one-image2.width-100.elokrikka-set {
-    height: 249px !important;
-}
-
-.homepage-wrapper .div-one-background3 {
-    background-image: url(/assets/askartelu.png);
-    height: 285px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-.homepage-wrapper .div-one-background4 {
-    background-image: url(/assets/retkeily.png);
-    height: 166px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: -7px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image4.width-100.retkeily-setinng {
-    height: 170px !important;
-}
-
-.homepage-wrapper .div-one-background5 {
-    background-image: url(/assets/muut.png);
-    height: 218px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-img.div-one-image5.width-100.mutt-set {
-    height: 223px !important;
-}
-}
-
-@media screen and (width: 768px) {
-
-.homepage-wrapper .div-one-background {
-    background-image: url(/assets/urheilu.png);
-    height: 385px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 3px;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image.width-100.width-cycle {
-    height: 408px !important;
-}
-
-
-
-.homepage-wrapper .div-one-background1 {
-    background-image: url(/assets/musiikki.png);
-    margin-top: 7px;
-    width: 100% !important;
-    height: 480px;
-    /* margin-left: -26px; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image1.width-100.musikki-set {
-    width: 100% !important;
-    height: 497px;
-}
-
-.homepage-wrapper .div-one-background2 {
-    background-image: url(/assets/elektroniikka.png);
-    height: 540px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-
-img.div-one-image2.width-100.elokrikka-set {
-    width: 100% !important;
-    height: 550px;
-}
-
-.homepage-wrapper .div-one-background3 {
-    background-image: url(/assets/askartelu.png);
-    height: 620px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image3.width-100.askartelu-set {
-    width: 100% !important;
-    height: 650px !important;
-}
-
-.homepage-wrapper .div-one-background4 {
-    background-image: url(/assets/retkeily.png);
-    height: 360px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* margin-left: -7px; */
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image4.width-100.retkeily-setinng {
-    height: 377px !important;
-}
-
-.homepage-wrapper .div-one-background5 {
-    background-image: url(/assets/muut.png);
-    height: 480px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 0 auto;
-}
-
-img.div-one-image5.width-100.mutt-set {
-    height: 491px !important;
-}
+@media (min-width:1024px) {
+  .display-none-at-big-and-mobile {
+    display:none;
+  }
+  .display-none-at-big {
+    display:none !important;
+  }
 }
