@@ -4,9 +4,7 @@
     = image_tag 'mastercard.png', title: "Mastercard"
     = image_tag 'amex.png', title: "American Express"
 
-.row
-  .col-12
-    %span.payment-errors
+
 
 .row
   .col-12
@@ -50,6 +48,9 @@
         %input{:autocomplete => "cc-exp-year", "data-stripe" => "exp_year", :pattern => "\\d*", :placeholder => "YY", :size => "2", :type => "text", id: 'card-expiry-year', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
       .col-2
         %input{:autocomplete => "off", "data-stripe" => "cvc", :pattern => "\\d*", :placeholder => "CVC", :size => "3", :type => "text", id: 'card-cvc', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
+.row
+  .col-12
+    %span.payment-errors{:style => "color:red"}
 
 - content_for :extra_javascript do
   :javascript
