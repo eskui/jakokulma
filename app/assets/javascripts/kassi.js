@@ -265,7 +265,7 @@ function initialize_login_form(password_forgotten) {
 
 function initialize_send_message_form(locale) {
   auto_resize_text_areas("text_area");
-  $('textarea').focus();
+  // $('textarea').focus();
   var form_id = "#new_listing_conversation";
   $(form_id).validate({
     rules: {

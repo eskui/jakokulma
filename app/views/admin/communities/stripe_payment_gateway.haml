@@ -31,7 +31,7 @@
     = fields_for :payment_settings, PaymentSettings.last do |form|
       .row
         .col-12
-        = form.label :minimum_transaction_fee_cents, t("paypal_accounts.minimum_transaction_fee_label"), :class => "input"
+        = form.label :minimum_transaction_fee_cents, t("admin.paypal_accounts.minimum_transaction_fee_label"), :class => "input"
         = form.text_field :minimum_transaction_fee, min: 1, value: form.object.minimum_transaction_fee
 
     .row

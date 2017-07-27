@@ -509,7 +509,7 @@ en:
       marketplace_currency_label: "Marketplace currency:"
       minimum_listing_price_label: "Minimum transaction size:"
       transaction_fee_label: "Transaction fee:"
-      minimum_transaction_fee_label: "Minimum transaction fee:"
+      minimum_transaction_fee_label: "Minimum transaction fee"
       save_settings: "Save settings"
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."

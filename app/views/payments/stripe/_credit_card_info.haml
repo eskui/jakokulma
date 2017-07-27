@@ -63,3 +63,10 @@
         }
         return true;
     }
+
+- content_for :extra_javascript do
+  :javascript
+    $(document).ready(function(){
+     $('#street_address').focus();
+    });
+
