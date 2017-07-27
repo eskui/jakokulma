@@ -633,45 +633,43 @@
     img.width-100.retkeily-setinng {
         height: 290px !important;
     }
-    .display-none-at-big-and-mobile {
-      display:none;
-    }
     .homepage-wrapper .div-one-background {
       background-image: url(/assets/urheilu.png);
-      height: 225px;
+      height: 110px;
       width: 100%;
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      margin-top: 3px;
+      margin-top: 0px;
     }
     .homepage-wrapper .div-one-background1 {
       background-image: url(/assets/musiikki.png);
-      margin-top: 7px;
+      margin-top: 5px;
       width: 100% !important;
-      height: 225px;
+      height: 100px;
       margin-left: 0px;
       background-repeat: no-repeat;
       background-size: 100% 100%;
     }
     .homepage-wrapper .div-one-background2 {
       background-image: url(/assets/elektroniikka.png);
-      height: 225px;
+      height: 104px;
       width: 100%;
-      margin-top: 0px;
+      margin-top: 3px;
       background-repeat: no-repeat;
       background-size: 100% 100%;
       margin-left: 0px;
     }
     .homepage-wrapper .div-one-background3 {
       background-image: url(/assets/askartelu.png);
-      height: 225px;
+      height: 100px;
       width: 100%;
       background-repeat: no-repeat;
       background-size: 100% 100%;
+      margin-left:-3px;
     }
     .homepage-wrapper .div-one-background4 {
       background-image: url(/assets/retkeily.png);
-      height: 225px;
+      height: 100px;
       width: 100%;
       background-repeat: no-repeat;
       background-size: 100% 100%;
@@ -679,10 +677,32 @@
     }
     .homepage-wrapper .div-one-background5 {
       background-image: url(/assets/muut.png);
-      height: 225px;
+      height: 105px;
       background-repeat: no-repeat;
       background-size: 100% 100%;
       width: 100%;
+      margin-top:3px;
+    }
+    .mobile-invisible {
+      display:none;
+    }
+    .sew-machine-padding-right {
+      padding-right:0px !important;
+    }
+    .retkilly-set.one.for-mobile {
+      padding-left:5px !important;
+      padding-right:0px !important;
+    }
+    .music-image-mobile {
+      padding-right:0px !important;
+      padding-left:5px !important;
+    }
+    .padding-set.one.l-h-0 {
+      padding-left:0px !important;
+      padding-right:0px !important;
+    }
+    .padding-0 {
+        padding: 0px !important;
     }
     
 }
@@ -693,6 +713,9 @@
     .padding-set {
         padding-left: 5px !important;
         padding-right: 5px !important;
+    }
+    .display-none-at-ipad {
+      display:none;
     }
     .all-one-badges {
       padding-top:80px !important;
@@ -712,9 +735,6 @@
       padding-left:150px !important;
       padding-right:150px !important;
       padding-bottom:50px !important;
-    }
-    .display-none-at-big-and-mobile {
-      display:none;
     }
     .width-cycle {
         height: 550px !important;
@@ -776,7 +796,6 @@
     
 }
 
-
 @media (min-width: 1240px) and (max-width: 2050px) {
     .wrapper.wrapper-for-big-screen {
         max-width: 74em !important;
@@ -789,9 +808,9 @@
       height: 219px;
     }
     .homepage-wrapper .div-one-background2 {
-       height: 211px;
+       height: 215px;
        width: 91%;
-       margin-left:30px;
+       margin-left:20px;
     }
     .div-one-background3,.div-one-background4,.div-one-background5,.homepage-wrapper .div-one-image3,.homepage-wrapper .div-one-image4,.homepage-wrapper .div-one-image5{
       height:225px !important;
@@ -808,7 +827,7 @@
     }
 
 }
-@media (min-width:768px) and (max-width:1024px) {
+@media (min-width:768px) and (max-width:1023px) {
   .homepage-wrapper .div-one-background {
     background-image: url(/assets/urheilu.png);
     height: 220px;
@@ -941,6 +960,14 @@
   .display-none-at-big-and-mobile {
     display:none;
   }
+  .display-none-at-big {
+    display:none !important;
+  }
+  .padding-none.margin-btm-50px {
+    margin-top:60px;
+  }
+}
+@media (min-width:1024px) {
   .display-none-at-big {
     display:none !important;
   }

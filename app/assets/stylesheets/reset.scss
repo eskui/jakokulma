@@ -181,7 +181,7 @@ select{
 .search-form.margin-top-form {
       margin-top: 6.50em !important;
 }
-@media (min-width:320px) and (max-width:768px){
+@media (min-width:320px) and (max-width:1023px){
   .display-none-at-small {
     display:none !important;
   }
@@ -190,9 +190,12 @@ select{
   }
 }
 
-@media (min-width:768px) and (max-width:1990px) {
+@media (min-width:1024px) and (max-width:1990px) {
   .display-none-at-big {
     display:none !important;
+  }
+  .search-form.margin-top-form {
+      margin-top: 8.75em !important;
   }
 }
 @media (min-width: 1240px) and (max-width: 2050px) {
