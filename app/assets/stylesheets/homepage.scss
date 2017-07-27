@@ -713,9 +713,6 @@
       padding-right:150px !important;
       padding-bottom:50px !important;
     }
-    .display-none-at-big-and-mobile {
-      display:none;
-    }
     .width-cycle {
         height: 550px !important;
     }
@@ -776,7 +773,11 @@
     
 }
 
-
+@media (min-width:480px) and (max-width:767px) {
+  .display-none-at-big-and-mobile {
+      display:none;
+  }
+}
 @media (min-width: 1240px) and (max-width: 2050px) {
     .wrapper.wrapper-for-big-screen {
         max-width: 74em !important;
@@ -789,9 +790,9 @@
       height: 219px;
     }
     .homepage-wrapper .div-one-background2 {
-       height: 211px;
+       height: 215px;
        width: 91%;
-       margin-left:30px;
+       margin-left:20px;
     }
     .div-one-background3,.div-one-background4,.div-one-background5,.homepage-wrapper .div-one-image3,.homepage-wrapper .div-one-image4,.homepage-wrapper .div-one-image5{
       height:225px !important;
@@ -808,7 +809,7 @@
     }
 
 }
-@media (min-width:768px) and (max-width:1024px) {
+@media (min-width:768px) and (max-width:1023px) {
   .homepage-wrapper .div-one-background {
     background-image: url(/assets/urheilu.png);
     height: 220px;
@@ -941,6 +942,14 @@
   .display-none-at-big-and-mobile {
     display:none;
   }
+  .display-none-at-big {
+    display:none !important;
+  }
+  .padding-none.margin-btm-50px {
+    margin-top:60px;
+  }
+}
+@media (min-width:1024px) {
   .display-none-at-big {
     display:none !important;
   }
