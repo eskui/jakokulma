@@ -388,6 +388,15 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
   });
   var form_id = "#new_person";
+  if(locale == 'en'){
+    var password_msg = "Password should be at least 8 characters long including at least one of each: number, symbol, capital letter and lower-case letter."
+  }else{
+    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, erikoismerkki, iso- ja pienikirjain."
+  }
+  $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+  }, password_msg);
+
   //name_required = (name_required == 1) ? true : false
   $(form_id).validate({
     errorPlacement: function(error, element) {
@@ -403,8 +412,8 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
       "person[terms]": "required",
-      "person[password]": { required: true, minlength: 4 },
-      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password1" },
+      "person[password]": { required: true, regx: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/ },
+      "person[password2]": { required: true, equalTo: "#person_password1" },
       "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
     },
     messages: {
@@ -419,6 +428,8 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     }
   });
 }
+
+
 
 function initialize_terms_form() {
   $('#terms_link').click(function(link) {
@@ -513,10 +524,19 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
     }
   });
   var password_form_id = "#password_form";
+  if(locale == 'en'){
+    var password_msg = "Password should be at least 8 characters long including at least one of each: number, symbol, capital letter and lower-case letter."
+  }else{
+    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, erikoismerkki, iso- ja pienikirjain."
+  }
+  $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+  }, password_msg);
+
   $(password_form_id).validate({
     rules: {
-      "person[password]": { required: true, minlength: 4 },
-      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
+      "person[password]": { required: true, regx: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/ },
+      "person[password2]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
       disable_and_submit(password_form_id, form, "false", locale);
