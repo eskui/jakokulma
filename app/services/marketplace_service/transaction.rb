@@ -370,12 +370,12 @@ module MarketplaceService
                              end
 
         booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
+        booking_start_on = Maybe(transaction)[:booking][:start_on].or_else(nil)
         expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_ends_on)
-
+        cancel_at = (booking_start_on  + 1.day)
         Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction[:id]), priority: 5)
         Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction[:id]), priority: 8, run_at: expire_at)
-
-        setup_preauthorize_reminder(transaction[:id], expire_at)
+        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction[:id]), priority: 8, run_at: cancel_at)
       end
 
       def paid(transaction)

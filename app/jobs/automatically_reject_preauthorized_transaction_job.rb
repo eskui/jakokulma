@@ -14,10 +14,12 @@ class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_
 
   def perform
     transaction = Transaction.find(conversation_id)
-
+    community = Community.find(transaction.community.id)
     if(transaction.current_state == "preauthorized")
       TransactionService::Transaction.reject(community_id: transaction.community_id,
                                              transaction_id: transaction.id)
+      MailCarrier.deliver_now(PersonMailer.transaction_automatically_rejected(transaction, community))
+
     end
   end
 

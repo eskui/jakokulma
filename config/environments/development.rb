@@ -80,4 +80,6 @@ Kassi::Application.configure do
   config.active_record.mass_assignment_sanitizer = :strict
 
   config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
+
+  config.action_mailer.delivery_method = :letter_opener
 end

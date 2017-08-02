@@ -30,6 +30,19 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
+  def transaction_automatically_rejected(transaction, community)
+    @email_type =  (transaction.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    recipient = transaction.listing.author
+    set_up_layout_variables(recipient, community, @email_type)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @transaction = transaction
+
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => "Booking for your item has been cancelled")
+    end
+  end
+
   def new_message_notification(message, community)
     @email_type =  "email_about_new_messages"
     recipient = message.conversation.other_party(message.sender)
