@@ -8,7 +8,7 @@ class PreauthorizeTransactionsController < ApplicationController
   before_filter :ensure_listing_is_open
   before_filter :ensure_listing_author_is_not_current_user
   before_filter :ensure_authorized_to_reply
-  before_filter :ensure_can_receive_payments
+  before_filter :ensure_can_receive_payment
 
   IS_POSITIVE = ->(v) {
     return if v.nil?
@@ -309,14 +309,21 @@ class PreauthorizeTransactionsController < ApplicationController
     Stripe.api_key = @current_community.payment_gateway.stripe_secret_key
     @source = Stripe::Source.retrieve(params[:source]) if params[:source]
     if @source.present?
-      @success_source = if @source.status == 'failed'
-        false
+      if @source.type == 'three_d_secure'
+        @success_source = if @source.status == 'failed'
+          false
+        else
+          true
+        end
+        unless @success_source
+          flash.clear
+          flash[:error] = t('listing_conversations.preauthorize.card_details_could_not_be_verified')
+          redirect_to initiate_order_path(params.except(:source, :message, :action, :locale, :listing_id, :person_id, :controller))
+          return
+        end
       else
-        true
-      end
-      unless @success_source
         flash.clear
-        flash[:error] = t('listing_conversations.preauthorize.card_details_could_not_be_verified')
+        flash[:error] = 'Payment is not possible without a 3D secure credit card.'
         redirect_to initiate_order_path(params.except(:source, :message, :action, :locale, :listing_id, :person_id, :controller))
         return
       end

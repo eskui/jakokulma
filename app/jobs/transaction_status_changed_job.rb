@@ -14,9 +14,9 @@ class TransactionStatusChangedJob < Struct.new(:conversation_id, :current_user_i
     community = Community.find(community_id)
     transaction = Transaction.find(conversation_id)
     current_user = Person.find(current_user_id)
-    if transaction.other_party(current_user).should_receive?("email_when_conversation_#{transaction.status}")
-      MailCarrier.deliver_now(PersonMailer.conversation_status_changed(transaction, community))
-    end
+    # if transaction.other_party(current_user).should_receive?("email_when_conversation_#{transaction.status}")
+    MailCarrier.deliver_now(PersonMailer.conversation_status_changed(transaction, community))
+    # end
   end
 
 end

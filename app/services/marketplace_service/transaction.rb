@@ -68,7 +68,7 @@ module MarketplaceService
       # - max_date_at (max date, e.g. booking ending)
       def preauth_expires_at(gateway_expires_at, max_date_at=nil)
         [gateway_expires_at,
-         Maybe(max_date_at).map {|d| (d + 2.day).to_time(:utc)}.or_else(nil)
+         Maybe(max_date_at).map {|d| (d + 1.day).to_time(:utc)}.or_else(nil)
         ].compact.min
       end
 
@@ -370,12 +370,10 @@ module MarketplaceService
                              end
 
         booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
-        booking_start_on = Maybe(transaction)[:booking][:start_on].or_else(nil)
-        expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_ends_on)
-        cancel_at = (booking_start_on  + 1.day)
+        booking_starts_on = Maybe(transaction)[:booking][:start_on].or_else(nil)
+        expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_starts_on)
         Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction[:id]), priority: 5)
         Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction[:id]), priority: 8, run_at: expire_at)
-        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction[:id]), priority: 8, run_at: cancel_at)
       end
 
       def paid(transaction)
