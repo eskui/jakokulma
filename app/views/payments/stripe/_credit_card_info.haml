@@ -41,7 +41,7 @@
         = t("stripe_payments.card_number")
     .row
       .col-6
-        %input{:autocomplete => "cc-number", "data-stripe" => "number", :pattern => "\\d*", :placeholder => "4242 4242 4242 4242", :size => "20", :type => "text", id: 'card-number', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
+        %input{:autocomplete => "cc-number", "data-stripe" => "number", :pattern => "[0-9\s]+", :placeholder => "4242 4242 4242 4242", :size => "20", :type => "text", id: 'card-number', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
       .col-2
         %input{:autocomplete => "cc-exp-month", "data-stripe" => "exp_month", :pattern => "\\d*", :placeholder => "MM", :size => "2", :type => "text", id: 'card-expiry-month', required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);"}
       .col-2

@@ -26,6 +26,5 @@
     "max_bound": "Please enter a value more than min value ({0})",
     "number_no_decimals": "Please enter a whole number",
     "number_decimals": "Please enter a valid number with either dot (.) or comma (,) as a decimal separator",
-    "regx" "Password should be at least 8 characters long including at least one of each: number, symbol, capital letter and lower-case letter."
   }
 }
