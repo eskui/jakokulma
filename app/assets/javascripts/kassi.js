@@ -389,9 +389,9 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
   });
   var form_id = "#new_person";
   if(locale == 'en'){
-    var password_msg = "Password should be at least 8 characters long including at least one of each: number, symbol, capital letter and lower-case letter."
+    var password_msg = "Password should be at least 8 characters long including at least one of each: number, capital letter and lower-case letter."
   }else{
-    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, erikoismerkki, iso- ja pienikirjain."
+    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, iso- ja pienikirjain."
   }
   $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
@@ -412,7 +412,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
       "person[terms]": "required",
-      "person[password]": { required: true, regx: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/ },
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ },
       "person[password2]": { required: true, equalTo: "#person_password1" },
       "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
     },
@@ -525,9 +525,9 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
   });
   var password_form_id = "#password_form";
   if(locale == 'en'){
-    var password_msg = "Password should be at least 8 characters long including at least one of each: number, symbol, capital letter and lower-case letter."
+    var password_msg = "Password should be at least 8 characters long including at least one of each: number, capital letter and lower-case letter."
   }else{
-    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, erikoismerkki, iso- ja pienikirjain."
+    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, iso- ja pienikirjain."
   }
   $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
@@ -535,7 +535,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 
   $(password_form_id).validate({
     rules: {
-      "person[password]": { required: true, regx: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/ },
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ },
       "person[password2]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
@@ -544,15 +544,24 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
   });
 }
 
-function initialize_reset_password_form() {
+function initialize_reset_password_form(locale) {
   var password_form_id = "#new_person";
+  if(locale == 'en'){
+    var password_msg = "Password should be at least 8 characters long including at least one of each: number, capital letter and lower-case letter."
+  }else{
+    var password_msg = "Salasanan tulee olla vähintään 8 merkkiä pitkä ja sisältää ainakin yksi numero, iso- ja pienikirjain."
+  }
+  $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+  }, password_msg);
+
   $(password_form_id).validate({
     errorPlacement: function(error, element) {
       error.insertAfter(element);
     },
     rules: {
-      "person[password]": { required: true, minlength: 4 },
-      "person[password_confirmation]": { required: true, minlength: 4, equalTo: "#person_password" }
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/},
+      "person[password_confirmation]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
       disable_and_submit(password_form_id, form, "false", locale);

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_reset_password_form();
+  initialize_reset_password_form("#{I18n.locale}");
 
 - content_for :title_header do
   %h1= t('sessions.password_forgotten.change_your_password')
