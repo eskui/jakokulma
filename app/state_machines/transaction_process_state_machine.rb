@@ -25,12 +25,14 @@ class TransactionProcessStateMachine
     current_community = transaction.community
 
     if transaction.booking.present?
-      release_at = transaction.booking.start_on + 5.day
-      Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction.id), run_at: release_at, priority: 5)
-      automatic_booking_confirmation_at = transaction.booking.end_on + 2.day
+      duration = (transaction.booking.end_on - transaction.booking.start_on).to_i
+      automatic_booking_confirmation_at = if duration > 7
+        transaction.booking.start_on + 7.day
+      else
+        transaction.booking.end_on + 2.day
+      end
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
     else
-      Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction.id), priority: 5)
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
 
@@ -47,6 +49,7 @@ class TransactionProcessStateMachine
   after_transition(to: :confirmed) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.confirm!
+    Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction.id), priority: 1)
   end
 
   after_transition(from: :paid, to: :canceled) do |conversation|
