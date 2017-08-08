@@ -412,7 +412,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
       "person[terms]": "required",
-      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ },
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\(+=._-]{8,}$/ },
       "person[password2]": { required: true, equalTo: "#person_password1" },
       "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
     },
@@ -535,7 +535,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 
   $(password_form_id).validate({
     rules: {
-      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/ },
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\(+=._-]{8,}$/ },
       "person[password2]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
@@ -560,7 +560,7 @@ function initialize_reset_password_form(locale) {
       error.insertAfter(element);
     },
     rules: {
-      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/},
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\(+=._-]{8,}$/},
       "person[password_confirmation]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
