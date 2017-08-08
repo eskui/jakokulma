@@ -49,7 +49,7 @@ class TransactionProcessStateMachine
   after_transition(to: :confirmed) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.confirm!
-    Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(transaction.id), priority: 1)
+    Delayed::Job.enqueue(ReleaseRentalAmountToOwnerJob.new(conversation.id), priority: 1)
   end
 
   after_transition(from: :paid, to: :canceled) do |conversation|
