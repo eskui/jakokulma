@@ -29,7 +29,7 @@ class TransactionProcessStateMachine
       automatic_booking_confirmation_at = if duration > 7
         transaction.booking.start_on + 7.day
       else
-        transaction.booking.end_on + 2.day
+        transaction.booking.end_on + 1.day
       end
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
     else
