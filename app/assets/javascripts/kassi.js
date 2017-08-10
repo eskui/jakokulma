@@ -535,7 +535,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 
   $(password_form_id).validate({
     rules: {
-      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\\\(+=._\-\¤'`"~‘:;€£§\1⁄2\äÄÖ]{8,}$/ },
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\\\(+=._\-\¤'`"~‘:;€£§\1⁄2\Wæøå]{8,}$/ },
       "person[password2]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
@@ -560,7 +560,7 @@ function initialize_reset_password_form(locale) {
       error.insertAfter(element);
     },
     rules: {
-      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\\\(+=._\-\¤'`"~‘:;€£§\1⁄2\äÄÖ]{8,}$/ },
+      "person[password]": { required: true, regx: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9!@#\$%\^\&*?,\<\|\>\{\[\}\]\/)\\\(+=._\-\¤'`"~‘:;€£§\1⁄2\Wæøå]{8,}$/ },
       "person[password_confirmation]": { required: true, equalTo: "#person_password" }
     },
     submitHandler: function(form) {
