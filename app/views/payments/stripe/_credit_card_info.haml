@@ -2,9 +2,6 @@
   .col-12
     = image_tag 'visa.png', title: "Visa"
     = image_tag 'mastercard.png', title: "Mastercard"
-    = image_tag 'amex.png', title: "American Express"
-
-
 
 .row
   .col-12
@@ -55,7 +52,7 @@
 - content_for :extra_javascript do
   :javascript
     function InvalidMsg(textbox) {
-        
+
         if (textbox.value == '') {
             textbox.setCustomValidity('Ole hyvä ja anna puuttuvat tiedot.');
         }
