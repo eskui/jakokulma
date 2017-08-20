@@ -177,7 +177,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def render_stripe_form(preselected_action)
     result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
     transaction = result[:data]
-    commission_total = (transaction[:item_total] * transaction[:commission_from_seller]) / 100 #Money.new(transaction[:commission_from_seller]*100, @current_community.currency)
+    # commission_total = (transaction[:item_total] * transaction[:commission_from_seller]) / 100 #Money.new(transaction[:commission_from_seller]*100, @current_community.currency)
+      commission_total = transaction[:commission_total]
     render action: :accept, locals: {
       payment_gateway: :stripe,
       listing: @listing,

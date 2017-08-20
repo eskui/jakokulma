@@ -21,7 +21,7 @@
           Stripe.source.create({
             type: 'card',
             card: {
-              number: $('#card-number').val(),
+              number: ($('#card-number').val()).replace(/ /g,''),
               cvc: $('#card-cvc').val(),
               exp_month: $('#card-expiry-month').val(),
               exp_year: $('#card-expiry-year').val(),
@@ -32,6 +32,8 @@
                 city: $('#city').val(),
                 line1: $('#street_address').val()
               },
+              email: '#{@current_user.email}',
+              name: '#{@current_user.full_name}',
               phone:  $('#phone_number').val(),
             }
           }, stripeResponseHandler);
@@ -46,13 +48,13 @@
       function stripeResponseHandler(status, response) {
         // Grab the form:
 
-        if (response.error) { 
+        if (response.error) {
           // Problem!
           // Show the errors on the form:
           $form.find('.payment-errors').text(response.error.message);
           $form.find('.submit').prop('disabled', false); // Re-enable submission
 
-        } else { 
+        } else {
           // Token was created!
           // Get the token ID:
           var token = response.id;
@@ -67,13 +69,13 @@
               return_url: encodeURI(redirect_url)
             }
           }, stripe3DSecureResponseHandler);
-          
+
           return false;
         }
       };
 
       function stripe3DSecureResponseHandler(status, response){
-        if (response.error) { 
+        if (response.error) {
           // Problem!
           // Show the errors on the form:
           $form.find('.payment-errors').text(response.error.message);
