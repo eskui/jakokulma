@@ -605,11 +605,11 @@ fi:
       shipping_price_label: "Postikulut:"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
-      cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
+      cancel_description: "Jos vuokraamasi tuote poikkesi merkittävästi ilmoituksen kuvauksesta tai et saanut tavaraa käyttöösi sovittuna ajankohtana, on sinun mahdollista tehdä reklamaatio. Perusteltu reklamaatio on tehtävä viiden (7) päivän sisällä vuokrausjakson ensimmäisestä päivästä lukien tai vuokrausjakson viimeisenä päivänä, jotta rahojen palatus on mahdollista."
       cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
       canceling_payed_transaction: "Pyynnön peruuttaminen"
       confirm: "Merkitse toteutuneeksi"
-      cancel: Riitauta
+      cancel: "Tee reklamaatio"
       continue: Jatka
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
@@ -687,10 +687,10 @@ fi:
       offer_canceled: "Tarjous peruutettu"
       offer_confirmed: "Tarjous toteutunut"
       offer_paid: "Maksu suoritettu"
-      offer_preauthorized: "Maksu suoritettu"
+      offer_preauthorized: "Katevaraus on tehty"
       offer_waiting_for_payment: "Odottaa että %{requester_name} suorittaa maksun"
       pay: "Suorita maksu"
-      preauthorized: "Maksu suoritettu"
+      preauthorized: "Katevaraus on tehty"
       paid: "Maksu suoritettu"
       pending_external:
         paypal:
@@ -709,7 +709,7 @@ fi:
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön. Maksu veloitetaan sinulta heti kun %{listing_author_name} hyväksyy pyynnön."
       waiting_for_you_to_accept_request: "Odottaa että hyväksyt pyynnön"
-      waiting_confirmation_from_requester: "Odottaa että %{requester_name} merkitsee pyynnön toteutetuksi"
+      waiting_confirmation_from_requester: "Maksu välitetään, kun vuokralleottaja merkitsee pyynnön toteutuneeksi."
       waiting_confirmation_from_you: "Odottaa että merkitset pyynnön toteutetuksi"
       waiting_payment_from_requester: "Odottaa että %{requester_name} suorittaa maksun"
       waiting_payment_from_you: "Odottaa että suoritat maksun"
@@ -730,7 +730,7 @@ fi:
       reject_preauthorized_offer: "Hylkää tarjous"
       reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
-      cancel: Riitauta
+      cancel: "Tee reklamaatio"
   feedback:
     feedback_subject: "Uusi palaute palvelusta %{service_name}"
     feedback_body: "%{author_name_and_email} on lähettänyt seuraavan palautteen palvelusta %{service_name}"
@@ -900,15 +900,15 @@ fi:
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'"
     transaction_preauthorized:
       subject: "%{requester} on kiinnostunut ilmoituksestasi %{listing_title} palvelussa %{service_name} ja tehnyt siitä katevarauksen"
-      transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen."
-      you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
-      if_you_do_accept: "Jos hyväksyt pyynnön määräajan puitteissa, rahat siirretään tilillesi välittömästi."
-      if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti, käyttäjältä %{requester} ei veloiteta mitään etkä saa rahoja tilillesi."
+      transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen %{requester}."
+      you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
+      if_you_do_accept: "Hyväksyttyäsi pyynnön tulee %{requester}:n saada %{listing_title} käyttöönsä pyydetyssä ajassa ja ilmoituksen mukaisessa kunnossa. Rahat siirretään tilillesi vuokrausjakson päättyessä tai viimeistään viikon kuluessa varausjakson alusta."
+      if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti eikä käyttäjältä %{requester} veloiteta mitään."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
-      remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta \"%{listing_title}\". %{requester} on jo maksanut tilauksen. Sinun pitää hyväksyä tilaus saadaksesi maksun tilillesi."
-      one_day_left: "Mikäli et hyväksy pyyntöä yhden päivän sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
+      remember_to_accept: "Muista hyväksyä pyyntö käyttäjältä %{requester} koskien tilausta %{listing_title}. %{requester} on jo maksanut tilauksen. Saadaksesi maksun tilillesi, on sinun ensin hyväksyttävä tilaus. Tämän jälkeen tulee %{requester}:n saada %{listing_title} käyttöönsä pyydetyssä ajassa ja ilmoituksen mukaisessa kunnossa. Rahat siirretään tilillesi vuokrausjakson päättyessä."
+      one_day_left: "Mikäli et hyväksy pyyntöä määräajan sisällä, pyyntö hylätään automaattisesti etkä saa maksua tilillesi."
       click_here_to_reply: "Klikkaa tästä vastataksesi pyyntöön"
     welcome_email:
       welcome_email_subject: "Tervetuloa %{community}-palveluun"
@@ -1145,7 +1145,7 @@ fi:
       default_about_text: "Tämä sivusto on luotu Sharetribe-alustalla. Sharetriben avulla kuka tahansa voi perustaa oman verkkotorin. Haluaisitko perustaa tällaisen sivuston? Se on ilmaista ja onnistuu minuutissa. %{click_here_link}"
       click_here_link_text: "Lue lisää!"
     how_to_use:
-      default_title: "Miten palvelu toimii"
+      default_title: "Usein kysytyt kysymykset"
       default_content: "Tällä sivulla kerrotaan, miten %{marketplace_name}-palvelu toimii."
   landing_page:
     hero:
@@ -1194,7 +1194,7 @@ fi:
       select_language: "Valitse kieli"
     infos:
       about: "Tietoa palvelusta"
-      how_to_use: "Miten palvelu toimii"
+      how_to_use: "Usein kysytyt kysymykset"
       info_about_kassi: "Tietoa %{service_name}-palvelusta"
       news: Uutiset
       register_details: Rekisteriseloste
@@ -1349,7 +1349,7 @@ fi:
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
-      payments: Maksu- ja osoitetiedot
+      payments: Tili- ja osoitetiedot
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
@@ -1709,7 +1709,6 @@ fi:
     can_receive_payments: "Voit nyt ottaa vastaan maksuja muilta käyttäjiltä."
     paypal_account_connected_summary: "PayPal-tili <%{email}> yhdistetty onnistuneesti"
     paypal_permission_granted_summary: "Lupa palvelumaksujen veloitukseen myönnetty"
-
   stripe_accounts:
     connect_info: "Please complete the following steps to connect your account."
     payout_info_title: "Rahojen vastaanotto"
@@ -1759,8 +1758,6 @@ fi:
     city: Postitoimipaikka
     phone_number: "Puh."
     date_of_birth: "Syntymäaika:"
-
-
   paypal:
     pay_with_paypal: "Siirry maksamaan"
     checkout_with_paypal: "Maksa PayPal-tilillä"
