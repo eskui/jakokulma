@@ -49,10 +49,10 @@
             / = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
             - if listing.unit_type.to_sym == :day
               = l (booking[:end_on] - 1.day), format: :long_with_abbr_day_name
-              = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+              = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
             - else
               = l booking[:end_on], format: :long_with_abbr_day_name
-              = "(#{pluralize(duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
+              = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
 
       - elsif listing_quantity > 1
         .conversation-per-unit-wrapper
