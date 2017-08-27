@@ -7,7 +7,7 @@ fi:
         format: "%n %u"
   admin:
     homepage:
-      
+
     categories:
       edit:
         edit_listing_category: "Muokkaa kategoriaa '%{category}'"
@@ -1729,7 +1729,7 @@ fi:
     settings:
       enitity_date_of_birth: Syntymäaika
       enitity_street_address: Katuosoite
-      enitity_iban: Pankkitili (IBAN) - Nykyinen tilinumerosi 
+      enitity_iban: Pankkitili (IBAN) - Nykyinen tilinumerosi
       enitity_country: Maa
       enitity_mobile: Puhelinnumero
       enitity_zip: Postinumero
@@ -1746,6 +1746,7 @@ fi:
       edit: Haluan muuttaa tili- ja/tai yhteystietojani
       phone_number: "Puh."
       date_of_birth: "Syntymäaika:"
+    missing: "Et ole vielä syöttänyt tilitietojasi Jakokulmaan. Jotta voit vastaanottaa maksuja muilta Jakokulman käyttäjiltä, on sinun lisättävä puuttuvat tili- ja osoitetiedot profiilisivullasi kohdassa <a href=\"%{settings_link}\">Asetukset: Tili- ja osoitetiedot</a>."
   stripe_payments:
     payment: maksu
     card_number: Luotto- / maksukortti
