@@ -1,9 +1,7 @@
 .list-group-item#bank-account{ data: { publishable: @current_user.stripe_account.publishable_key } }
 %script{ src: 'https://js.stripe.com/v2/' }
 = hidden_field_tag :bank_account_token
-/ %input{"data-stripe" => "country", :type => "hidden", :value => @current_community.country}
 %input{"data-stripe" => "currency", :type => "hidden", :value => @current_community.currency}
-/ %input.form-control{ type: 'text', id: "iban_number", required: true, onfocusout: "ibanOnFocusOut()" }
 %input.form-control{ type: 'text', id: "acc_number", value: edit ? 'FI' : nil, required: true,:oninput => "InvalidMsg(this);", :oninvalid => "InvalidMsg(this);", data: { stripe: 'account_number' } }
 
 - content_for :extra_javascript do
@@ -12,14 +10,14 @@
       value = $(this).val();
       value = value.split(' ').join('');
       $(this).val(value);
-      //if(!FinnishBankUtils.isValidFinnishIBAN(value)){
-      //  $(this).val('');
-      //  $("#custom_error_notification .flash-text").text('IBAN you entered is not correct!')
-      //  $('#custom_error_notification').show();
-      //}else{
-      //  $("#custom_error_notification .flash-text").text('');
-      //  $('#custom_error_notification').hide();
-      //}
+      if(!FinnishBankUtils.isValidFinnishIBAN(value)){
+        $(this).val('');
+        $("#custom_error_notification .flash-text").text('IBAN you entered is not correct!')
+        $('#custom_error_notification').show();
+      }else{
+        $("#custom_error_notification .flash-text").text('');
+        $('#custom_error_notification').hide();
+      }
     });
 - content_for :extra_javascript do
   :javascript
