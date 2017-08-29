@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "46.101.124.225", user: "mohd", roles: %w{app db web} #, my_property: :my_value
+server "207.154.222.80", user: "esa", roles: %w{app db web} #, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -31,7 +31,9 @@ server "46.101.124.225", user: "mohd", roles: %w{app db web} #, my_property: :my
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-
+append :linked_files, "config/production.sphinx.conf"
+set :branch, "master"
+set :rvm_custom_path, "/usr/share/rvm/bin/rvm"
 
 # Custom SSH Options
 # ==================
