@@ -1746,7 +1746,7 @@ fi:
       edit: Haluan muuttaa tili- ja/tai yhteystietojani
       phone_number: "Puh."
       date_of_birth: "Syntymäaika:"
-    missing: "Et ole vielä syöttänyt tilitietojasi Jakokulmaan. Jotta voit vastaanottaa maksuja muilta Jakokulman käyttäjiltä, on sinun lisättävä puuttuvat tili- ja osoitetiedot profiilisivullasi kohdassa <a href=\"%{settings_link}\">Asetukset: Tili- ja osoitetiedot</a>."
+    missing: "Et ole vielä syöttänyt tilitietojasi Jakokulmaan. Jotta voit vastaanottaa maksuja muilta Jakokulman käyttäjiltä, on sinun lisättävä puuttuvat tili- ja osoitetiedot profiilisivullasi kohdassa Asetukset: Tili- ja osoitetiedot."
   stripe_payments:
     payment: maksu
     card_number: Luotto- / maksukortti
